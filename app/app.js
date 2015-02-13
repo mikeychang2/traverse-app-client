@@ -1,1 +1,3 @@
-// make ajax calls here to the rails API to make sure the rails api works
+// initializes the app; include any module dependencies
+//
+angular.module('traverseApp', ['authControllers'])
