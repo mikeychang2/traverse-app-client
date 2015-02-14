@@ -1,6 +1,6 @@
 console.log("hello you're in auth_controller")
 
-var yourApp = angular.module('traverseApp', ['ng-token-auth']);
+var yourApp = angular.module('traverseAuthApp', ['ng-token-auth']);
 
 yourApp.config(function($authProvider) {
   $authProvider.configure({
