@@ -33,7 +33,6 @@ app.controller('authCtrl', function ($scope, $http, $auth) {
 
   //OAUTH SIGN IN
   $scope.handleBtnClick = function() {
-    debugger;
     $auth.authenticate('facebook')
     .then(function(resp) {
       alert('something successful happened')
