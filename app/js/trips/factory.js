@@ -12,7 +12,7 @@ app.factory('tripsFactory', ['$http', function($http) {
     };
 
     tripsFactory.insertTrip = function (trip) {
-        return $http.post(urlBase, trip);
+        return $http.post(urlBase + '/trips', trip);
     };
 
     tripsFactory.updateTrip = function (trip) {

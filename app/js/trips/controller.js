@@ -1,57 +1,56 @@
 app.controller('tripsController', ['$scope', 'tripsFactory', '$http',
         function ($scope, tripsFactory, $http) {
 
-    $scope.trips = "hi";
-    // $scope.trip;
+    $scope.trips;
+    $scope.trip = {};
     // $scope.status;
 
     // Hitting rails-API to get all trips from trips#index
     $scope.getTrips = function() {
-      console.log('got trips')
+      console.log('why is this printing out twice?!')
       tripsFactory.getTrips()
         .success(function(response){
           $scope.trips = response
         })
         .error(function(error){
           $scope.status = "Unable to load trips: " + error.message;
-        })
-    };
+        });
+    }
 
-    // $scope.updateCustomer = function (id) {
+    $scope.getTrips();
+
+    // $scope.updateTrip = function (id) {
     //     var cust;
-    //     for (var i = 0; i < $scope.customers.length; i++) {
-    //         var currCust = $scope.customers[i];
+    //     for (var i = 0; i < $scope.trips.length; i++) {
+    //         var currCust = $scope.trips[i];
     //         if (currCust.ID === id) {
     //             cust = currCust;
     //             break;
     //         }
     //     }
 
-    //     dataFactory.updateCustomer(cust)
+    //     tripsFactory.updateTrip(cust)
     //       .success(function () {
     //           $scope.status = 'Updated Customer! Refreshing customer list.';
     //       })
     //       .error(function (error) {
-    //           $scope.status = 'Unable to update customer: ' + error.message;
+    //           $scope.status = 'Unable to update trip: ' + error.message;
     //       });
     // };
 
-    // $scope.insertCustomer = function () {
-    //     //Fake customer data
-    //     var cust = {
-    //         ID: 10,
-    //         FirstName: 'JoJo',
-    //         LastName: 'Pikidily'
-    //     };
-    //     dataFactory.insertCustomer(cust)
-    //         .success(function () {
-    //             $scope.status = 'Inserted Customer! Refreshing customer list.';
-    //             $scope.customers.push(cust);
-    //         }).
-    //         error(function(error) {
-    //             $scope.status = 'Unable to insert customer: ' + error.message;
-    //         });
-    // };
+    $scope.insertTrip = function () {
+        var trip = $scope.trip
+        debugger;
+
+        tripsFactory.insertTrip(trip)
+            .success(function () {
+                $scope.status = 'Inserted Trip! Refreshing Trip list.';
+                $scope.trips.push(trip);
+            }).
+            error(function(error) {
+                $scope.status = 'Unable to insert trip: ' + error.message;
+            });
+    };
 
     // $scope.deleteCustomer = function (id) {
     //     dataFactory.deleteCustomer(id)
@@ -81,5 +80,5 @@ app.controller('tripsController', ['$scope', 'tripsFactory', '$http',
     //         $scope.status = 'Error retrieving customers! ' + error.message;
     //     });
     // // };
-      $scope.getTrips();
+
 }]);
