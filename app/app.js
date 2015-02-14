@@ -14,21 +14,6 @@ app.config(function($authProvider) {
           });
 });
 
-// app.config(['$routeProvider', function ($routeProvider) {
-//     $routeProvider.when('/trips', {
-//         controller: 'tripsController',
-//         templateUrl: '/views/trips.html'
-//     })
-//     .otherwise({ redirectTo: '/' }),
-
-//     function($authProvider) {
-//         $authProvider.configure({
-//             apiUrl: 'http://localhost:3000'
-//         })
-//     };
-
-// }]);
-
 app.controller('authCtrl', function ($scope, $http, $auth) {
 
   //OAUTH SIGN IN
