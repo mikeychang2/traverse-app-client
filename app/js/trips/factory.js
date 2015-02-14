@@ -1,11 +1,10 @@
-angular.module('traverseApp')
-    .factory('tripsFactory', ['$http', function($http) {
+app.factory('tripsFactory', ['$http', function($http) {
 
-    var urlBase = 'http://localhost:3000/api/trips';
+    var urlBase = 'http://localhost:3000';
     var tripsFactory = {};
 
     tripsFactory.getTrips = function () {
-        return $http.get(urlBase);
+        return $http.get(urlBase + '/trips');
     };
 
     tripsFactory.getTrip = function (id) {

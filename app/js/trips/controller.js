@@ -1,18 +1,16 @@
-angular.module('traverseApp')
-    .controller('tripsController', ['$scope', 'tripsFactory'],
+app.controller('tripsController', ['$scope', 'tripsFactory', '$http',
         function ($scope, tripsFactory, $http) {
 
     $scope.trips = "hi";
-    $scope.trip;
-    $scope.status;
-
+    // $scope.trip;
+    // $scope.status;
 
     // Hitting rails-API to get all trips from trips#index
     $scope.getTrips = function() {
-      debugger;
+      console.log('got trips')
       tripsFactory.getTrips()
-        .success(function(trips){
-          $scope.trips = trips
+        .success(function(response){
+          $scope.trips = response
         })
         .error(function(error){
           $scope.status = "Unable to load trips: " + error.message;
@@ -82,6 +80,6 @@ angular.module('traverseApp')
     //     .error(function (error) {
     //         $scope.status = 'Error retrieving customers! ' + error.message;
     //     });
-    // };
-      getTrips();
+    // // };
+      $scope.getTrips();
 }]);
