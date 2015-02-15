@@ -11,7 +11,7 @@ app.controller('eventsController', ['$scope', 'tripsFactory', 'eventsFactory', '
       eventsFactory.getEvents()
         .success(function(response){
           $scope.events = response
-          $scope.trip = $routeParams.tripId
+        // trip = Trip.find(params[:trip_id])
         })
         .error(function(error){
           $scope.status = "Unable to load events: " + error.message;
@@ -26,7 +26,7 @@ app.controller('eventsController', ['$scope', 'tripsFactory', 'eventsFactory', '
             .success(function (response) {
                 $scope.status = 'Inserted event! Refreshing event list.';
                 $scope.events.push(event);
-                // jquery to append href for new event
+                $scope.event.title = '';
             }).
             error(function(error) {
                 $scope.status = 'Unable to insert event: ' + error.message;
