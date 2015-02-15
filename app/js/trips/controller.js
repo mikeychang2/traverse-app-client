@@ -53,17 +53,21 @@ app.controller('tripsController', ['$scope', 'tripsFactory', '$http',
             });
     };
 
-        $scope.deleteTrip = function () {
-            var trip = $scope.trip
-
-        tripsFactory.deleteTrip(id)
-            .success(function () {
-
-            })
-            .error (function () {
-
-            })
-        }
+    $scope.deleteTrip = function (id) {
+      tripsFactory.deleteTrip(id)
+          .success(function () {
+              for (var i = 0; i < $scope.trips.length; i++) {
+                var checkTrip = $scope.trips[i];
+                if (checkTrip.id === id) {
+                  $scope.trips.splice(i, 1);
+                  break;
+                }
+              }
+          })
+          .error (function(error) {
+            $scope.status = 'Unable to delete trip: ' + error.message;
+          });
+    };
 
 
     // $scope.deleteCustomer = function (id) {
