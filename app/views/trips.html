@@ -3,8 +3,8 @@
 
 <h1>My Trips</h1>
   <h3 ng-repeat="trip in trips">
-    <a href="/#/trips/{{trip.id}}">{{ trip.title }}</a>
-    <button ng-click="deleteTrip({{trip.id}})">Remove</button>
+    <a ng-href="/#/trips/{{trip.id}}">{{ trip.title }}</a>
+    <button ng-click="deleteTrip(trip.id)">Remove</button>
   </h3>
 
   <form ng-submit="insertTrip()" ng-controller="tripsController">
