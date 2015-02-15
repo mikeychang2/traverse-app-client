@@ -43,9 +43,8 @@ app.controller('tripsController', ['$scope', 'tripsFactory', '$http',
         tripsFactory.insertTrip(trip)
             .success(function (response) {
                 $scope.status = 'Inserted Trip! Refreshing Trip list.';
-                // $scope.trip = response
-                $scope.trips.push(trip);
-                // jquery to append href for new trip
+                $scope.trips.push(response);
+                $scope.trip.title = '';
             }).
             error(function(error) {
                 $scope.status = 'Unable to insert trip: ' + error.message;
