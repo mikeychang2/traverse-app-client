@@ -6,7 +6,7 @@ app.config(['$routeProvider', function ($routeProvider) {
     $routeProvider
     .when('/trips', {
         controller: 'tripsController',
-        templateUrl: '/js/trips/trips.html'
+        templateUrl: 'js/trips/trips.html'
     })
     .when('/auth', {
         controller: 'authController',
@@ -18,12 +18,12 @@ app.config(['$routeProvider', function ($routeProvider) {
     })
     .when('/trips/:tripId/events', {
         controller: 'eventsController',
-        templateUrl: 'views/events.html'
+        templateUrl: 'js/events/events.html'
     })
 
     .when('/trips/:tripId/events/:eventId', {
         controller: 'eventsController',
-        templateUrl: 'views/event.html'
+        templateUrl: 'js/events/event.html'
     })
 
     .otherwise({ redirectTo: '/' })
