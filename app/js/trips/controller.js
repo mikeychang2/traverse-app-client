@@ -40,8 +40,6 @@ app.controller('tripsController', ['$scope', 'tripsFactory', '$http',
 
     $scope.insertTrip = function () {
         var trip = $scope.trip
-        // debugger;
-
         tripsFactory.insertTrip(trip)
             .success(function (response) {
                 $scope.status = 'Inserted Trip! Refreshing Trip list.';
