@@ -3,7 +3,7 @@ app.controller('tripsController', ['$scope', 'tripsFactory', '$http',
 
     $scope.trips;
     $scope.trip = {};
-    // $scope.status;
+    $scope.status;
 
     // Hitting rails-API to get all trips from trips#index
     $scope.getTrips = function() {
