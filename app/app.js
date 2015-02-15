@@ -6,9 +6,18 @@ app.config(['$routeProvider', function ($routeProvider) {
         controller: 'tripsController',
         templateUrl: '/views/trips.html'
     })
-    .when('/trips/:id', {
+    .when('/trips/:tripId', {
         controller: 'eventsController',
         templateUrl: 'views/events.html'
+    })
+    .when('/trips/:tripId/events', {
+        controller: 'eventsController',
+        templateUrl: 'views/events.html'
+    })
+
+    .when('/trips/:tripId/events/:eventId', {
+        controller: 'eventsController',
+        templateUrl: 'views/event.html'
     })
 
     .otherwise({ redirectTo: '/' })
