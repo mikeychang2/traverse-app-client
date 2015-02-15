@@ -2,7 +2,8 @@
 
 <h1>My Trips</h1>
   <h3 ng-repeat="trip in trips">
-    <a href="/#/trip/{{trip.id}}">{{ trip.title }}</a>
+    <a ng-href="/#/trips/{{trip.id}}/events">{{ trip.title }}</a>
+    <button ng-click="deleteTrip(trip.id)">x</button>
   </h3>
 
   <form ng-submit="insertTrip()" ng-controller="tripsController">
@@ -13,6 +14,3 @@
 
 
 </div>
-
-
-
