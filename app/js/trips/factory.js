@@ -20,7 +20,7 @@ app.factory('tripsFactory', ['$http', function($http) {
     };
 
     tripsFactory.deleteTrip = function (id) {
-        return $http.delete(urlBase + '/' + id);
+        return $http.delete(urlBase + '/trips' + '/' + id);
     };
 
     return tripsFactory;
