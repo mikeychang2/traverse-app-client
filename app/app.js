@@ -1,10 +1,25 @@
 var app = angular.module('traverseApp', ['ngRoute', 'ng-token-auth']);
 
 app.config(['$routeProvider', function ($routeProvider) {
-    $routeProvider.when('/trips', {
+    $routeProvider
+    .when('/trips', {
         controller: 'tripsController',
         templateUrl: '/views/trips.html'
     })
+    .when('/trips/:tripId', {
+        controller: 'eventsController',
+        templateUrl: 'views/events.html'
+    })
+    .when('/trips/:tripId/events', {
+        controller: 'eventsController',
+        templateUrl: 'views/events.html'
+    })
+
+    .when('/trips/:tripId/events/:eventId', {
+        controller: 'eventsController',
+        templateUrl: 'views/event.html'
+    })
+
     .otherwise({ redirectTo: '/' })
 }]);
 
