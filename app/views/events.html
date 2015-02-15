@@ -1,10 +1,9 @@
 
-<div id="trips" ng-controller="tripsController">
+<div id="trips" ng-controller="eventsController">
 
-<h1>My Trips</h1>
-  <h3 ng-repeat="trip in trips">
-    <a href="/#/trips/{{trip.id}}">{{ trip.title }}</a>
-    <button ng-click="deleteTrip({{trip.id}})">Remove</button>
+<h1>My Events for this Trip</h1>
+  <h3 ng-repeat="event in events">
+    <a href="/#/trips/{{trip.id}}/events">{{ trip.title }}</a>
   </h3>
 
   <form ng-submit="insertTrip()" ng-controller="tripsController">

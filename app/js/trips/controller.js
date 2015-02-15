@@ -40,17 +40,31 @@ app.controller('tripsController', ['$scope', 'tripsFactory', '$http',
 
     $scope.insertTrip = function () {
         var trip = $scope.trip
-        debugger;
+        // debugger;
 
         tripsFactory.insertTrip(trip)
             .success(function () {
                 $scope.status = 'Inserted Trip! Refreshing Trip list.';
                 $scope.trips.push(trip);
+                // jquery to append href for new trip
             }).
             error(function(error) {
                 $scope.status = 'Unable to insert trip: ' + error.message;
             });
     };
+
+        $scope.deleteTrip = function () {
+            var trip = $scope.trip
+
+        tripsFactory.deleteTrip(id)
+            .success(function () {
+
+            })
+            .error (function () {
+
+            })
+        }
+
 
     // $scope.deleteCustomer = function (id) {
     //     dataFactory.deleteCustomer(id)
