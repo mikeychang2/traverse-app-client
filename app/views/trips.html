@@ -3,7 +3,7 @@
 
 <h1>My Trips</h1>
   <h3 ng-repeat="trip in trips">
-    <a ng-href="/#/trips/{{trip.id}}">{{ trip.title }}</a>
+    <a ng-href="/#/trips/{{trip.id}}/events">{{ trip.title }}</a>
     <button ng-click="deleteTrip(trip.id)">Remove</button>
   </h3>
 
