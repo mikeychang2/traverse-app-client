@@ -1,5 +1,5 @@
-app.controller('eventsController', ['$scope', 'tripsFactory', 'eventsFactory', '$http', '$routeParams',
-        function ($scope, tripsFactory, eventsFactory, $http, $routeParams) {
+app.controller('eventsController', ['$scope', 'tripsFactory', 'eventsFactory', 'tripsController' '$http', '$routeParams',
+        function ($scope, tripsFactory, eventsFactory, tripsController, $http, $routeParams) {
 
     $scope.trips;
     $scope.trip = {};
@@ -11,7 +11,6 @@ app.controller('eventsController', ['$scope', 'tripsFactory', 'eventsFactory', '
       eventsFactory.getEvents()
         .success(function(response){
           $scope.events = response
-        // trip = Trip.find(params[:trip_id])
         })
         .error(function(error){
           $scope.status = "Unable to load events: " + error.message;
