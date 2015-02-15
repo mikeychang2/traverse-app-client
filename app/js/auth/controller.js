@@ -1,4 +1,3 @@
-
 app.controller('authController', function ($scope, $http, $window) {
   $scope.message = '';
   $scope.user = {username: '', password: ''};
@@ -6,8 +5,6 @@ app.controller('authController', function ($scope, $http, $window) {
   var urlBase = ""
 
   $scope.authenticate = function () {
-    console.log($scope.user);
-    console.log();
     $http.post('http://localhost:3000/auth', $scope.user)
       .success(function (data, status, headers, config) {
         $window.sessionStorage.token = data.auth_token;
