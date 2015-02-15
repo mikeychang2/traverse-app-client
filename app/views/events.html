@@ -1,19 +1,14 @@
 
-<div id="trips" ng-controller="eventsController">
+<div id="events" ng-controller="eventsController">
 
 <h1>My Events for this Trip</h1>
   <h3 ng-repeat="event in events">
-    <a href="/#/trips/{{trip.id}}/events">{{ trip.title }}</a>
+    <a href="/#/trips/{{trip}}/events/{{event.id}}">{{ event.title }}</a>
   </h3>
 
-  <form ng-submit="insertTrip()" ng-controller="tripsController">
-    <input type="text" ng-model="trip.title" placeholder="trip">
+<!--   <form ng-submit="insertEvent()" ng-controller="eventsController">
+    <input type="text" ng-model="event.title" placeholder="bar hopping">
     <input type="submit" value="submit">
-    <!-- <button ng-click="insertTrip()">Create Trip</button> -->
-  </form>
-
+  </form> -->
 
 </div>
-
-
-
