@@ -1,5 +1,5 @@
-app.controller('eventsController', ['$scope', 'tripsFactory', 'eventsFactory', 'tripsController' '$http', '$routeParams',
-        function ($scope, tripsFactory, eventsFactory, tripsController, $http, $routeParams) {
+app.controller('eventsController', ['$scope', 'tripsFactory', 'eventsFactory', '$http', '$routeParams',
+        function ($scope, tripsFactory, eventsFactory, $http, $routeParams) {
 
     $scope.trips;
     $scope.trip = {};
@@ -11,6 +11,7 @@ app.controller('eventsController', ['$scope', 'tripsFactory', 'eventsFactory', '
       eventsFactory.getEvents()
         .success(function(response){
           $scope.events = response
+          $scope.trip = $routeParams.tripId
         })
         .error(function(error){
           $scope.status = "Unable to load events: " + error.message;
@@ -24,8 +25,10 @@ app.controller('eventsController', ['$scope', 'tripsFactory', 'eventsFactory', '
         eventsFactory.insertEvent(event)
             .success(function (response) {
                 $scope.status = 'Inserted event! Refreshing event list.';
-                $scope.events.push(event);
-                $scope.event.title = '';
+                $scope.events.push(response);
+                $scope.event.title = ''
+                $scope.event.date = ''
+                $scope.event.content = ''
             }).
             error(function(error) {
                 $scope.status = 'Unable to insert event: ' + error.message;
@@ -47,5 +50,37 @@ app.controller('eventsController', ['$scope', 'tripsFactory', 'eventsFactory', '
             $scope.status = 'Unable to delete event: ' + error.message;
           });
     };
+
+
+    // $scope.updateEvent = function (id) {
+    //   eventsFactory.updateEvent(id)
+    //     .success(function(response) {
+    //       for (var i = 0; i < $scope.events.length; i++) {
+    //             var checkEvent = $scope.events[i];
+    //             if (checkEvent.id === id) {
+    //               $scope.events.checkEvent=response;
+    //               break;
+    //             }
+    //       }
+    //     })
+    //     .error (function(){
+    //       $scope.status = 'Unable to update: ' + error.message;
+    //     })
+    // }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 }]);
