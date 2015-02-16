@@ -49,4 +49,12 @@ app.controller('eventsController', ['$scope', 'tripsFactory', 'eventsFactory', '
           });
     };
 
+
+    $scope.updateEvent = function (id) {
+      eventsFactory.updateEvent(id)
+        .success(function() {
+
+        })
+
+    }
 }]);

@@ -1,0 +1,49 @@
+.clearfix {
+  overflow: auto;
+}
+
+.single_event {
+  border: solid 1px black;
+  width: 80%;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  margin-left: 2%;
+  margin-right: 2%;
+  height: 100%;
+}
+#left {
+  width: 45%;
+  display: inline-block;
+  float: left;
+}
+#right {
+  width: 45%;
+  display: inline-block;
+  float: left;
+}
+#date {
+  font-size: .5em;
+}
+#journal_content {
+  border: solid 1px black;
+  height: 50%;
+  width: 80%;
+  margin: auto;
+  display: inline-block;
+
+}
+#photos img {
+  width: 20%;
+  display: inline-block;
+
+}
+button {
+  float: right;
+}
+
+#sort_day, #overview, #sort_tag {
+  width: 25%;
+  display: inline-block;
+  border: 1px solid black;
+  text-align: center;
+}

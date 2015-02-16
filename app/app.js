@@ -14,17 +14,17 @@ app.config(['$routeProvider', function ($routeProvider) {
     })
     .when('/trips/:tripId', {
         controller: 'eventsController',
-        templateUrl: 'views/events.html'
+        templateUrl: 'js/events/events.html'
     })
     .when('/trips/:tripId/events', {
         controller: 'eventsController',
         templateUrl: 'js/events/events.html'
     })
 
-    .when('/trips/:tripId/events/:eventId', {
-        controller: 'eventsController',
-        templateUrl: 'js/events/event.html'
-    })
+    // .when('/trips/:tripId/events/:eventId', {
+    //     controller: 'eventsController',
+    //     templateUrl: 'js/events/event.html'
+    // })
 
     .otherwise({ redirectTo: '/' })
 }]);
