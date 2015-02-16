@@ -44,7 +44,8 @@ app.controller('tripsController', ['$scope', 'tripsFactory', '$http',
             .success(function (response) {
                 $scope.status = 'Inserted Trip! Refreshing Trip list.';
                 // $scope.trip = response
-                $scope.trips.push(trip);
+                $scope.trips.push(response);
+                $scope.trip.title = '';
                 // jquery to append href for new trip
             }).
             error(function(error) {
@@ -67,35 +68,5 @@ app.controller('tripsController', ['$scope', 'tripsFactory', '$http',
             $scope.status = 'Unable to delete trip: ' + error.message;
           });
     };
-
-
-    // $scope.deleteCustomer = function (id) {
-    //     dataFactory.deleteCustomer(id)
-    //     .success(function () {
-    //         $scope.status = 'Deleted Customer! Refreshing customer list.';
-    //         for (var i = 0; i < $scope.customers.length; i++) {
-    //             var cust = $scope.customers[i];
-    //             if (cust.ID === id) {
-    //                 $scope.customers.splice(i, 1);
-    //                 break;
-    //             }
-    //         }
-    //         $scope.orders = null;
-    //     })
-    //     .error(function (error) {
-    //         $scope.status = 'Unable to delete customer: ' + error.message;
-    //     });
-    // };
-
-    // $scope.getCustomerOrders = function (id) {
-    //     dataFactory.getOrders(id)
-    //     .success(function (orders) {
-    //         $scope.status = 'Retrieved orders!';
-    //         $scope.orders = orders;
-    //     })
-    //     .error(function (error) {
-    //         $scope.status = 'Error retrieving customers! ' + error.message;
-    //     });
-    // // };
 
 }]);

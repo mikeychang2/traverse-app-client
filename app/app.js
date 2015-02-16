@@ -1,4 +1,5 @@
 var app = angular.module('traverseApp', [
+  'ngStorage',
   'ngRoute'
   ]);
 
@@ -8,7 +9,7 @@ app.config(['$routeProvider', function ($routeProvider) {
         controller: 'tripsController',
         templateUrl: '/js/trips/trips.html'
     })
-    .when('/auth', {
+    .when('/', {
         controller: 'authController',
         templateUrl: 'js/auth/auth.html'
     })
