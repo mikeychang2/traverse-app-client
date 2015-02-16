@@ -24,6 +24,17 @@ app.controller('facebookController', ['$scope', '$http', '$window',
 
     $scope.initialize();
 
+    // $scope.checkUser = function(){
+    //   FB.getLoginStatus(function(response) {
+    //     if (response.status === 'connected') {
+    //       $window.sessionStorage.facebook = true
+    //     }
+    //     else{
+    //       $window.sessionStorage.facebook = false
+    //     }
+    //   }
+    // }
+
     $scope.login = function (){
       FB.getLoginStatus(function(response) {
         if (response.status === 'connected') {
@@ -36,7 +47,8 @@ app.controller('facebookController', ['$scope', '$http', '$window',
               $window.sessionStorage.facebook = true
             })
             .error(function(error){
-              $scope.status = "Unable to save auth response: " + error.message;
+              $window.sessionStorage.facebook = false
+              $scope.status = "Access Token expired: " + error.message;
             });
         }
         else {
@@ -50,6 +62,7 @@ app.controller('facebookController', ['$scope', '$http', '$window',
               $window.sessionStorage.facebook = true
             })
             .error(function(error){
+              $window.sessionStorage.facebook = false
               $scope.status = "Unable to save auth response: " + error.message;
             });
            })
@@ -66,6 +79,16 @@ app.controller('facebookController', ['$scope', '$http', '$window',
       })
       .error (function (error) {
         $scope.status = "Unable to retrieve photos: " + error.message;
+      });
+    }
+
+    $scope.checkAccessToken = function(){
+      $http.get(urlBase + '/facebook/validation')
+      .success (function (response) {
+        $window.sessionStorage.facebook = response
+      })
+      .error (function (error) {
+        $scope.status = "Unable to validate token: " + error.message;
       });
     }
 
