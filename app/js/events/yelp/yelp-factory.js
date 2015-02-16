@@ -8,6 +8,10 @@ app.factory('yelpFactory', ['$http',
       return $http.post(urlBase + '/yelp' + "?term=" + search.search + "&location=" + search.location)
     };
 
+    yelpFactory.savePlace = function (result) {
+      return $http.post(urlBase + "/events/1/places", result)
+    };
+
     return yelpFactory;
   }
 ]);

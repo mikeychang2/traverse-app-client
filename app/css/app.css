@@ -35,9 +35,10 @@
 }
 
 /*Yelp*/
-.yelp-results{
+.yelp-result{
   border: 3px solid black;
   display: inline-block;
   padding: 20px;
   margin: 20px;
+  color: white;
 }

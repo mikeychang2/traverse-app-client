@@ -1,5 +1,5 @@
-app.controller('eventsController', ['$scope', 'tripsFactory', 'eventsFactory', '$http', '$routeParams',
-        function ($scope, tripsFactory, eventsFactory, $http, $routeParams) {
+app.controller('eventsController', ['$scope', 'tripsFactory', 'eventsFactory', '$http', '$routeParams', '$rootScope',
+        function ($scope, tripsFactory, eventsFactory, $http, $routeParams, $rootScope) {
 
     $scope.trips;
     $scope.trip = {};
@@ -24,6 +24,7 @@ app.controller('eventsController', ['$scope', 'tripsFactory', 'eventsFactory', '
         var event = $scope.event
         eventsFactory.insertEvent(event)
             .success(function (response) {
+                $rootScope.activeEvent = response;
                 $scope.status = 'Inserted event! Refreshing event list.';
                 $scope.events.push(response);
                 $scope.event.title = ''

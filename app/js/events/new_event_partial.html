@@ -1,4 +1,4 @@
-<div id="new-event">
+<div id="new-event" ng-controller="eventsController">
   <h1>New Event</h1>
   <div id='left'>
     <form ng-submit="insertEvent()">
@@ -29,17 +29,20 @@
       <div id="yelp-modal">
       <button ng-click='toggleYelp()'>Add Places</button>
         <modal-dialog show='yelpShown' dialog-title="Add Photos" width='75%' height='80%'>
-         <p>Yelp links here<p>
-         <div id="yelp" ng-controller="yelpController">
+          <p>Yelp links here<p>
+          <div id="yelp-container" ng-controller="yelpController">
             <form>
               <input type="text" ng-model="yelp.search" placeholder="Search">
               <input type="text" ng-model="yelp.location" placeholder="Location">
               <input type="submit" value="search"  ng-click="searchYelp()">
             </form>
-            <div class="yelp-results" ng-repeat="result in results">
-              <a href="{{result.url}}"><p>{{result.name}}</p></a>
-              <img src="{{result.image_url}}"/>
+
+            <div class="results-index">
+              <div class="yelp-result" ng-repeat="result in results"style="background-image:url({{result.image_url}}); width: 100px; height:''" ng-click="addPlace(result, activeEvent)">
+                  <p>{{result.name}}{{activEvent.id}}</p>
+              </div>
             </div>
+
          </div>
         </modal-dialog>
       </div>
