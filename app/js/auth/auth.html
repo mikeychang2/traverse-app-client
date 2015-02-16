@@ -1,7 +1,9 @@
 <div id="auth" ng-controller="authController">
 
-  <button type="button" ng-click="login=!login">Login</button><br>
-  <button type="button" ng-click="register=!register">Register</button>
+  <div id="buttons">
+    <button type="button" id="login-btn" ng-click="login=!login">Login</button>
+    <button type="button" id="register-btn" ng-click="register=!register">Register</button>
+  </div>
 
   <div id="login" ng-show="login">
     <h2>Login</h2>

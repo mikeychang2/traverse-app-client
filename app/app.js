@@ -1,6 +1,7 @@
 var app = angular.module('traverseApp', [
   'ngStorage',
-  'ngRoute'
+  'ngRoute',
+  'ngModal'
   ]);
 
 app.config(['$routeProvider', function ($routeProvider) {
@@ -33,10 +34,6 @@ app.config(['$routeProvider', function ($routeProvider) {
         controller: 'eventsController',
         templateUrl: 'js/events/update_event_partial.html'
     })
-
-
-
-
 
     .otherwise({ redirectTo: '/' })
 }]);
