@@ -52,11 +52,35 @@ app.controller('eventsController', ['$scope', 'tripsFactory', 'eventsFactory', '
     };
 
 
-    $scope.updateEvent = function (id) {
-      eventsFactory.updateEvent(id)
-        .success(function() {
+    // $scope.updateEvent = function (id) {
+    //   eventsFactory.updateEvent(id)
+    //     .success(function(response) {
+    //       for (var i = 0; i < $scope.events.length; i++) {
+    //             var checkEvent = $scope.events[i];
+    //             if (checkEvent.id === id) {
+    //               $scope.events.checkEvent=response;
+    //               break;
+    //             }
+    //       }
+    //     })
+    //     .error (function(){
+    //       $scope.status = 'Unable to update: ' + error.message;
+    //     })
+    // }
 
-        })
 
-    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }]);
