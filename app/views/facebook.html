@@ -1,8 +1,8 @@
 <div ng-controller="facebookController">
 
 
-  <input type="submit" ng-click="login()" name="login" />
+  <input type="submit" ng-show="windowStorage == 'false'" ng-click="login()" name="login" value="Login" />
 
 
-  <input type="submit" ng-click="getPhotos()" name="photos" value="photos"/>
+  <input type="submit" ng-show="windowStorage == 'true'" ng-click="getPhotos()" name="photos" value="photos"/>
 </div>
