@@ -25,6 +25,10 @@ app.config(['$routeProvider', function ($routeProvider) {
         controller: 'eventsController',
         templateUrl: 'views/event.html'
     })
+    .when('/facebook', {
+        controller: 'facebookController',
+        templateUrl: 'views/facebook.html'
+    })
 
     .otherwise({ redirectTo: '/' })
 }]);
