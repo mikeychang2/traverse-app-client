@@ -1,5 +1,5 @@
-app.controller('facebookController', ['$scope', '$http',
-  function ($scope, $http) {
+app.controller('facebookController', ['$scope', '$http', '$window',
+  function ($scope, $http, $window) {
     $scope.user = "test";
     var urlBase = 'http://localhost:3000';
 
@@ -29,27 +29,43 @@ app.controller('facebookController', ['$scope', '$http',
         if (response.status === 'connected') {
           console.log('Logged in.');
           console.log(response);
-          // debugger
           var authResponse = response.authResponse
           $http.get(urlBase + '/facebook' + '?user_id=' + authResponse.userID + "&accessToken=" + authResponse.accessToken)
             .success(function(response){
               console.log(response)
+              $window.sessionStorage.facebook = true
             })
             .error(function(error){
               $scope.status = "Unable to save auth response: " + error.message;
             });
-          // FB.api('/me/photos/uploaded', 'get', function(response){
-          //   console.log(response)
-          // });
         }
         else {
-          // FB.login();
           FB.login(function(){
            FB.getLoginStatus(function(response){
             console.log(response);
+            var authResponse = response.authResponse
+            $http.get(urlBase + '/facebook' + '?user_id=' + authResponse.userID + "&accessToken=" + authResponse.accessToken)
+            .success(function(response){
+              console.log(response)
+              $window.sessionStorage.facebook = true
+            })
+            .error(function(error){
+              $scope.status = "Unable to save auth response: " + error.message;
+            });
            })
          })
         }
+      });
+    }
+
+
+    $scope.getPhotos = function (){
+      $http.get(urlBase + '/facebook/photos')
+      .success (function (response) {
+        return response
+      })
+      .error (function (error) {
+        $scope.status = "Unable to retrieve photos: " + error.message;
       });
     }
 
