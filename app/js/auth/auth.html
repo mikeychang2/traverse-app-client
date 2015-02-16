@@ -1,10 +1,28 @@
-<div ng-controller="authController">
-  <span></span>
-  <form ng-submit="authenticate()">
-    <input ng-model="user.username" type="text" name="user" placeholder="Username" />
-    <input ng-model="user.password" type="password" name="pass" placeholder="Password" />
-    <input type="submit" value="Login" />
-  </form>
+<div id="auth" ng-controller="authController">
 
-  <input type="submit" value="logout" ng-submit="logout()">
+  <button type="button" ng-click="login=!login">Login</button><br>
+  <button type="button" ng-click="register=!register">Register</button>
+
+  <div id="login" ng-show="login">
+    <h2>Login</h2>
+    <form ng-submit="authenticate()">
+      <input ng-model="user.username" type="text" name="user" placeholder="Username" /><br>
+      <input ng-model="user.password" type="password" name="pass" placeholder="Password" /><br>
+      <input type="submit" value="Go" />
+    </form>
+  </div>
+
+  <div id="register" ng-show="register">
+    <h2>Register</h2>
+    <form ng-submit="authenticate()">
+      <input ng-model="new_user.username" type="text" name="user" placeholder="Username" /><br>
+      <input ng-model="user.password" type="password" name="pass" placeholder="Password" /><br>
+      <input type="submit" value="Go" />
+    </form>
+  </div>
+
+  <!-- <input type="button" value="logout" ng-click="logout()"> -->
+
 </div>
+
+

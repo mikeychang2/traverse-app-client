@@ -67,34 +67,4 @@ app.controller('tripsController', ['$scope', 'tripsFactory', '$http',
           });
     };
 
-
-    // $scope.deleteCustomer = function (id) {
-    //     dataFactory.deleteCustomer(id)
-    //     .success(function () {
-    //         $scope.status = 'Deleted Customer! Refreshing customer list.';
-    //         for (var i = 0; i < $scope.customers.length; i++) {
-    //             var cust = $scope.customers[i];
-    //             if (cust.ID === id) {
-    //                 $scope.customers.splice(i, 1);
-    //                 break;
-    //             }
-    //         }
-    //         $scope.orders = null;
-    //     })
-    //     .error(function (error) {
-    //         $scope.status = 'Unable to delete customer: ' + error.message;
-    //     });
-    // };
-
-    // $scope.getCustomerOrders = function (id) {
-    //     dataFactory.getOrders(id)
-    //     .success(function (orders) {
-    //         $scope.status = 'Retrieved orders!';
-    //         $scope.orders = orders;
-    //     })
-    //     .error(function (error) {
-    //         $scope.status = 'Error retrieving customers! ' + error.message;
-    //     });
-    // // };
-
 }]);

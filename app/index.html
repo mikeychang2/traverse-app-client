@@ -6,15 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <!-- CSS -->
+    <link rel=stylesheet type="text/css" href="css/app.css">
 
     <title>Traverse</title>
 </head>
 
 <body class="clearfix">
 
-<div ng-view></div>
+<div class="container">
+    <div ng-view></div>
+</div>
 
     <!-- Angular -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular.js"></script>
@@ -23,6 +25,7 @@
 
     <!-- Main -->
     <script type="text/javascript" src="app.js"></script>
+    <script src="bower_components/ngstorage/ngStorage.js"></script>
 
     <!-- Controllers -->
     <script src="js/trips/controller.js"></script>
