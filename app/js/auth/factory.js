@@ -1,4 +1,5 @@
-app.factory('authInterceptor', function ($rootScope, $q, $window) {
+app.factory('authInterceptor', ['$rootScope', '$q', '$window',
+  function ($rootScope, $q, $window) {
   return {
     request: function (config) {
       config.headers = config.headers || {};
@@ -14,8 +15,9 @@ app.factory('authInterceptor', function ($rootScope, $q, $window) {
       return response || $q.when(response);
     }
   };
-});
+}]);
 
 app.config(function ($httpProvider) {
   $httpProvider.interceptors.push('authInterceptor');
 });
+

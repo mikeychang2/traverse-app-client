@@ -1,0 +1,44 @@
+.container {
+  border: 2px black solid;
+}
+
+#all-trips {
+  text-align: center;
+  padding: 75px;
+}
+
+.trip {
+  margin: 30px;
+  text-align: center;
+  padding: 2%;
+  display: inline-block;
+  border: 2px black solid;
+}
+
+.trip a {
+  text-decoration: none;
+}
+
+/*Buttons*/
+#auth {
+  text-align:center;
+  padding: 30px;
+}
+
+#buttons {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+#new-event{
+  text-align: center;
+}
+
+/*Yelp*/
+.yelp-result{
+  border: 3px solid black;
+  display: inline-block;
+  padding: 20px;
+  margin: 20px;
+  color: white;
+}

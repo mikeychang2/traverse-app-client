@@ -1,0 +1,58 @@
+<div id="new-event" ng-controller="eventsController">
+  <h1>New Event</h1> {{activeEvent}}
+
+<!--   <div id='left'>
+    <form ng-submit="insertEvent()">
+      <input type="text" ng-model="activeEvent.title" placeholder="Event Title"><br>
+      <input type="date" ng-model="activeEvent.date" placeholder="Event Date"><br>
+      <input type="text" ng-model="activeEvent.content" placeholder="Journal Here"><br>
+      <input type="submit" value="submit">
+    </form>
+  </div> -->
+
+  <div id='right' ng-controller="modalController">
+
+      <div>
+      <button ng-click="toggleFB()">Add Photos from Facebook</button>
+      <modal-dialog show='FBShown' dialog-title="Add Photos" width='75%' height='80%'>
+        <p>Facebook photos here<p>
+      </modal-dialog>
+    </div>
+
+      <div>
+      <button ng-click='toggleIG()'>Add Photos from Instagram</button>
+        <modal-dialog show='IGShown' dialog-title="Add Photos" width='75%' height='80%'>
+        <p>Instagram photos here<p>
+        </modal-dialog>
+      </div>
+
+      <div id="yelp-modal">
+      <button ng-click='toggleYelp()'>Add Places</button>
+        <modal-dialog show='yelpShown' dialog-title="Add Photos" width='75%' height='80%'>
+          <p>Yelp links here<p>
+          <div id="yelp-container" ng-controller="yelpController">
+            <form>
+              <input type="text" ng-model="yelp.search" placeholder="Search">
+              <input type="text" ng-model="yelp.location" placeholder="Location">
+              <input type="submit" value="search"  ng-click="searchYelp()">
+            </form>
+
+            <div class="results-index" ng-controller="eventsController">
+              <div class="yelp-result" ng-repeat="result in results"style="background-image:url({{result.image_url}}); width: 100px; height:''" ng-click="addPlace(result, activeEvent)">
+                  <p>{{result.name}}</p>
+              </div>
+            </div>
+
+         </div>
+        </modal-dialog>
+      </div>
+
+    </div>
+
+    <div id='photos' ng-repeat="photo in photos">
+      <h3>My Photos</h3>
+    </div>
+  </div>
+
+  </div>
+</div>

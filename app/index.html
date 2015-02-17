@@ -6,15 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
+
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="stylesheets.css" type="text/css">
+    <link rel="stylesheet" href="css/app.css" type="text/css">
+    <link rel="stylesheet" href="bower_components/ngModal/dist/ng-modal.css" type="text/css">
 
     <title>Traverse</title>
 </head>
 
 <body class="clearfix">
 
-<div ng-view></div>
+<div class="container">
+    <div ng-view></div>
+</div>
 
     <!-- Angular -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular.js"></script>
@@ -23,12 +29,23 @@
 
     <!-- Main -->
     <script type="text/javascript" src="app.js"></script>
+    <script src="bower_components/ngstorage/ngStorage.js"></script>
+    <script src="bower_components/ngModal/dist/ng-modal.js"></script>
 
     <!-- Controllers -->
     <script src="js/trips/controller.js"></script>
     <script src="js/trips/factory.js"></script>
+    <script src="js/events/controller.js"></script>
+    <script src="js/events/factory.js"></script>
+    <!-- <script src="js/tags/controller.js"></script>
+    // <script src="js/tags/factory.js"></script> -->
     <script src="js/auth/controller.js"></script>
     <script src="js/auth/factory.js"></script>
+    <script src="js/events/modal-controller.js"></script>
+ <!-- <script src="js/events-modal/directive.js"></script> -->
+    <script src="js/events/yelp/yelp-controller.js"></script>
+    <script src="js/events/yelp/yelp-factory.js"></script>
+
 
 </body>
 </html>
