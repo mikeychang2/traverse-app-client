@@ -5,15 +5,17 @@
     <input type="submit" value="submit">
     {{ event.title }}
   </form> -->
-  <a href='#/trips/{{trip}}/new_event_partial'><button>Create New Event</button></a>
-
-
+<!--   <form ng-submit='insertEvent()'>
+  <a ng-href='#/trips/{{trip}}/new_event_partial'><input type="submit" value="Create New Event"/></a>
+  </form>
+ -->
+  <a ng-href='#/trips/{{trip}}/new_event_partial' ng-click='insertEvent()'><button>Create New Event</button></a>
 
   <br><br>
   <div id='header'>
     <div id='sort_day'>Sort by Day</div>
     <div id='overview'>Overview Map Thing</div>
-    <div id='sort_tag'>Sort by Tag</div>
+    <a ng-href="#/trips/{{trip}}/tags"><div id='sort_tag'>Sort by Tag</div></a>
   </div>
 
   <h1>My Events for this {{trip}}</h1>
