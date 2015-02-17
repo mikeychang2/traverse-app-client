@@ -26,9 +26,9 @@ app.config(['$routeProvider', function ($routeProvider) {
         controller: 'tagsController',
         templateUrl: 'js/tags/tags.html'
     })
-    .when('/trips/:tripId/new_event_partial', {
+    .when('/trips/:tripId/new_event', {
         controller: 'eventsController',
-        templateUrl: 'js/events/new_event_partial.html'
+        templateUrl: 'js/events/new_event.html'
     })
     .when('/trips/:tripId/events/:eventId/update_event_partial', {
         controller: 'eventsController',

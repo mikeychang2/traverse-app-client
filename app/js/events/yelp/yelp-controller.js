@@ -32,16 +32,6 @@ app.controller('yelpController', ['$scope', 'yelpFactory', '$http',
           console.log(response)
         })
     }
-
-    $scope.setMaster = function(result, $event) {
-      console.log($event.target);
-    }
-
-    $scope.isSelected = function(results) {
-      return $scope.place === results;
-    }
-
-
   }
 }]);
 
