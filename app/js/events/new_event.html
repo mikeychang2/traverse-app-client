@@ -26,6 +26,21 @@
 
     </div>
 
+
+    <!-- INSTAGRAM AREAS -->
+   <div ng-controller="instagramController">
+    <input type="submit" ng-click="igLogin()" value="Oauth Instagram" />
+    <a href="https://instagram.com/oauth/authorize/?client_id=cb89d1dac394466e9767ad0e3bf9c6bf&redirect_uri=http://localhost:9000/instagram.html&response_type=code">Login</a>
+
+
+    <div ng-repeat="photo in photos">
+    <img src="{{photo}}" />
+  </div>
+  <!-- END INSTAGRAM AREAS -->
+
+</div>
+
+
       <div>
       <button ng-click='toggleIG()'>Add Photos from Instagram</button>
         <modal-dialog show='IGShown' dialog-title="Add Photos" width='75%' height='80%'>

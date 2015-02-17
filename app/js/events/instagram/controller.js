@@ -13,6 +13,7 @@ app.controller ('instagramController' , ['$scope', 'instagramFactory', '$http', 
         debugger;
         console.log(response)
         // i'm expecting response to be true
+        $scope.getPhotos()
         })
         .error (function(error){
           debugger
@@ -26,6 +27,7 @@ app.controller ('instagramController' , ['$scope', 'instagramFactory', '$http', 
       .success (function (response) {
         debugger;
         console.log(response)
+        // expecting photos to render
         $scope.photos = response;
       })
       .error (function(error) {
