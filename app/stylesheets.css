@@ -37,7 +37,7 @@
   display: inline-block;
 
 }
-button {
+#delete_button {
   float: left;
 }
 

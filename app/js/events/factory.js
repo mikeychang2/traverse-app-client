@@ -17,7 +17,8 @@ app.factory('eventsFactory', ['$http', '$routeParams', function($http, $routePar
     };
 
     eventsFactory.updateEvent = function (event) {
-        return $http.put(urlBase + '/' + event.ID, event)
+        console.log(event);
+        return $http.put(urlBase + '/events/' + event.id, event)
     };
 
     eventsFactory.deleteEvent = function (id) {
@@ -26,3 +27,4 @@ app.factory('eventsFactory', ['$http', '$routeParams', function($http, $routePar
 
     return eventsFactory;
 }]);
+

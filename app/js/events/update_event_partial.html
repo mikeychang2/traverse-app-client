@@ -8,6 +8,13 @@
   </form>
 </div>
 <div id='right'>
+      <div ng-controller='tagsController'>
+       <form ng-submit="insertTag()">
+        <input type="text" ng-model="tag.name" placeholder="enter custom tag">
+        <!-- <button ng-submit="createTag()" id='create_tag'>Create New Tag</button> -->
+        <input type="submit" value="Create New Tag">
+      </form>
+     </div>
   <div id='3rd_party'>
 <!--     <button>Import from Facebook</button>
     <button>Add Place from Yelp...somehow</button>

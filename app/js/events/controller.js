@@ -1,11 +1,15 @@
-app.controller('eventsController', ['$scope', 'tripsFactory', 'eventsFactory', '$http', '$routeParams',
-        function ($scope, tripsFactory, eventsFactory, $http, $routeParams) {
+app.controller('eventsController', ['$scope', 'tripsFactory', 'eventsFactory', '$http', '$rootScope', '$routeParams',
+        function ($scope, tripsFactory, eventsFactory, $http, $rootScope, $routeParams) {
 
     $scope.trips;
     $scope.trip = {};
 
     $scope.events;
     $scope.event = {};
+
+    $scope.eventsByTag;
+
+    $scope.tripId = $routeParams.tripId
 
     $scope.getEvents = function() {
       eventsFactory.getEvents()
@@ -25,7 +29,8 @@ app.controller('eventsController', ['$scope', 'tripsFactory', 'eventsFactory', '
         eventsFactory.insertEvent(event)
             .success(function (response) {
                 $scope.status = 'Inserted event! Refreshing event list.';
-                $scope.events.push(response);
+                // $scope.events.push(response);
+                $rootScope.activeEvent = response;
                 $scope.event.title = ''
                 $scope.event.date = ''
                 $scope.event.content = ''
@@ -51,36 +56,20 @@ app.controller('eventsController', ['$scope', 'tripsFactory', 'eventsFactory', '
           });
     };
 
-
-    // $scope.updateEvent = function (id) {
-    //   eventsFactory.updateEvent(id)
-    //     .success(function(response) {
-    //       for (var i = 0; i < $scope.events.length; i++) {
-    //             var checkEvent = $scope.events[i];
-    //             if (checkEvent.id === id) {
-    //               $scope.events.checkEvent=response;
-    //               break;
-    //             }
-    //       }
-    //     })
-    //     .error (function(){
-    //       $scope.status = 'Unable to update: ' + error.message;
-    //     })
-    // }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    $scope.updateEvent = function () {
+      eventsFactory.updateEvent($rootScope.activeEvent)
+          .success(function (response) {
+              for (var i = 0; i < $scope.events.length; i++) {
+                var checkEvent = $scope.events[i];
+                if (checkEvent.id === $rootScope.activeEvent.id) {
+                  $scope.events.checkEvent = response;
+                  break;
+                }
+              }
+          })
+          .error (function(error) {
+            $scope.status = 'Unable to update event: ' + error.message;
+          });
+    };
 
 }]);
