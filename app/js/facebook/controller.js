@@ -80,8 +80,10 @@ app.controller('facebookController', ['$scope', '$http', '$window',
     }
 
     $scope.toggleCustom = function(photo) {
+
         $scope.photosReference[photo] = $scope.photosReference[photo] === false ? true: false;
         console.log($scope.photosReference);
+
     };
 
     $scope.photoSelection = function (){
