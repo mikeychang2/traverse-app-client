@@ -7,6 +7,10 @@ app.controller('eventsController', ['$scope', 'tripsFactory', 'eventsFactory', '
     $scope.events;
     $scope.event = {};
 
+    $scope.eventsByTag;
+
+    $scope.tripId = $routeParams.tripId
+
     $scope.getEvents = function() {
       eventsFactory.getEvents()
         .success(function(response){
