@@ -31,6 +31,8 @@ app.controller('eventsController', ['$scope', 'tripsFactory', 'eventsFactory', '
                 $scope.status = 'Inserted event! Refreshing event list.';
                 $rootScope.activeEvent = response;
                 $rootScope.currentEvent = response.id;
+                console.log($rootScope.activeEvent)
+                console.log($rootScope.currentEvent);
                 // $scope.event.title = ''
                 // $scope.event.date = ''
                 // $scope.event.content = ''

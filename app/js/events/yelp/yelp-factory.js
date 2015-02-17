@@ -9,8 +9,6 @@ app.factory('yelpFactory', ['$http',
     };
 
     yelpFactory.savePlace = function (result, currentEvent) {
-      console.log(result)
-      console.log(currenEvent)
       return $http.post(urlBase + "/events/" + currentEvent + "/places", result)
     };
 

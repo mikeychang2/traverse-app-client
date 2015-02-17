@@ -24,11 +24,12 @@ app.controller('yelpController', ['$scope', 'yelpFactory', '$http',
         $scope.status = "OOOOPS THAT DUN WORK" + error.message;
       })
 
-    $scope.addPlace = function(result, activeEvent){
-      console.log(activeEvent)
+    $scope.addPlace = function(result, currentEvent){
+      console.log(currentEvent)
       console.log(result)
       yelpFactory.savePlace(result, currentEvent)
         .success(function(response){
+          debugger;
           console.log(response)
         })
     }
