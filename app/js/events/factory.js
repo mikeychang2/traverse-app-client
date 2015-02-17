@@ -27,3 +27,4 @@ app.factory('eventsFactory', ['$http', '$routeParams', function($http, $routePar
 
     return eventsFactory;
 }]);
+
