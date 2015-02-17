@@ -5,4 +5,11 @@
 
 
   <input type="submit" ng-show="windowStorage == 'true'" ng-click="getPhotos()" name="photos" value="photos"/>
+
+  <div ng-repeat="photo in photos">
+    <img src="{{photo}}" ng-click="toggleCustom(photo)" />
+  </div>
+
+  <input type="submit" ng-click="savePhotos()" name="sendPhotos" value="Submit!"/>
+
 </div>

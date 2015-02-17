@@ -1,6 +1,9 @@
 app.controller('facebookController', ['$scope', '$http', '$window',
   function ($scope, $http, $window) {
-    $scope.windowStorage = "false";
+    $scope.windowStorage = "";
+    $scope.photos = [];
+    $scope.photosReference = {};
+    $scope.selectedPhotos = [];
 
     var urlBase = 'http://localhost:3000';
 
@@ -62,13 +65,53 @@ app.controller('facebookController', ['$scope', '$http', '$window',
     $scope.getPhotos = function (){
       $http.get(urlBase + '/facebook/photos')
       .success (function (response) {
-        debugger
         console.log(response)
         // return response
+        $scope.photos = response;
+        for (var i = 0; i < $scope.photos.length; i++ ){
+          $scope.photosReference[$scope.photos[i]] = false
+        }
+        console.log($scope.photos);
+        console.log($scope.photosReference);
       })
       .error (function (error) {
         $scope.status = "Unable to retrieve photos: " + error.message;
       });
+    }
+
+    $scope.toggleCustom = function(photo) {
+        $scope.photosReference[photo] = $scope.photosReference[photo] === false ? true: false;
+        console.log($scope.photosReference);
+    };
+
+    $scope.photoSelection = function (){
+      for (var i = 0; i < $scope.photos.length; i++ ){
+        if ($scope.photosReference[$scope.photos[i]] === true)
+        {
+          $scope.selectedPhotos.push($scope.photos[i]);
+        }
+      }
+      console.log ($scope.selectedPhotos);
+      return $scope.selectedPhotos
+    }
+
+    $scope.savePhotos = function(){
+
+      var photosToSave = $scope.photoSelection();
+      $scope.selectedPhotos = [];
+      var event_id = 2;
+      // define event_id
+      if (photosToSave.length > 0) {
+        $http.post(urlBase + '/events/' + event_id + '/photos', {photos: photosToSave})
+        .success (function (response) {
+          console.log(response);
+          debugger
+        })
+        .error (function (error) {
+          $scope.status = "Unable to retrieve photos: " + error.message;
+        });
+      }
+
     }
 
   // check access token expiration and re-validate it (SERVERSIDE: FacebookController: def validation)
