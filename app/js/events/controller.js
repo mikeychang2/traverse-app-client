@@ -29,7 +29,8 @@ app.controller('eventsController', ['$scope', 'tripsFactory', 'eventsFactory', '
         eventsFactory.insertEvent(event)
             .success(function (response) {
                 $scope.status = 'Inserted event! Refreshing event list.';
-                $scope.events.push(response);
+                // $scope.events.push(response);
+                $rootScope.activeEvent = response;
                 $scope.event.title = ''
                 $scope.event.date = ''
                 $scope.event.content = ''
