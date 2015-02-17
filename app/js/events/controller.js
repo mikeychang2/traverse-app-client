@@ -1,5 +1,5 @@
-app.controller('eventsController', ['$scope', 'tripsFactory', 'eventsFactory', '$http', '$routeParams', '$rootScope',
-        function ($scope, tripsFactory, eventsFactory, $http, $routeParams, $rootScope) {
+app.controller('eventsController', ['$scope', 'tripsFactory', 'eventsFactory', '$http', '$rootScope', '$routeParams',
+        function ($scope, tripsFactory, eventsFactory, $http, $rootScope, $routeParams) {
 
     $scope.trips;
     $scope.trip = {};
@@ -22,19 +22,21 @@ app.controller('eventsController', ['$scope', 'tripsFactory', 'eventsFactory', '
 
     $scope.insertEvent = function () {
         var event = $scope.event
-        eventsFactory.insertEvent(event)
+        eventsFactory.insertEvent()
             .success(function (response) {
-                $rootScope.activeEvent = response;
                 $scope.status = 'Inserted event! Refreshing event list.';
-                $scope.events.push(response);
-                $scope.event.title = ''
-                $scope.event.date = ''
-                $scope.event.content = ''
+                // $scope.events.push(response);
+                $rootScope.activeEvent = response.id
             }).
             error(function(error) {
                 $scope.status = 'Unable to insert event: ' + error.message;
             });
     };
+
+    // $scope.getEventID = function() {
+    //   return $rootScope.fuck;
+    // }
+
 
     $scope.deleteEvent = function (id) {
       eventsFactory.deleteEvent(id)
@@ -52,36 +54,18 @@ app.controller('eventsController', ['$scope', 'tripsFactory', 'eventsFactory', '
           });
     };
 
-
-    // $scope.updateEvent = function (id) {
-    //   eventsFactory.updateEvent(id)
-    //     .success(function(response) {
-    //       for (var i = 0; i < $scope.events.length; i++) {
-    //             var checkEvent = $scope.events[i];
-    //             if (checkEvent.id === id) {
-    //               $scope.events.checkEvent=response;
-    //               break;
-    //             }
-    //       }
-    //     })
-    //     .error (function(){
-    //       $scope.status = 'Unable to update: ' + error.message;
-    //     })
-    // }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-}]);
+    // $scope.updateEvent = function () {
+  //     eventsFactory.updateEvent($rootScope.activeEvent)
+  //         .success(function (response) {
+  //             for (var i = 0; i < $scope.events.length; i++) {
+  //               var checkEvent = $scope.events[i];
+  //               if (checkEvent.id === $rootScope.activeEvent.id) {
+  //                 $scope.events.checkEvent = response;
+  //                 break;
+  //               }
+  //             }
+  //         })
+  //         .error (function(error) {
+  //           $scope.status = 'Unable to update event: ' + error.message;
+  //         });
+  }]);
