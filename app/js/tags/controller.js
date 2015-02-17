@@ -19,23 +19,33 @@ app.controller('tagsController', ['$scope', 'tagsFactory', 'tripsFactory', 'even
         .error(function(error){
           $scope.status = "Unable to load tags: " + error.message;
         });
-    }
+    };
     $scope.getTags();
 
-    // $scope.insertEvent = function () {
-    //     var event = $scope.event
-    //     eventsFactory.insertEvent(event)
-    //         .success(function (response) {
-    //             $scope.status = 'Inserted event! Refreshing event list.';
-    //             $scope.events.push(response);
-    //             $scope.event.title = ''
-    //             $scope.event.date = ''
-    //             $scope.event.content = ''
-    //         }).
-    //         error(function(error) {
-    //             $scope.status = 'Unable to insert event: ' + error.message;
-    //         });
-    // };
+    getEventsByTag = function() {
+      tagsFactory.getEventsByTag($routeParams.tripId, $routeParams.tagId)
+        .success(function(response){
+          $scope.eventsByTag = response    
+        })
+        .error(function(error){
+          $scope.status = "Unable to load event by tags: " + error.message;
+        });
+    };
+
+    getEventsByTag();
+
+    $scope.insertTag = function () {
+        var tag = $scope.tag
+        tagsFactory.insertTag(tag, $routeParams.eventId)
+            .success(function (response) {
+                $scope.status = 'Inserted tag! Refreshing event.';
+                $scope.tags.push(response);
+                $scope.tag.name = ''
+            }).
+            error(function(error) {
+                $scope.status = 'Unable to create tag: ' + error.message;
+            });
+    };
 
     // $scope.deleteEvent = function (id) {
     //   eventsFactory.deleteEvent(id)
