@@ -44,6 +44,10 @@ app.config(['$routeProvider', function ($routeProvider) {
         controller: 'facebookController',
         templateUrl: 'views/facebook.html'
     })
+    .when('/instagram', {
+        controller: 'instagramController',
+        templateUrl: 'js/instagram/instagram.html'
+    })
 
     .otherwise({ redirectTo: '/' })
 }]);
