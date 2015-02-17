@@ -34,6 +34,12 @@ app.config(['$routeProvider', function ($routeProvider) {
         controller: 'eventsController',
         templateUrl: 'js/events/update_event_partial.html'
     })
+
+    .when('/trips/:tripId/events/tag/:tagId', {
+        controller: 'eventsController',
+        templateUrl: 'js/tags/events_by_tag.html'
+    })
+
     .when('/facebook', {
         controller: 'facebookController',
         templateUrl: 'views/facebook.html'

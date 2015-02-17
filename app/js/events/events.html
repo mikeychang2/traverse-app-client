@@ -6,7 +6,7 @@
   <div id='header'>
     <div id='sort_day'>Sort by Day</div>
     <div id='overview'>Overview Map Thing</div>
-    <div id='sort_tag'>Sort by Tag</div>
+    <a ng-href="#/trips/{{trip}}/tags"><div id='sort_tag'>Sort by Tag</div></a>
   </div>
 
   <h1>My Events for this {{trip}}</h1>
@@ -18,7 +18,7 @@
           <div id="journal_content">Journal Content: {{event.content}}</div>
         </div>
         <div id="right">
-         <div id='tags'>TAGS: {{event.tags.name}}</div>
+
 
 
   <!-- trip = Trip.find(params[:trip_id]) -->

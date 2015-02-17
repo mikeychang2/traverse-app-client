@@ -27,7 +27,7 @@ app.controller('yelpController', ['$scope', 'yelpFactory', '$http',
     $scope.addPlace = function(result, activeEvent){
       console.log(activeEvent)
       console.log(result)
-      yelpFactory.savePlace(result, activeEvent)
+      yelpFactory.savePlace(result, currentEvent)
         .success(function(response){
           console.log(response)
         })

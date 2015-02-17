@@ -7,6 +7,10 @@ app.controller('eventsController', ['$scope', 'tripsFactory', 'eventsFactory', '
     $scope.events;
     $scope.event = {};
 
+    $scope.eventsByTag;
+
+    $scope.tripId = $routeParams.tripId
+
     $scope.getEvents = function() {
       eventsFactory.getEvents()
         .success(function(response){
@@ -25,17 +29,16 @@ app.controller('eventsController', ['$scope', 'tripsFactory', 'eventsFactory', '
         eventsFactory.insertEvent()
             .success(function (response) {
                 $scope.status = 'Inserted event! Refreshing event list.';
-                $rootScope.activeEvent = response
-                $rootScope.currentEvent = response.id
+                $rootScope.activeEvent = response;
+                $rootScope.currentEvent = response.id;
+                // $scope.event.title = ''
+                // $scope.event.date = ''
+                // $scope.event.content = ''
             }).
             error(function(error) {
                 $scope.status = 'Unable to insert event: ' + error.message;
             });
     };
-
-    // $scope.getEventID = function() {
-    //   return $rootScope.fuck;
-    // }
 
     $scope.deleteEvent = function (id) {
       eventsFactory.deleteEvent(id)
@@ -69,3 +72,4 @@ app.controller('eventsController', ['$scope', 'tripsFactory', 'eventsFactory', '
           });
       }
   }]);
+
