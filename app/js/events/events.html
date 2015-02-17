@@ -27,7 +27,17 @@
           <div id="journal_content">Journal Content: {{event.content}}</div>
         </div>
         <div id="right">
-         <div id='tags'>TAGS: {{event.tags}}</div>
+         <!-- <div id='tags'>TAGS: {{event.tags.name}}</div> -->
+
+
+  <!-- trip = Trip.find(params[:trip_id]) -->
+<!--   events_tags = EventTag.find(event.id)
+  tag_ids = events_tags.map{|event| event.tag_id}
+  tags = tag_ids.map{|id| Tag.find(id)}
+  tags.uniq!
+  tags.each { |tag| p tag.name} -->
+
+
          <div id='place'>PLACE: {{event.place}}</div>
          <div id='photos'>PHOTOS: {{event.photos}}
             <!-- STOCK PHOTOS FOR TESTING -->
