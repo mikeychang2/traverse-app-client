@@ -12,11 +12,12 @@ app.factory('eventsFactory', ['$http', '$routeParams', function($http, $routePar
         return $http.get(urlBase + '/events' + id);
     };
 
-    eventsFactory.insertEvent = function (event) {
-        return $http.post(urlBase + '/events', event);
+    eventsFactory.insertEvent = function () {
+        return $http.post(urlBase + '/events');
     };
 
     eventsFactory.updateEvent = function (event) {
+
         console.log(event);
         return $http.put(urlBase + '/events/' + event.id, event)
     };
