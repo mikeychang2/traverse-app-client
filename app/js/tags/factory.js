@@ -1,8 +1,5 @@
- app.factory('tagsFactory', ['$http', '$routeParams', function($http, $routeParams) {
+ app.factory('tagsFactory', ['$http', '$routeParams', '$rootScope', function($http, $routeParams, $rootScope) {
 
-    var tagId = $routeParams.tagId
-
-    var eventID = $routeParams.eventID
     var tagsFactory = {};
     var urlBase = 'http://localhost:3000';
 
@@ -10,9 +7,14 @@
         return $http.get(urlBase + '/trips/' + tripID + '/tags');
     };
 
+    tagsFactory.getEventsByTag = function (tripID, tagId) {
+        console.log($routeParams)
+        console.log(tagId);
+        return $http.get(urlBase + '/trips/' + tripID + '/events_by_tag/' + tagId);
+    };
 
-    tagsFactory.insertTag = function (event) {
-        return $http.post(urlBase + '/events/' + eventID + '/tags');
+    tagsFactory.insertTag = function (tag) {
+        return $http.post(urlBase + '/events/' + $rootScope.activeEvent.id + '/tags', tag);
     };
 
 
