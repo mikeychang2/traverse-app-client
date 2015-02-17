@@ -10,11 +10,20 @@
 
   <div id='right' ng-controller="modalController">
 
-      <div>
-      <button ng-click="toggleFB()">Add Photos from Facebook</button>
+    <div id="fb-modal" ng-controller="facebookController">
+
+     <button ng-click="login()" ng-show="windowStorage == 'false'">Connect to Facebok</button>
+     <button ng-click="toggleFB(); getPhotos()" ng-show="windowStorage == 'true'">Add Photos from Facebook</button>
+
+     <!-- ngClick on photo will add photo to Controller array -->
+     <!-- ngClick on submit send photos to backend to create yay -->
       <modal-dialog show='FBShown' dialog-title="Add Photos" width='75%' height='80%'>
-        <p>Facebook photos here<p>
+        <div class="fb-pics-div" ng-repeat="photo in photos">
+          <img class="fb-pics" src="{{photo}}" ng-click="toggleCustom(photo)" />
+        </div>
+        <input type="submit" ng-click="savePhotos(currentEvent)" id="sendPhotos" value="Submit"/>
       </modal-dialog>
+
     </div>
 
       <div>

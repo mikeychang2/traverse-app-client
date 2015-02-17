@@ -29,9 +29,8 @@ app.controller('eventsController', ['$scope', 'tripsFactory', 'eventsFactory', '
         eventsFactory.insertEvent()
             .success(function (response) {
                 $scope.status = 'Inserted event! Refreshing event list.';
-                // $scope.events.push(response);
                 $rootScope.activeEvent = response;
-                $rootScope.currentEvent = response.id
+                $rootScope.currentEvent = response.id;
                 // $scope.event.title = ''
                 // $scope.event.date = ''
                 // $scope.event.content = ''
@@ -40,7 +39,6 @@ app.controller('eventsController', ['$scope', 'tripsFactory', 'eventsFactory', '
                 $scope.status = 'Unable to insert event: ' + error.message;
             });
     };
-
 
     $scope.deleteEvent = function (id) {
       eventsFactory.deleteEvent(id)
@@ -72,7 +70,6 @@ app.controller('eventsController', ['$scope', 'tripsFactory', 'eventsFactory', '
           .error (function(error) {
             $scope.status = 'Unable to update event: ' + error.message;
           });
-    };
-
-}]);
+      }
+  }]);
 

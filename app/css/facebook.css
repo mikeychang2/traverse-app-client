@@ -1,0 +1,18 @@
+.fb-pics-div {
+  max-width: 100%;
+  max-width: 100%;
+  display: inline-block;
+}
+
+.fb-pics {
+  width: 150px;
+  height: 150px;
+  margin: 15px;
+  border: 1px solid black;
+  display: inline-block;
+}
+
+#sendPhotos {
+  display: block;
+  margin: 0 auto;
+}
