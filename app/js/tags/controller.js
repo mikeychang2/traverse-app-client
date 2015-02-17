@@ -7,6 +7,10 @@ app.controller('tagsController', ['$scope', 'tagsFactory', 'tripsFactory', 'even
     $scope.tags;
     $scope.tag = {};
 
+    $scope.tripId = $routeParams.tripId
+    $scope.tagId = $routeParams.tagId
+    $scope.eventsByTag;
+
     $scope.getTags = function() {
       tagsFactory.getTags($routeParams.tripId)
         .success(function(response){
