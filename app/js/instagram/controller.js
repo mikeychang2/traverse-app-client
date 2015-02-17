@@ -1,14 +1,14 @@
 app.controller ('instagramController' , ['$scope', 'instagramFactory', '$http', '$routeParams',
-
   function ($scope, instagramFactory, $http, $routeParams) {
-    console.log($routeParams)
+
+    console.log($routeParams.code)
     $scope.results;
     $scope.instagram = {};
     $scope.photos = [];
     $scope.status;
 
     $scope.igLogin = function () {
-       instagramFactory.igLogin()
+       instagramFactory.igLogin($routeParams.code)
       .success (function(response){
         debugger;
         console.log(response)
