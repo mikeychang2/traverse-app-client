@@ -25,7 +25,8 @@ app.controller('eventsController', ['$scope', 'tripsFactory', 'eventsFactory', '
         eventsFactory.insertEvent()
             .success(function (response) {
                 $scope.status = 'Inserted event! Refreshing event list.';
-                $rootScope.activeEvent = response.id
+                $rootScope.activeEvent = response
+                $rootScope.currentEvent = response.id
             }).
             error(function(error) {
                 $scope.status = 'Unable to insert event: ' + error.message;

@@ -61,7 +61,6 @@ app.controller('facebookController', ['$scope', '$http', '$window',
          })
         }
 
-
     $scope.getPhotos = function (){
       $http.get(urlBase + '/facebook/photos')
       .success (function (response) {
@@ -81,8 +80,7 @@ app.controller('facebookController', ['$scope', '$http', '$window',
 
     $scope.toggleCustom = function(photo) {
         $scope.photosReference[photo] = $scope.photosReference[photo] === false ? true: false;
-        $scope.selectedPhotos.push(photo)
-        console.log($scope.selectedPhotos)
+        console.log("added or removed!")
     };
 
     $scope.photoSelection = function (){
@@ -96,10 +94,10 @@ app.controller('facebookController', ['$scope', '$http', '$window',
       return $scope.selectedPhotos
     }
 
-    $scope.savePhotos = function(){
-
+    $scope.savePhotos = function(currentEvent){
+      console.log(currentEvent)
       var photosToSave = $scope.photoSelection();
-      var event_id = 2;
+      var event_id = currentEvent;
       // define event_id
       if (photosToSave.length > 0) {
         $http.post(urlBase + '/events/' + event_id + '/photos', {photos: photosToSave})
