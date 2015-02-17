@@ -24,9 +24,3 @@
 
     return tagsFactory;
 }]);
-
-
-
-               // GET    /trips/:trip_id/tags(.:format)          tags#index
-               // POST   /events/:event_id/tags(.:format)        tags#create
-               // DELETE /events/:event_id/tags/:id(.:format)    tags#destroy
