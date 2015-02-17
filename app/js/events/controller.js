@@ -1,5 +1,5 @@
-app.controller('eventsController', ['$scope', 'tripsFactory', 'eventsFactory', '$http', '$routeParams',
-        function ($scope, tripsFactory, eventsFactory, $http, $routeParams) {
+app.controller('eventsController', ['$scope', 'tripsFactory', 'eventsFactory', '$http', '$rootScope', '$routeParams',
+        function ($scope, tripsFactory, eventsFactory, $http, $rootScope, $routeParams) {
 
     $scope.trips;
     $scope.trip = {};
