@@ -1,7 +1,8 @@
 var app = angular.module('traverseApp', [
   'ngStorage',
   'ngRoute',
-  'ngModal'
+  'ngModal',
+  'ui.bootstrap'
   ]);
 
 app.config(['$routeProvider', function ($routeProvider) {
