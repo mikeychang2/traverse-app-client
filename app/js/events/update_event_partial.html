@@ -1,20 +1,31 @@
 <h1>Update Event</h1>
-<div id='left'>
-  <form ng-submit="updateEvent()">
-    <input type="text" ng-model="event.title" value="{{event.title}}"><br>
-    <input type="date" ng-model="event.date" value="event.date"><br>
-    <input type="text" ng-model="event.content" value="event.content"><br>
+<div class='left' ng-controller='eventsController' ng-init="event = getEvent()">
+  <form ng-submit="editEvent()">
+    <input type="text" ng-model="event.title"><br>
+    <input type="date" ng-model="event.date"><br>
+    <input type="text" ng-model="event.content"><br>
     <input type="submit" value="submit">
   </form>
 </div>
 <div id='right'>
-      <div ng-controller='tagsController'>
-       <form ng-submit="insertTag()">
+      <div ng-controller='tagsController' ng-init="tags = getTagsForEventTagFactory()">
+      <!-- <div ng-controller='tagsController' ng-init="tags = getTagsForEventTagFactory()"> -->
+       <form>
         <input type="text" ng-model="tag.name" placeholder="enter custom tag">
+        {{tag.name}}
         <!-- <button ng-submit="createTag()" id='create_tag'>Create New Tag</button> -->
-        <input type="submit" value="Create New Tag">
+        <input type="submit" value="Create New Tag" ng-click="insertTagForUpdateEvent()">
       </form>
-     </div>
+<!--      </div>
+     <div> -->
+     <!-- <div ng-controller='eventsController' ng-init="tags = getTagsForEvent()"> -->
+        <p><br>TAGS for this Event:</p>
+        <ul>
+        <div ng-repeat="tag in tags">
+         <li> {{tag.name}}</li>
+        </div></ul><br>
+      </div>
+
   <div id='3rd_party'>
 <!--     <button>Import from Facebook</button>
     <button>Add Place from Yelp...somehow</button>

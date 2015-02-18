@@ -11,7 +11,7 @@
   margin-right: 2%;
   height: 100%;
 }
-#left {
+.left {
   width: 45%;
   display: inline-block;
   float: left;

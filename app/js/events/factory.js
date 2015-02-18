@@ -9,7 +9,11 @@ app.factory('eventsFactory', ['$http', '$routeParams', function($http, $routePar
     };
 
     eventsFactory.getEvent = function (id) {
-        return $http.get(urlBase + '/events' + id);
+        return $http.get(urlBase + '/events/' + id);
+    };
+
+    eventsFactory.getTagsForEvent = function (id) {
+        return $http.get(urlBase + '/events/' + id + '/tags');
     };
 
     eventsFactory.insertEvent = function () {
@@ -17,8 +21,10 @@ app.factory('eventsFactory', ['$http', '$routeParams', function($http, $routePar
     };
 
     eventsFactory.updateEvent = function (event) {
+        return $http.put(urlBase + '/events/' + event.id, event)
+    };
 
-        console.log(event);
+    eventsFactory.editEvent = function (event) {
         return $http.put(urlBase + '/events/' + event.id, event)
     };
 

@@ -1,5 +1,5 @@
 <div class="container">
-  <div id="all-trips" ng-controller="tripsController">
+  <div id="all-trips" ng-controller="tripsController" ng-init="trips = getTrips()">
     <h1>My Trips</h1>
 
     <form ng-submit="insertTrip()">
