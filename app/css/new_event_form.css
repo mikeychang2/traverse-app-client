@@ -1,0 +1,20 @@
+#event-form-header {
+  text-align: center;
+}
+.left input {
+  margin: 10px;
+}
+
+.left form:nth-child(2) {
+  width: 100px;
+}
+
+#right button {
+  width: 250px;
+  margin: 5px;
+}
+
+/* need to remove ig link default */
+#right a button {
+  text-decoration: none;
+}
