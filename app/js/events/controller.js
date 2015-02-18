@@ -10,6 +10,8 @@ app.controller('eventsController', ['$scope', 'tripsFactory', 'eventsFactory', '
     $scope.eventsByTag;
     $scope.tags;
 
+    $scope.photos;
+
     $scope.tripId = $routeParams.tripId
 
     $scope.insertEvent = function () {
@@ -19,8 +21,8 @@ app.controller('eventsController', ['$scope', 'tripsFactory', 'eventsFactory', '
                 $scope.status = 'Inserted event! Refreshing event list.';
                 $rootScope.activeEvent = response;
                 $rootScope.currentEvent = response.id;
-                console.log($rootScope.activeEvent)
-                console.log($rootScope.currentEvent);
+                // console.log($rootScope.activeEvent)
+                // console.log($rootScope.currentEvent);
                 // $scope.event.title = ''
                 // $scope.event.date = ''
                 // $scope.event.content = ''
