@@ -22,6 +22,10 @@ app.config(['$routeProvider', function ($routeProvider) {
         controller: 'eventsController',
         templateUrl: 'js/events/events.html'
     })
+    .when('/trips/:tripId/events/:eventId', {
+        controller: 'eventsController',
+        templateUrl: 'js/events/event.html'
+    })
     .when('/trips/:tripId/tags', {
         controller: 'tagsController',
         templateUrl: 'js/tags/tags.html'
