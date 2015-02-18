@@ -83,13 +83,9 @@ app.controller('eventsController', ['$scope', 'tripsFactory', 'eventsFactory', '
     $scope.updateEvent = function () {
       eventsFactory.updateEvent($rootScope.activeEvent)
           .success(function (response) {
-              for (var i = 0; i < $scope.events.length; i++) {
-                var checkEvent = $scope.events[i];
-                if (checkEvent.id === $rootScope.activeEvent.id) {
-                  $scope.events.checkEvent = response;
-                  break;
-                }
-              }
+                // var checkEvent = $rootScope.activeEvent;
+                  $scope.checkEvent = response;
+                  $window.location.href = '/#/trips/' + response.trip_id + '/events';
           })
           .error (function(error) {
             $scope.status = 'Unable to update event: ' + error.message;
@@ -99,13 +95,9 @@ app.controller('eventsController', ['$scope', 'tripsFactory', 'eventsFactory', '
     $scope.editEvent = function () {
       eventsFactory.editEvent($scope.event)
           .success(function (response) {
-              for (var i = 0; i < $scope.events.length; i++) {
-                var checkEvent = $scope.events[i];
-                if (checkEvent.id === $scope.event.id) {
-                  $scope.events.checkEvent = response;
-                  break;
-                }
-              }
+                // var checkEvent = $scope.events[i];
+                  $scope.checkEvent = response;
+                  $window.location.href = '/#/trips/' + response.trip_id + '/events';
           })
           .error (function(error) {
             $scope.status = 'Unable to edit the event: ' + error.message;

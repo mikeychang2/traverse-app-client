@@ -42,14 +42,12 @@ app.controller('tagsController', ['$scope', '$rootScope', 'tagsFactory', 'tripsF
         });
     };
 
-    // getEventsByTag();
-
     $scope.insertTag = function () {
         var tag = $scope.tag
         tagsFactory.insertTag(tag, $rootScope.activeEvent.id)
             .success(function (response) {
                 $scope.status = 'Inserted tag! Refreshing event.';
-                $scope.tags.push(response);
+                $scope.allTags.push(response);
                 $scope.tag.name = ''
             }).
             error(function(error) {

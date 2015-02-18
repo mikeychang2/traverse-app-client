@@ -41,34 +41,31 @@
       </div>
 
       <div id="yelp-modal">
-      <button ng-click='toggleYelp()'>Add Places</button>
-        <modal-dialog show='yelpShown' dialog-title="Add Photos" width='75%' height='80%'>
-          <p>Yelp links here<p>
-          <div id="yelp-container" ng-controller="yelpController">
-            <form>
-              <input type="text" ng-model="yelp.search" placeholder="Search">
-              <input type="text" ng-model="yelp.location" placeholder="Location">
-              <input type="submit" value="search"  ng-click="searchYelp()">
-            </form>
+        <button ng-click='toggleYelp()'>Add Places</button>
+          <modal-dialog show='yelpShown' dialog-title="Add Photos" width='75%' height='80%'>
+            <p>Yelp links here<p>
+            <div id="yelp-container" ng-controller="yelpController">
+              <form>
+                <input type="text" ng-model="yelp.search" placeholder="Search">
+                <input type="text" ng-model="yelp.location" placeholder="Location">
+                <input type="submit" value="search"  ng-click="searchYelp()">
+              </form>
 
-            <div class="results-index" ng-controller="eventsController">
-              <div class="yelp-result" ng-repeat="result in results"style="background-image:url({{result.image_url}}); width: 100px; height:''" ng-click="addPlace(result, currentEvent)">
-                  <p>{{result.name}}</p>
+              <div class="results-index" ng-controller="eventsController">
+                <div class="yelp-result" ng-repeat="result in results"style="background-image:url({{result.image_url}}); width: 100px; height:''" ng-click="addPlace(result, currentEvent)">
+                    <p>{{result.name}}</p>
+                </div>
               </div>
-            </div>
 
-         </div>
-        </modal-dialog>
+           </div>
+          </modal-dialog>
+        </div>
+
       </div>
 
+      <div id='photos' ng-repeat="photo in photos">
+        <h3>My Photos</h3>
+      </div>
     </div>
-
-    <div id='photos' ng-repeat="photo in photos">
-      <h3>My Photos</h3>
-    </div>
-  </div>
-
-
-
   </div>
 </div>
