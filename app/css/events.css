@@ -1,59 +1,69 @@
-.clearfix {
+/*.clearfix {
   overflow: auto;
 }
-/*
-#toggle-buttons button {
-  text-align: center;
-  margin: 15px;
+*/
+
+/** {
+  outline: 1px solid red;
 }*/
 
-#create-event-btn {
+a {
+  padding: 0;
+  color: black;
 }
 
-.single_event {
-  width: 80%;
-  margin-top: 5%;
-  margin-bottom: 5%;
-  margin-left: 2%;
-  margin-right: 2%;
-  height: 100%;
+#events-header{
+  font-size: 2.5em;
+  margin-bottom: 1%;
 }
 
-.left {
-  width: 45%;
-  display: inline-block;
-  float: left;
-}
-#right {
-  width: 45%;
-  display: inline-block;
-  float: left;
+/*single events*/
+.single-event {
+  border: 3px solid black;
+  padding: 2%;
+  margin-top: 1%;
 }
 
-
-#date {
-  font-size: .5em;
+.event-title {
+  font-size: 1.5em;
+  font-weight: bold;
 }
-#journal_content {
-  border: solid 1px black;
-  height: 50%;
-  width: 80%;
+
+.event-place {
+  padding:0;
+  margin: 0;
+  font-weight: bold;
+}
+
+.event-date {
+  padding:0;
+  margin:0;
+  font-weight: bold;
+}
+
+.event-journal-content {
+  margin: 0;
+  padding-bottom: 20%;
+  font-weight: bold;
+}
+
+.update-btn {
+  font-size: 0.8em;
+}
+
+/*Carousel*/
+.slides-control img {
   margin: auto;
-  display: inline-block;
-
-}
-#photos img {
-  width: 20%;
-  display: inline-block;
-
-}
-#delete_button {
-  float: left;
-}
-
-#sort_day, #overview, #sort_tag {
-  width: 25%;
-  display: inline-block;
   border: 1px solid black;
-  text-align: center;
 }
+
+.carousel-control.left, .carousel-control.right {
+    background-image: none !important;
+}
+
+.delete-button {
+  float: right;
+  padding: 0;
+  margin: 0;
+}
+
