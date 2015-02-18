@@ -2,6 +2,7 @@ var app = angular.module('traverseApp', [
   'ngStorage',
   'ngRoute',
   'ngModal',
+  'uiGmapgoogle-maps'
   'ngCookies'
   ]);
 
@@ -49,6 +50,12 @@ app.config(['$routeProvider', function ($routeProvider) {
         controller: 'instagramController',
         templateUrl: 'js/events/instagram/instagram.html'
     })
+
+    .when('/trips/:tripId/mapView', {
+        controller: 'googleMapsController',
+        templateUrl: 'js/events/googleMaps/maps.html'
+    })
+
 
     .otherwise({ redirectTo: '/' })
 }]);
