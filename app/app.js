@@ -3,7 +3,7 @@ var app = angular.module('traverseApp', [
   'ngRoute',
   'ngModal',
   'uiGmapgoogle-maps',
-  'ngCookies'
+  'ngCookies',
   'ui.bootstrap'
   ]);
 
