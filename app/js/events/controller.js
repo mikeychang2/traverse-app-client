@@ -1,5 +1,5 @@
-app.controller('eventsController', ['$scope', 'tripsFactory', 'eventsFactory', '$http', '$rootScope', '$routeParams',
-        function ($scope, tripsFactory, eventsFactory, $http, $rootScope, $routeParams) {
+app.controller('eventsController', ['$scope', 'tripsFactory', 'eventsFactory', '$http', '$rootScope', '$routeParams', '$window',
+        function ($scope, tripsFactory, eventsFactory, $http, $rootScope, $routeParams, $window) {
 
     $scope.trips;
     $scope.trip = {};
@@ -33,6 +33,7 @@ app.controller('eventsController', ['$scope', 'tripsFactory', 'eventsFactory', '
     $scope.getEvents = function() {
       eventsFactory.getEvents()
         .success(function(response){
+          // debugger
           $scope.events = response
           $scope.trip = $routeParams.tripId
         })
@@ -44,7 +45,6 @@ app.controller('eventsController', ['$scope', 'tripsFactory', 'eventsFactory', '
     // $scope.getEvents();
 
 // get single event
-
     $scope.getEvent = function() {
       eventsFactory.getEvent($routeParams.eventId)
         .success(function(response){
@@ -60,7 +60,7 @@ app.controller('eventsController', ['$scope', 'tripsFactory', 'eventsFactory', '
     // $scope.getEvent();
 
 // get tags for single event
-    $scope.getTagsForEvent  = function() {
+    $scope.getTagsForEvent  = function(id) {
       eventsFactory.getTagsForEvent ($routeParams.eventId)
         .success(function(response){
           // debugger;
@@ -72,7 +72,6 @@ app.controller('eventsController', ['$scope', 'tripsFactory', 'eventsFactory', '
     }
 
     // $scope.getTagsForEvent();
-
     $scope.deleteEvent = function (id) {
       eventsFactory.deleteEvent(id)
           .success(function () {
@@ -92,13 +91,17 @@ app.controller('eventsController', ['$scope', 'tripsFactory', 'eventsFactory', '
     $scope.updateEvent = function () {
       eventsFactory.updateEvent($rootScope.activeEvent)
           .success(function (response) {
-              for (var i = 0; i < $scope.events.length; i++) {
-                var checkEvent = $scope.events[i];
-                if (checkEvent.id === $rootScope.activeEvent.id) {
-                  $scope.events.checkEvent = response;
-                  break;
-                }
-              }
+                        // console.log($scope.events);
+// debugger;
+              // for (var i = 0; i < $scope.events.length; i++) {
+              //   var checkEvent = $scope.events[i];
+              //   if (checkEvent.id === $rootScope.activeEvent.id) {
+              //     $scope.events.checkEvent = response;
+              //     break;
+              //   }
+              // }
+              $window.location.href = '/#/trips/' + response.trip_id + '/events';
+              // $window.location.href = 'http://www.google.com';
           })
           .error (function(error) {
             $scope.status = 'Unable to update event: ' + error.message;
@@ -108,13 +111,16 @@ app.controller('eventsController', ['$scope', 'tripsFactory', 'eventsFactory', '
     $scope.editEvent = function () {
       eventsFactory.editEvent($scope.event)
           .success(function (response) {
-              for (var i = 0; i < $scope.events.length; i++) {
-                var checkEvent = $scope.events[i];
-                if (checkEvent.id === $scope.event.id) {
-                  $scope.events.checkEvent = response;
-                  break;
-                }
-              }
+            // console.log($scope.events);
+              // for (var i = 0; i < $scope.events.length; i++) {
+              //   var checkEvent = $scope.events[i];
+              //   if (checkEvent.id === $scope.event.id) {
+              //     $scope.events.checkEvent = response;
+              //     break;
+             $window.location.href = '/#/trips/' + response.trip_id + '/events';
+
+                // }
+              // }
           })
           .error (function(error) {
             $scope.status = 'Unable to edit the event: ' + error.message;
