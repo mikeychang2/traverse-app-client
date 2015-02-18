@@ -33,6 +33,7 @@ app.controller('eventsController', ['$scope', 'tripsFactory', 'eventsFactory', '
     $scope.getEvents = function() {
       eventsFactory.getEvents()
         .success(function(response){
+          // debugger
           $scope.events = response
           $scope.trip = $routeParams.tripId
         })
