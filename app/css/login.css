@@ -24,24 +24,59 @@ body { background: url(brazil.png) #000 no-repeat center center fixed; }
   width: 400px;
 }
 
-#login {
-  /*background: white;*/
-  rgba(255,0,0,0.1)    /* 10% opaque red */
-rgba(255,0,0,0.4)    /* 40% opaque red */
-rgba(255,0,0,0.7)    /* 70% opaque red */
-rgba(255,0,0,  1)    /* full opaque red */
+/* Form Buttons */
+#auth .panel {
+  opacity: 0.5;
+  border-style: none;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: white;
 }
 
-#register {
-
+#auth .panel:hover {
+  opacity: 1;
+  background-color: white;
 }
 
-#login-btn {
+#auth .panel-heading {
+  padding: 0px;
+}
+
+
+
+/* Form Text*/
+#auth .ng-binding {
+  opacity: 1;
+}
+
+
+#auth a {
+  opacity: 1;
+  color: black;
+}
+
+#auth h4 {
+  color: white;
+  background-color: white;
+  /*opacity: 0.5;*/
+}
+
+#auth h4:hover {
+  background-color: white;
+  color: black;
+}
+
+
+
+
+
+/*#login-btn {
   border: 3px solid white;
   color: white;
 }
+
 
 #register-btn {
   border: 3px solid white;
   color: white;
-}
+}*/
