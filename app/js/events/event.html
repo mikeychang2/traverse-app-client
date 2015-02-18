@@ -1,31 +1,37 @@
 
-<div id="events" ng-controller="eventsController" ng-init="event = getEvent(); tags = getTagsForEvent()">
+<div id="events" ng-controller="eventsController" ng-init="event = getEvent(); tags = getTagsForEvent(); photos = getPhotosForEvent()">
 
-<h1>{{event.title}}</h1>
+<div class="row">
+  <h1 class="text-center">{{event.title}}</h1>
+</div>
+
+<div class="row">
+  <div>button1 class="col-xs-4"</div>
+
   <div class="single_event clearfix">
-        <div class="left">
-          <div id='title'>Event Title: {{event.title}} </div>
-          <div id='date'> Date: {{event.date}}</div>
-          <div id="journal_content">Journal Content: {{event.content}}</div>
-        </div>
-        <div id="right">
 
-              <br>TAGS:
-              <ul>
+      <div class="left">
+        <div id='title'>Event Title: {{event.title}} </div>
+        <div id='date'> Date: {{event.date}}</div>
+        <div id="journal_content">Journal Content: {{event.content}}</div>
+      </div>
 
-    <div id="right" ng-repeat="tag in tags">
-     <li> {{tag.name}}</li>
-    </div></ul><br>
+      <div id="right">
+
+        <br>TAGS:
+        <ul>
+
+        <div id="right" ng-repeat="tag in tags">
+          <li> {{tag.name}}</li>
+        </div></ul><br>
 
          <div id='place'>PLACE: {{event.place}}</div>
-         <div id='photos'>PHOTOS: {{event.photos}}
-            <!-- STOCK PHOTOS FOR TESTING -->
-            <img src="http://upload.wikimedia.org/wikipedia/commons/a/ae/Sydney_Opera_House_at_Sunset.jpg"></img>
-            <img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQ_769lSvSnwpQLJe2BsXuimfgoBt9H0fP3yujEd7yq2crEyDsUhNIXKIc"></img>
-            <img src="http://s.ngm.com/2011/05/great-barrier-reef/img/great-barrier-reef-diver-615.jpg"></img>
-            <img src="http://squirrelsgonecrazyinaustralia.weebly.com/uploads/1/5/5/5/15556150/5253500.jpg?889"></img>
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR75ZV9n_kpar77jET_dIU7976F8FZ34Vwvrxg5Q_URVV8By7y2_5JO5mw"></img>
-            <img src="http://www.travelvivi.com/wp-content/uploads/2011/07/Kangaroo1.jpg"></img>
+
+          <p>Photos:</p>
+         <div id='photos' ng-repeat="onePhoto in photos">
+            <div class="single-photo">
+              <a ng-href="{{onePhoto}}"><img ng-src="{{onePhoto}}"></a>
+            </div>
          </div>
 
            <button id='delete_button' ng-click="deleteEvent(event.id)">x</button>
