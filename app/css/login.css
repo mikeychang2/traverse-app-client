@@ -42,6 +42,10 @@ body { background: url(brazil.png) #000 no-repeat center center fixed; }
   padding: 0px;
 }
 
+#auth form input {
+  margin-bottom: 10px;
+}
+
 
 
 /* Form Text*/
@@ -57,27 +61,11 @@ body { background: url(brazil.png) #000 no-repeat center center fixed; }
 }
 
 #auth h4 {
-  color: white;
+  color: black;
   background-color: white;
-  /*opacity: 0.5;*/
 }
 
 #auth h4:hover {
   background-color: white;
   color: black;
 }
-
-
-
-
-
-/*#login-btn {
-  border: 3px solid white;
-  color: white;
-}
-
-
-#register-btn {
-  border: 3px solid white;
-  color: white;
-}*/
