@@ -2,7 +2,6 @@
   outline: 1px solid red;
 }
 
-
 #event-form-header {
   text-align: center;
 }
@@ -12,10 +11,13 @@
   display: inline-block;
 }
 
+
 /* need to remove ig link default */
 #right a button {
   text-decoration: none;
 }
+
+
 /*.left input {
   margin: 10px;
 }

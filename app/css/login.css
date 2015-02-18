@@ -1,0 +1,47 @@
+/* Background */
+video#bgvid {
+position: fixed; right: 0; bottom: 0;
+min-width: 100%; min-height: 100%;
+width: auto; height: auto; z-index: -100;
+background: url(brazil.png) no-repeat;
+background-size: cover;
+
+}
+
+@media screen and (max-device-width: 800px) {
+body { background: url(brazil.png) #000 no-repeat center center fixed; }
+#bgvid { display: none; }
+}
+
+/* Center Form*/
+#auth {
+  position: relative;
+  top: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align:center;
+  padding: 30px;
+  width: 400px;
+}
+
+#login {
+  /*background: white;*/
+  rgba(255,0,0,0.1)    /* 10% opaque red */
+rgba(255,0,0,0.4)    /* 40% opaque red */
+rgba(255,0,0,0.7)    /* 70% opaque red */
+rgba(255,0,0,  1)    /* full opaque red */
+}
+
+#register {
+
+}
+
+#login-btn {
+  border: 3px solid white;
+  color: white;
+}
+
+#register-btn {
+  border: 3px solid white;
+  color: white;
+}
