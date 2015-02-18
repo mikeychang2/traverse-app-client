@@ -4,6 +4,7 @@ var app = angular.module('traverseApp', [
   'ngModal',
   'uiGmapgoogle-maps',
   'ngCookies'
+  'ui.bootstrap'
   ]);
 
 app.config(['$routeProvider', function ($routeProvider) {
