@@ -1,7 +1,9 @@
 .nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
 
 .container {
-  border: 2px black solid;
+  /*border: 2px black solid;*/
+  margin-right: auto;
+  margin-left: auto;
 }
 
 #all-trips {
