@@ -21,3 +21,22 @@ app.config(function ($httpProvider) {
   $httpProvider.interceptors.push('authInterceptor');
 });
 
+app.factory('AuthenticationFactory', ['$window', function($window) {
+
+  var auth = {
+
+    isLogged: false,
+
+    check: function() {
+      if ($window.sessionStorage.token && $window.sessionStorage.user_id) {
+        this.isLogged = !this.isLogged;
+      } else {
+        this.isLogged = !this.isLogged;
+        delete $window.sessionStorage.user_id;
+        delete $window.sessionStorage.token;
+      }
+    }
+  };
+
+  return auth;
+}])
