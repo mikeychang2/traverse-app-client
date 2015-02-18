@@ -3,6 +3,7 @@ var app = angular.module('traverseApp', [
   'ngRoute',
   'ngModal',
   'uiGmapgoogle-maps'
+  'ngCookies'
   ]);
 
 app.config(['$routeProvider', function ($routeProvider) {
@@ -45,6 +46,10 @@ app.config(['$routeProvider', function ($routeProvider) {
         controller: 'facebookController',
         templateUrl: 'views/facebook.html'
     })
+    .when('/instagram', {
+        controller: 'instagramController',
+        templateUrl: 'js/events/instagram/instagram.html'
+    })
 
     .when('/trips/:tripId/mapView', {
         controller: 'googleMapsController',
@@ -54,8 +59,6 @@ app.config(['$routeProvider', function ($routeProvider) {
 
     .otherwise({ redirectTo: '/' })
 }]);
-
-
 
 // in case we decide to do single event views later:
 

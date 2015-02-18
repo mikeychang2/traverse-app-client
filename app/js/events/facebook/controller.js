@@ -4,6 +4,7 @@ app.controller('facebookController', ['$scope', '$http', '$window',
     $scope.photos = [];
     $scope.photosReference = {};
     $scope.selectedPhotos = [];
+    $scope.status;
 
     var urlBase = 'http://localhost:3000';
 
