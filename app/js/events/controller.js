@@ -1,5 +1,5 @@
-app.controller('eventsController', ['$scope', 'tripsFactory', 'eventsFactory', '$http', '$rootScope', '$routeParams',
-        function ($scope, tripsFactory, eventsFactory, $http, $rootScope, $routeParams) {
+app.controller('eventsController', ['$scope', 'tripsFactory', 'eventsFactory', '$http', '$rootScope', '$routeParams', '$window',
+        function ($scope, tripsFactory, eventsFactory, $http, $rootScope, $routeParams, $window) {
 
     $scope.trips;
     $scope.trip = {};
@@ -17,7 +17,6 @@ app.controller('eventsController', ['$scope', 'tripsFactory', 'eventsFactory', '
         eventsFactory.insertEvent()
             .success(function (response) {
                 $scope.status = 'Inserted event! Refreshing event list.';
-                // $scope.events.push(response);
                 $rootScope.activeEvent = response;
                 $rootScope.tagCaptureEvent = response;
                 $rootScope.currentEvent = response.id
@@ -41,10 +40,6 @@ app.controller('eventsController', ['$scope', 'tripsFactory', 'eventsFactory', '
         });
     }
 
-    // $scope.getEvents();
-
-// get single event
-
     $scope.getEvent = function() {
       eventsFactory.getEvent($routeParams.eventId)
         .success(function(response){
@@ -57,8 +52,6 @@ app.controller('eventsController', ['$scope', 'tripsFactory', 'eventsFactory', '
         });
     }
 
-    // $scope.getEvent();
-
 // get tags for single event
     $scope.getTagsForEvent  = function() {
       eventsFactory.getTagsForEvent ($routeParams.eventId)
@@ -70,8 +63,6 @@ app.controller('eventsController', ['$scope', 'tripsFactory', 'eventsFactory', '
           $scope.status = "Unable to load event: " + error.message;
         });
     }
-
-    // $scope.getTagsForEvent();
 
     $scope.deleteEvent = function (id) {
       eventsFactory.deleteEvent(id)

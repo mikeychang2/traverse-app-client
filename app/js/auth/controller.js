@@ -20,7 +20,6 @@ app.controller('authController', ['$scope', '$http', '$window', '$location', 'Au
           $scope.user = '';
           $location.path('/trips')
           // AuthenticationFactory.check();
-          debugger;
         })
         .error(function (data, status, headers, config) {
           // Erase the token if the user fails to log in

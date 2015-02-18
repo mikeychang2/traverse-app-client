@@ -5,7 +5,6 @@ app.controller('tripsController', ['$scope', 'tripsFactory', '$http',
     $scope.trip = {};
     $scope.status;
 
-    // Hitting rails-API to get all trips from trips#index
     $scope.getTrips = function() {
       console.log('why is this printing out twice?!')
       tripsFactory.getTrips()
@@ -16,8 +15,6 @@ app.controller('tripsController', ['$scope', 'tripsFactory', '$http',
           $scope.status = "Unable to load trips: " + error.message;
         });
     }
-
-    // $scope.getTrips();
 
     $scope.insertTrip = function () {
         var trip = $scope.trip

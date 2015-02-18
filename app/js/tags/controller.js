@@ -20,12 +20,10 @@ app.controller('tagsController', ['$scope', '$rootScope', 'tagsFactory', 'tripsF
           $scope.status = "Unable to load tags: " + error.message;
         });
     };
-    // $scope.getTags();
 
     $scope.getTagsForEventTagFactory  = function() {
       tagsFactory.getTagsForEventTagFactory ($routeParams.eventId)
         .success(function(response){
-          // debugger;
           $scope.tags = response
         })
         .error(function(error){
