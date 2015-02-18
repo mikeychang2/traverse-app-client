@@ -1,7 +1,8 @@
 var app = angular.module('traverseApp', [
   'ngStorage',
   'ngRoute',
-  'ngModal'
+  'ngModal',
+  'uiGmapgoogle-maps'
   ]);
 
 app.config(['$routeProvider', function ($routeProvider) {
@@ -44,6 +45,12 @@ app.config(['$routeProvider', function ($routeProvider) {
         controller: 'facebookController',
         templateUrl: 'views/facebook.html'
     })
+
+    .when('/trips/:tripId/mapView', {
+        controller: 'googleMapsController',
+        templateUrl: 'js/events/googleMaps/maps.html'
+    })
+
 
     .otherwise({ redirectTo: '/' })
 }]);
