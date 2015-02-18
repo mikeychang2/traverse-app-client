@@ -39,8 +39,8 @@
     <script src="js/trips/factory.js"></script>
     <script src="js/events/controller.js"></script>
     <script src="js/events/factory.js"></script>
-    <!-- <script src="js/tags/controller.js"></script>
-    // <script src="js/tags/factory.js"></script> -->
+    <script src="js/tags/controller.js"></script>
+    <script src="js/tags/factory.js"></script>
     <script src="js/auth/controller.js"></script>
     <script src="js/auth/factory.js"></script>
 
@@ -50,6 +50,9 @@
     <script src="js/events/yelp/yelp-factory.js"></script>
     <script src="js/facebook/controller.js"></script>
 
+    <div ng-controller="authController">
+        <input type="button" value="logout" ng-click="logout()" ng-show="isLogged" >
+    </div>
 
 </body>
 </html>
