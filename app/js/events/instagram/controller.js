@@ -36,6 +36,58 @@ app.controller ('instagramController' , ['$scope', 'instagramFactory', '$http', 
       return $window.sessionStorage.igLoggedIn
     }
 
+
+    $scope.getPhotos = function () {
+      instagramFactory.getPhotos()
+      .success (function (response) {
+        console.log(response)
+        $scope.photos = response;
+        for (var i = 0; i < $scope.photos.length; i++ ){
+          $scope.photosReference[$scope.photos[i]] = false
+        }
+        console.log($scope.photos);
+        console.log($scope.photosReference);
+      })
+      .error (function(error) {
+        $scope.status = "Unable to load trips: " + error.message;
+      })
+    }
+
+     $scope.toggleCustom = function(photo) {
+        console.log(photo)
+        $scope.photosReference[photo] = $scope.photosReference[photo] === false ? true: false;
+        console.log("added or removed!")
+    };
+
+    $scope.photoSelection = function (a){
+      for (var i = 0; i < $scope.photos.length; i++ ){
+        if ($scope.photosReference[$scope.photos[i]] === true)
+        {
+          $scope.selectedPhotos.push($scope.photos[i]);
+        }
+      }
+      console.log ($scope.selectedPhotos);
+      return $scope.selectedPhotos
+    }
+
+     $scope.savePhotos = function(currentEvent){
+      console.log(currentEvent)
+      debugger;
+      var photosToSave = $scope.photoSelection();
+      var event_id = currentEvent;
+      // define event_id
+      if (photosToSave.length > 0) {
+        instagramFactory.savePhotos(event_id, photosToSave)
+        .success (function (response) {
+          console.log(response);
+        })
+        .error (function (error) {
+          $scope.status = "Unable to retrieve photos: " + error.message;
+        });
+      }
+
+    }
+
     // $scope.checkUser = function () {
     //   debugger
     //   instagramFactory.checkUser()
@@ -52,58 +104,6 @@ app.controller ('instagramController' , ['$scope', 'instagramFactory', '$http', 
     // }
 
     // $scope.checkUser()
-
-    $scope.getPhotos = function () {
-      instagramFactory.getPhotos()
-      .success (function (response) {
-        debugger;
-        console.log(response)
-        $scope.photos = response;
-        for (var i = 0; i < $scope.photos.length; i++ ){
-          $scope.photosReference[$scope.photos[i]] = false
-        }
-        console.log($scope.photos);
-        console.log($scope.photosReference);
-      })
-      .error (function(error) {
-        $scope.status = "Unable to load trips: " + error.message;
-      })
-    }
-
-     $scope.toggleCustom = function(photo) {
-        $scope.photosReference[photo] = $scope.photosReference[photo] === false ? true: false;
-        console.log("added or removed!")
-    };
-
-    $scope.photoSelection = function (){
-      for (var i = 0; i < $scope.photos.length; i++ ){
-        if ($scope.photosReference[$scope.photos[i]] === true)
-        {
-          $scope.selectedPhotos.push($scope.photos[i]);
-        }
-      }
-      console.log ($scope.selectedPhotos);
-      return $scope.selectedPhotos
-    }
-
-     $scope.savePhotos = function(currentEvent){
-      console.log(currentEvent)
-      var photosToSave = $scope.photoSelection();
-      var event_id = currentEvent;
-      // define event_id
-      if (photosToSave.length > 0) {
-        $http.post(urlBase + '/events/' + event_id + '/photos', {photos: photosToSave})
-        .success (function (response) {
-          console.log(response);
-          debugger
-        })
-        .error (function (error) {
-          $scope.status = "Unable to retrieve photos: " + error.message;
-        });
-      }
-
-    }
-
 
   }
 ])

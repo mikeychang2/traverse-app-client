@@ -53,8 +53,6 @@ app.config(['$routeProvider', function ($routeProvider) {
     .otherwise({ redirectTo: '/' })
 }]);
 
-
-
 // in case we decide to do single event views later:
 
     // .when('/trips/:tripId/events/:eventId', {
