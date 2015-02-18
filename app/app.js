@@ -1,7 +1,8 @@
 var app = angular.module('traverseApp', [
   'ngStorage',
   'ngRoute',
-  'ngModal'
+  'ngModal',
+  'ngCookies'
   ]);
 
 app.config(['$routeProvider', function ($routeProvider) {
@@ -46,13 +47,11 @@ app.config(['$routeProvider', function ($routeProvider) {
     })
     .when('/instagram', {
         controller: 'instagramController',
-        templateUrl: 'js/instagram/instagram.html'
+        templateUrl: 'js/events/instagram/instagram.html'
     })
 
     .otherwise({ redirectTo: '/' })
 }]);
-
-
 
 // in case we decide to do single event views later:
 

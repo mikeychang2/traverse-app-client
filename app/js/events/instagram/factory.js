@@ -12,6 +12,14 @@ app.factory('instagramFactory', ['$http',
       return $http.get(urlBase + '/instagram/photos')
     }
 
+    instagramFactory.checkUser = function () {
+      return $http.get(urlBase + '/instagram/checker')
+    }
+
+    instagramFactory.savePhotos = function(currentEvent, photosToSave) {
+      return $http.post(urlBase + '/events/' + currentEvent + '/photos', {photos: photosToSave})
+    }
+
     return instagramFactory;
   }
 
