@@ -2,28 +2,40 @@
   outline: 1px solid red;
 }*/
 
+
+/* Header */
 #event-form-header {
   text-align: center;
 }
 
-
+/* Form Body */
 .new-form-blocks {
   display: inline-block;
 }
 
+.new-form-blocks input, button {
+  margin-bottom: 10px;
+  display: block;
+  /*border-radius: 0px;*/
+}
+
+#event-date-input {
+  width: 190px;
+  border-radius: 4px
+}
+
+#tag-block {
+  position: relative;
+  top: -50px;
+}
+
+#event-submit-btn {
+  position: relative;
+  top: 100px;
+  left: 400px;
+}
 
 /* need to remove ig link default */
 #right a button {
   text-decoration: none;
 }
-
-
-/*.left input {
-  margin: 10px;
-}
-
-
-#right button {
-  width: 250px;
-  margin: 5px;
-}*/
