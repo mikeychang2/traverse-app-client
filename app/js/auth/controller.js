@@ -1,5 +1,5 @@
-app.controller('authController', ['$scope', '$http', '$window', '$location',
-  function ($scope, $http, $window, $location) {
+app.controller('authController', ['$scope', '$http', '$window', '$location', 'AuthenticationFactory',
+  function ($scope, $http, $window, $location, AuthenticationFactory) {
     $scope.login = false;
     $scope.signup = false;
     $scope.message = '';
@@ -7,6 +7,7 @@ app.controller('authController', ['$scope', '$http', '$window', '$location',
     $scope.new_user = {name: '', username: '', email:'', password: '' }
 
     var urlBase = ""
+
 
     $scope.authenticate = function () {
       $http.post('http://localhost:3000/auth', $scope.user)
@@ -18,6 +19,7 @@ app.controller('authController', ['$scope', '$http', '$window', '$location',
           $scope.message = 'Welcome';
           $scope.user = '';
           $location.path('/trips')
+          // AuthenticationFactory.check();
         })
         .error(function (data, status, headers, config) {
           // Erase the token if the user fails to log in
@@ -28,8 +30,9 @@ app.controller('authController', ['$scope', '$http', '$window', '$location',
           // set authservice to false
           // Handle login errors here
           $scope.message = 'Error: Invalid user or password';
-        });
+        });9
     };
+
 
      $scope.register = function() {
       console.log($scope.new_user)
@@ -53,5 +56,6 @@ app.controller('authController', ['$scope', '$http', '$window', '$location',
         delete $window.sessionStorage.token;
         delete $window.sessionStorage.user_id;
     };
+
   }]);
 

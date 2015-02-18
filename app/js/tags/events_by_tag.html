@@ -1,8 +1,8 @@
-<div ng-controller='tagsController'>
+<div ng-controller='tagsController' ng-init="eventsByTag = getEventsByTag()">
   <h2>All Events by this Tag</h2>
     <div ng-repeat="event in eventsByTag">
       <div class="single_event clearfix">
-        <div id="left">
+        <div class="left">
           <div id='title'>Event Title: {{event.title}} </div>
           <div id='date'> Date: {{event.date}}</div>
           <div id="journal_content">Journal Content: {{event.content}}</div>
@@ -21,7 +21,7 @@
 
            <button id='delete_button' ng-click="deleteEvent(event.id)">x</button>
 
-           <a href='#/trips/{{trip}}/events/{{event.id}}/update_event_partial'><button>Update Event</button></a>
+           <a href='#/trips/{{trip}}/events/{{event.id}}/update_event'><button>Update Event</button></a>
         </div>
     </div>
     </div>

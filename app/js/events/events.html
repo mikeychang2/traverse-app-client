@@ -1,4 +1,4 @@
-<div id="events" ng-controller="eventsController">
+<div id="events" ng-controller="eventsController" ng-init="events = getEvents()">
 
   <a ng-href='#/trips/{{trip}}/new_event' ng-click='insertEvent()'><button>Create New Event</button></a>
   <br><br>
@@ -12,22 +12,15 @@
   <h1>My Events for this {{trip}}</h1>
     <div ng-repeat="event in events">
       <div class="single_event clearfix">
-        <div id="left">
-          <div id='title'>Event Title: {{event.title}} </div>
+        <div class="left">
+          <a ng-href="#/trips/{{trip}}/events/{{event.id}}"><div id='title'>Event Title: {{event.title}} </div></a>
+          <div>
+
+          </div>
           <div id='date'> Date: {{event.date}}</div>
           <div id="journal_content">Journal Content: {{event.content}}</div>
         </div>
         <div id="right">
-
-
-
-  <!-- trip = Trip.find(params[:trip_id]) -->
-<!--   events_tags = EventTag.find(event.id)
-  tag_ids = events_tags.map{|event| event.tag_id}
-  tags = tag_ids.map{|id| Tag.find(id)}
-  tags.uniq!
-  tags.each { |tag| p tag.name} -->
-
 
          <div id='place'>PLACE: {{event.place}}</div>
          <div id='photos'>PHOTOS: {{event.photos}}
@@ -42,9 +35,8 @@
 
            <button id='delete_button' ng-click="deleteEvent(event.id)">x</button>
 
-           <a href='#/trips/{{trip}}/events/{{event.id}}/update_event_partial'><button>Update Event</button></a>
+           <a ng-href='#/trips/{{trip}}/events/{{event.id}}/update_event'><button>Update Event</button></a>
         </div>
     </div>
   </div>
 </div>
-

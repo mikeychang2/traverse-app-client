@@ -1,6 +1,6 @@
-<div id='tags' ng-controller='tagsController'>
+<div id='tags' ng-controller='tagsController' ng-init="allTags = getTags()">
   <h1>ALL TAGS for this Trip </h1>
-      <div ng-repeat="tag in tags">
+      <div ng-repeat="tag in allTags">
         <div class="single_event clearfix">
             <a ng-href='#/trips/{{tripId}}/events/tag/{{tag.id}}'><div> {{tag.name}} </div></a>
         </div>

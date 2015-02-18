@@ -1,5 +1,5 @@
-app.controller('eventsController', ['$scope', 'tripsFactory', 'eventsFactory', '$http', '$rootScope', '$routeParams',
-        function ($scope, tripsFactory, eventsFactory, $http, $rootScope, $routeParams) {
+app.controller('eventsController', ['$scope', 'tripsFactory', 'eventsFactory', '$http', '$rootScope', '$routeParams', '$window',
+        function ($scope, tripsFactory, eventsFactory, $http, $rootScope, $routeParams, $window) {
 
     $scope.trips;
     $scope.trip = {};
@@ -8,21 +8,9 @@ app.controller('eventsController', ['$scope', 'tripsFactory', 'eventsFactory', '
     $scope.event = {};
 
     $scope.eventsByTag;
+    $scope.tags;
 
     $scope.tripId = $routeParams.tripId
-
-    $scope.getEvents = function() {
-      eventsFactory.getEvents()
-        .success(function(response){
-          $scope.events = response
-          $scope.trip = $routeParams.tripId
-        })
-        .error(function(error){
-          $scope.status = "Unable to load events: " + error.message;
-        });
-    }
-
-    $scope.getEvents();
 
     $scope.insertEvent = function () {
         var event = $scope.event
@@ -41,6 +29,41 @@ app.controller('eventsController', ['$scope', 'tripsFactory', 'eventsFactory', '
                 $scope.status = 'Unable to insert event: ' + error.message;
             });
     };
+
+    $scope.getEvents = function() {
+      eventsFactory.getEvents()
+        .success(function(response){
+          $scope.events = response
+          $scope.trip = $routeParams.tripId
+        })
+        .error(function(error){
+          $scope.status = "Unable to load events: " + error.message;
+        });
+    }
+
+    $scope.getEvent = function() {
+      eventsFactory.getEvent($routeParams.eventId)
+        .success(function(response){
+          $scope.event = response
+          $scope.trip = $routeParams.tripId
+          // $scope.trip = $routeParams.tripId
+        })
+        .error(function(error){
+          $scope.status = "Unable to load event: " + error.message;
+        });
+    }
+
+// get tags for single event
+    $scope.getTagsForEvent  = function() {
+      eventsFactory.getTagsForEvent ($routeParams.eventId)
+        .success(function(response){
+          // debugger;
+          $scope.tags = response
+        })
+        .error(function(error){
+          $scope.status = "Unable to load event: " + error.message;
+        });
+    }
 
     $scope.deleteEvent = function (id) {
       eventsFactory.deleteEvent(id)
@@ -61,17 +84,25 @@ app.controller('eventsController', ['$scope', 'tripsFactory', 'eventsFactory', '
     $scope.updateEvent = function () {
       eventsFactory.updateEvent($rootScope.activeEvent)
           .success(function (response) {
-              for (var i = 0; i < $scope.events.length; i++) {
-                var checkEvent = $scope.events[i];
-                if (checkEvent.id === $rootScope.activeEvent.id) {
-                  $scope.events.checkEvent = response;
-                  break;
-                }
-              }
+                // var checkEvent = $rootScope.activeEvent;
+                  $scope.checkEvent = response;
+                  $window.location.href = '/#/trips/' + response.trip_id + '/events';
           })
           .error (function(error) {
             $scope.status = 'Unable to update event: ' + error.message;
           });
-      }
-  }]);
+    };
+
+    $scope.editEvent = function () {
+      eventsFactory.editEvent($scope.event)
+          .success(function (response) {
+                // var checkEvent = $scope.events[i];
+                  $scope.checkEvent = response;
+                  $window.location.href = '/#/trips/' + response.trip_id + '/events';
+          })
+          .error (function(error) {
+            $scope.status = 'Unable to edit the event: ' + error.message;
+          });
+    };
+}]);
 

@@ -57,9 +57,12 @@
     <script src="js/events/yelp/yelp-controller.js"></script>
     <script src="js/events/yelp/yelp-factory.js"></script>
     <script src="js/events/googleMaps/controller.js"></script>
-
     <script src="js/events/instagram/controller.js"></script>
     <script src="js/events/instagram/factory.js"></script>
+
+    <div ng-controller="authController">
+        <input type="button" value="logout" ng-click="logout()" ng-show="isLogged" >
+    </div>
 
 </body>
 </html>
