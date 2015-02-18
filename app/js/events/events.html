@@ -1,15 +1,21 @@
 <div id="events" ng-controller="eventsController" ng-init="events = getEvents()">
 
-  <a ng-href='#/trips/{{trip}}/new_event' ng-click='insertEvent()'><button>Create New Event</button></a>
-  <br><br>
+  <div class="toggle-btns container">
+    <div class="row">
+      <a ng-href="#/trips/{{trip}}/day"><button id='sort-day' class="col-md-4">By Day</button></a>
+      <a ng-href="#/trips/{{trip}}/mapView"><button id='sort-day' class="col-md-4">Trip Overview</button></a>
+      <a ng-href="#/trips/{{trip}}/tags"><button id='sort-day' class="col-md-4">By Tag</button></a>
+    </div>
+  </div>
+<br>
 
-  <div id='header'>
-    <div id='sort_day'>Sort by Day</div>
-    <a ng-href="#/trips/{{trip}}/mapView"><div id='overview'>Overview Map Thing</div></a>
-    <a ng-href="#/trips/{{trip}}/tags"><div id='sort_tag'>Sort by Tag</div></a>
+  <div class="container text-center">
+    <div class="row">
+      <a ng-href='#/trips/{{trip}}/new_event' ng-click='insertEvent()'><button id="create-event-btn" class="col-md-3">Create New Event</button></a>
+    </div>
   </div>
 
-  <h1>My Events for this {{trip}}</h1>
+  <h1 class="container">My Events</h1>
     <div ng-repeat="event in events">
       <div class="single_event clearfix">
         <div class="left">
