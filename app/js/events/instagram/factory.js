@@ -12,6 +12,10 @@ app.factory('instagramFactory', ['$http',
       return $http.get(urlBase + '/instagram/photos')
     }
 
+    instagramFactory.checkUser = function () {
+      return $http.get(urlBase + '/instagram/checker')
+    }
+
     return instagramFactory;
   }
 

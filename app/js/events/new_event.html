@@ -21,7 +21,7 @@
         <div class="fb-pics-div" ng-repeat="photo in photos">
           <img class="fb-pics" src="{{photo}}" ng-click="toggleCustom(photo)" />
         </div>
-        <input type="submit" ng-click="savePhotos(currentEvent)" id="sendPhotos" value="Submit"/>
+        <input type="submit" ng-click="savePhotos(currentEvent)" id="sendPhotos" value="Add"/>
       </modal-dialog>
 
     </div>
@@ -29,26 +29,21 @@
 
     <!-- INSTAGRAM AREAS -->
    <div ng-controller="instagramController">
-    <input type="submit" ng-click="igLogin()" value="Oauth Instagram" />
-    <a href="https://instagram.com/oauth/authorize/?client_id=cb89d1dac394466e9767ad0e3bf9c6bf&redirect_uri=http://localhost:9000/instagram.html&response_type=code">Login</a>
+    <a href="https://instagram.com/oauth/authorize/?client_id=cb89d1dac394466e9767ad0e3bf9c6bf&redirect_uri=http://localhost:9000/instagram.html&response_type=code"><button ng-click="igAuth()" ng-show="instaCookies == 'false'">Connect to Instagram</button></a>
+    <button ng-click="igLogin(); toggleIG()" ng-show="instaCookies == 'true'">Add Photos from Instagram</button>
 
+    <modal-dialog show='IGShown' dialog-title="Add Photos" width='75%' height='80%'>
+      <div ng-repeat="photo in photos">
+        <img class="ig-pics" src="{{photo}}" ng-click="toggleCustom(photo)"/>
+      </div>
+      <input type="submit" ng-click="savePhotos(currentEvent)" id="sendPhotos" value="Add"/>
+    </modal-dialog>
 
-    <div ng-repeat="photo in photos">
-    <img src="{{photo}}" />
   </div>
   <!-- END INSTAGRAM AREAS -->
 
-</div>
 
-
-      <div>
-      <button ng-click='toggleIG()'>Add Photos from Instagram</button>
-        <modal-dialog show='IGShown' dialog-title="Add Photos" width='75%' height='80%'>
-        <p>Instagram photos here<p>
-        </modal-dialog>
-      </div>
-
-      <div id="yelp-modal">
+    <div id="yelp-modal">
       <button ng-click='toggleYelp()'>Add Places</button>
         <modal-dialog show='yelpShown' dialog-title="Add Photos" width='75%' height='80%'>
           <p>Yelp links here<p>
