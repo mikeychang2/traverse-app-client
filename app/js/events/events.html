@@ -1,11 +1,11 @@
 <div id="events" ng-controller="eventsController" ng-init="events = getEvents()">
 
-  <a ng-href='#/trips/{{trip}}/new_event_partial' ng-click='insertEvent()'><button>Create New Event</button></a>
-
+  <a ng-href='#/trips/{{trip}}/new_event' ng-click='insertEvent()'><button>Create New Event</button></a>
   <br><br>
+
   <div id='header'>
     <div id='sort_day'>Sort by Day</div>
-    <div id='overview'>Overview Map Thing</div>
+    <a ng-href="#/trips/{{trip}}/mapView"><div id='overview'>Overview Map Thing</div></a>
     <a ng-href="#/trips/{{trip}}/tags"><div id='sort_tag'>Sort by Tag</div></a>
   </div>
 
@@ -35,7 +35,7 @@
 
            <button id='delete_button' ng-click="deleteEvent(event.id)">x</button>
 
-           <a ng-href='#/trips/{{trip}}/events/{{event.id}}/update_event_partial'><button>Update Event</button></a>
+           <a ng-href='#/trips/{{trip}}/events/{{event.id}}/update_event'><button>Update Event</button></a>
         </div>
     </div>
   </div>

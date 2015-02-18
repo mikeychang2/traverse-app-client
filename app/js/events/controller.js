@@ -18,8 +18,9 @@ app.controller('eventsController', ['$scope', 'tripsFactory', 'eventsFactory', '
             .success(function (response) {
                 $scope.status = 'Inserted event! Refreshing event list.';
                 $rootScope.activeEvent = response;
-                $rootScope.tagCaptureEvent = response;
-                $rootScope.currentEvent = response.id
+                $rootScope.currentEvent = response.id;
+                console.log($rootScope.activeEvent)
+                console.log($rootScope.currentEvent);
                 // $scope.event.title = ''
                 // $scope.event.date = ''
                 // $scope.event.content = ''
@@ -103,6 +104,5 @@ app.controller('eventsController', ['$scope', 'tripsFactory', 'eventsFactory', '
             $scope.status = 'Unable to edit the event: ' + error.message;
           });
     };
-
 }]);
 

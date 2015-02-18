@@ -1,0 +1,13 @@
+<div ng-controller="googleMapsController">
+	<h2>Places you visited in your trip</h2>
+	<ui-gmap-google-map center='map.center' zoom='map.zoom'>
+		<div ng-repeat="marker in markerList">
+		 <ui-gmap-marker idkey="marker.id" coords="marker.coords"  >
+			<ui-gmap-window isIconVisibleOnClick="true">
+				<p>{{marker.message}}</p>
+			</ui-gmap-window>
+		</ui-gmap-marker>
+	</div>
+		<!-- </div> -->
+	</ui-gmap-google-map>
+</div>
