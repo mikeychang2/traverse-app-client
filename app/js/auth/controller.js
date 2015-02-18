@@ -5,6 +5,7 @@ app.controller('authController', ['$scope', '$http', '$window', '$location', 'Au
     $scope.message = '';
     $scope.user = {username: '', password: ''};
     $scope.new_user = {name: '', username: '', email:'', password: '' }
+    $scope.oneAtATime = true;
 
     var urlBase = ""
 
