@@ -2,7 +2,7 @@ app.controller('googleMapsController', ['$scope', '$http', '$window', '$routePar
   function ($scope, $http, $window, $routeParams) {
 
 	var urlBase = 'http://localhost:3000';
-	$scope.map = { center: { latitude: 37.7833, longitude: -122.4167 }, zoom: 8 };
+	$scope.map = { center: { latitude: 37.7833, longitude: -122.4167 }, zoom: 12 };
 	$scope.tripId = $routeParams.tripId;
 	$scope.markerList = [];
 
@@ -16,7 +16,6 @@ app.controller('googleMapsController', ['$scope', '$http', '$window', '$routePar
  // 		   message: "test"
  //        };
 
-	
 	$scope.parseResponse = function (places){
 		for (var i=0; i < places.length; i++){
 			var coord = places[i].coordinates.split(",");
@@ -34,19 +33,25 @@ app.controller('googleMapsController', ['$scope', '$http', '$window', '$routePar
 			}
 			$scope.markerList.push(marker)
 		}
-		console.log($scope.markerList);
+		var coord = places[0].coordinates.split(",");
+		var latitude_val = coord[0];
+		var longitude_val = coord[1];
+		$scope.map.center.latitude = latitude_val;
+		$scope.map.center.longitude = longitude_val;
+		// console.log($scope.map.center.longitude);
+		// console.log($scope.markerList);
 		return $scope.markerList
 	}
 
 	$scope.getPlaces = function (){
 		$http.get(urlBase + '/trips/' + $scope.tripId + "/map")
-            .success(function(response){
+     .success(function(response){
 				$scope.parseResponse(response);
 				// debugger;
-            })
-            .error(function(error){
-              $scope.status = "Unable to get places: " + error.message;
-        });
+      })
+      .error(function(error){
+        $scope.status = "Unable to get places: " + error.message;
+   });
 
 	}
 
