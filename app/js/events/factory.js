@@ -8,8 +8,16 @@ app.factory('eventsFactory', ['$http', '$routeParams', function($http, $routePar
         return $http.get(urlBase + '/events');
     };
 
+    eventsFactory.getAllEvents = function () {
+        return $http.get(urlBase + '/all_events');
+    };
+
     eventsFactory.getEvent = function (id) {
-        return $http.get(urlBase + '/events' + id);
+        return $http.get(urlBase + '/events/' + id);
+    };
+
+    eventsFactory.getTagsForEvent = function (id) {
+        return $http.get(urlBase + '/events/' + id + '/tags');
     };
 
     eventsFactory.insertEvent = function () {
@@ -17,13 +25,20 @@ app.factory('eventsFactory', ['$http', '$routeParams', function($http, $routePar
     };
 
     eventsFactory.updateEvent = function (event) {
+        return $http.put(urlBase + '/events/' + event.id, event)
+    };
 
-        console.log(event);
+    eventsFactory.editEvent = function (event) {
         return $http.put(urlBase + '/events/' + event.id, event)
     };
 
     eventsFactory.deleteEvent = function (id) {
         return $http.delete(urlBase + '/events/' + id);
+    };
+
+    // Call Server API to return photos for that event
+    eventsFactory.getPhotosForEvent = function (id) {
+        return $http.get('http://localhost:3000/events/' + id + '/photos');
     };
 
     return eventsFactory;

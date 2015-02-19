@@ -1,48 +1,42 @@
 
-<div id="events" ng-controller="eventsController">
+<div id="events" ng-controller="eventsController" ng-init="event = getEvent(); tags = getTagsForEvent(); photos = getPhotosForEvent()">
 
-<h1>This is a Single Event Page</h1>
-<!--   <h3 ng-repeat="event in events">
-    <a href="/#/trips/{{trip}}/events/{{event.id}}">{{ event.title }}</a>
-  </h3>
- -->
-<!--   <form ng-submit="insertEvent()" ng-controller="eventsController">
-    <input type="text" ng-model="event.title" placeholder="bar hopping">
-    <input type="submit" value="submit">
-  </form> -->
+<div class="row">
+  <h1 class="text-center">{{event.title}}</h1>
+</div>
+
+<div class="row">
+  <div>button1 class="col-xs-4"</div>
 
   <div class="single_event clearfix">
-        <div id="left">
-          <div id='title'>Event Title: {{event.title}} </div>
-          <div id='date'> Date: {{event.date}}</div>
-          <div id="journal_content">Journal Content: {{event.content}}</div>
-        </div>
-        <div id="right">
-         <!-- <div id='tags'>TAGS: {{event.tags.name}}</div> -->
 
+      <div class="left">
+        <div id='title'>Event Title: {{event.title}} </div>
+        <div id='date'> Date: {{event.date}}</div>
+        <div id="journal_content">Journal Content: {{event.content}}</div>
+      </div>
 
-  <!-- trip = Trip.find(params[:trip_id]) -->
-<!--   events_tags = EventTag.find(event.id)
-  tag_ids = events_tags.map{|event| event.tag_id}
-  tags = tag_ids.map{|id| Tag.find(id)}
-  tags.uniq!
-  tags.each { |tag| p tag.name} -->
+      <div id="right">
 
+        <br>TAGS:
+        <ul>
+
+        <div id="right" ng-repeat="tag in tags">
+          <li> {{tag.name}}</li>
+        </div></ul><br>
 
          <div id='place'>PLACE: {{event.place}}</div>
-         <div id='photos'>PHOTOS: {{event.photos}}
-            <!-- STOCK PHOTOS FOR TESTING -->
-            <img src="http://upload.wikimedia.org/wikipedia/commons/a/ae/Sydney_Opera_House_at_Sunset.jpg"></img>
-            <img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQ_769lSvSnwpQLJe2BsXuimfgoBt9H0fP3yujEd7yq2crEyDsUhNIXKIc"></img>
-            <img src="http://s.ngm.com/2011/05/great-barrier-reef/img/great-barrier-reef-diver-615.jpg"></img>
-            <img src="http://squirrelsgonecrazyinaustralia.weebly.com/uploads/1/5/5/5/15556150/5253500.jpg?889"></img>
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR75ZV9n_kpar77jET_dIU7976F8FZ34Vwvrxg5Q_URVV8By7y2_5JO5mw"></img>
-            <img src="http://www.travelvivi.com/wp-content/uploads/2011/07/Kangaroo1.jpg"></img>
+
+          <p>Photos:</p>
+         <div id='photos' ng-repeat="onePhoto in photos">
+            <div class="single-photo">
+              <a ng-href="{{onePhoto}}"><img ng-src="{{onePhoto}}"></a>
+            </div>
          </div>
 
            <button id='delete_button' ng-click="deleteEvent(event.id)">x</button>
 
-           <a href='#/trips/{{trip}}/events/{{event.id}}/update_event_partial'><button>Update Event</button></a>
+           <a ng-href='#/trips/{{trip}}/events/{{event.id}}/update_event'><button>Update Event</button></a>
         </div>
     </div>
 

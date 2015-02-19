@@ -1,11 +1,14 @@
-app.controller('tagsController', ['$scope', 'tagsFactory', 'tripsFactory', 'eventsFactory', '$http', '$routeParams',
-        function ($scope, tagsFactory, tripsFactory, eventsFactory, $http, $routeParams) {
+app.controller('tagsController', ['$scope', '$rootScope', 'tagsFactory', 'tripsFactory', 'eventsFactory', '$http', '$routeParams',
+        function ($scope, $rootScope, tagsFactory, tripsFactory, eventsFactory, $http, $routeParams) {
 
     $scope.trips;
     $scope.trip = {};
 
     $scope.tags;
     $scope.tag = {};
+    $scope.tagName;
+    $scope.placesByTag;
+    $scope.photosByTag;
 
     $scope.tripId = $routeParams.tripId
     $scope.tagId = $routeParams.tagId
@@ -14,29 +17,54 @@ app.controller('tagsController', ['$scope', 'tagsFactory', 'tripsFactory', 'even
     $scope.getTags = function() {
       tagsFactory.getTags($routeParams.tripId)
         .success(function(response){
-          $scope.tags = response
+          $scope.allTags = response
         })
         .error(function(error){
           $scope.status = "Unable to load tags: " + error.message;
         });
     };
-    $scope.getTags();
 
-    getEventsByTag = function() {
+    $scope.getTagsForEventTagFactory  = function() {
+      tagsFactory.getTagsForEventTagFactory ($routeParams.eventId)
+        .success(function(response){
+          $scope.tags = response
+        })
+        .error(function(error){
+          $scope.status = "Unable to load event: " + error.message;
+        });
+    }
+
+    $scope.getEventsByTag = function() {
       tagsFactory.getEventsByTag($routeParams.tripId, $routeParams.tagId)
         .success(function(response){
-          $scope.eventsByTag = response    
+          $scope.eventsByTag = response['events']  
+          $scope.tagName = response['tag_name']
+          $scope.placesByTag = response['places']
+          $scope.trip = $routeParams.tripId
+          $scope.photosByTag = response['photos']
+          console.log($scope.photosByTag)
         })
         .error(function(error){
           $scope.status = "Unable to load event by tags: " + error.message;
         });
     };
 
-    getEventsByTag();
-
     $scope.insertTag = function () {
         var tag = $scope.tag
-        tagsFactory.insertTag(tag, $routeParams.eventId)
+        tagsFactory.insertTag(tag, $rootScope.activeEvent.id)
+            .success(function (response) {
+                $scope.status = 'Inserted tag! Refreshing event.';
+                $scope.allTags.push(response);
+                $scope.tag.name = ''
+            }).
+            error(function(error) {
+                $scope.status = 'Unable to create tag: ' + error.message;
+            });
+    };
+
+    $scope.insertTagForUpdateEvent = function () {
+        var tag = $scope.tag
+        tagsFactory.insertTagForUpdateEvent(tag, $routeParams.eventId)
             .success(function (response) {
                 $scope.status = 'Inserted tag! Refreshing event.';
                 $scope.tags.push(response);
@@ -46,53 +74,5 @@ app.controller('tagsController', ['$scope', 'tagsFactory', 'tripsFactory', 'even
                 $scope.status = 'Unable to create tag: ' + error.message;
             });
     };
-
-    // $scope.deleteEvent = function (id) {
-    //   eventsFactory.deleteEvent(id)
-    //       .success(function () {
-    //           for (var i = 0; i < $scope.events.length; i++) {
-    //             var checkEvent = $scope.events[i];
-    //             if (checkEvent.id === id) {
-    //               $scope.events.splice(i, 1);
-    //               break;
-    //             }
-    //           }
-    //       })
-    //       .error (function(error) {
-    //         $scope.status = 'Unable to delete event: ' + error.message;
-    //       });
-    // };
-
-
-    // $scope.updateEvent = function (id) {
-    //   eventsFactory.updateEvent(id)
-    //     .success(function(response) {
-    //       for (var i = 0; i < $scope.events.length; i++) {
-    //             var checkEvent = $scope.events[i];
-    //             if (checkEvent.id === id) {
-    //               $scope.events.checkEvent=response;
-    //               break;
-    //             }
-    //       }
-    //     })
-    //     .error (function(){
-    //       $scope.status = 'Unable to update: ' + error.message;
-    //     })
-    // }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 }]);

@@ -1,23 +1,21 @@
-.container {
-  border: 2px black solid;
+.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+
+html {
+  text-transform: uppercase;
+  font-weight: bold;
 }
 
-#all-trips {
-  text-align: center;
-  padding: 75px;
+a:active {
+  color: gray;
 }
 
-.trip {
-  margin: 30px;
-  text-align: center;
-  padding: 2%;
-  display: inline-block;
-  border: 2px black solid;
-}
-
-.trip a {
+a {
   text-decoration: none;
 }
+
+.container {
+}
+
 
 /*Buttons*/
 #auth {
@@ -42,3 +40,5 @@
   margin: 20px;
   color: white;
 }
+
+.angular-google-map-container { height: 400px; }

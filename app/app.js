@@ -1,7 +1,10 @@
 var app = angular.module('traverseApp', [
   'ngStorage',
   'ngRoute',
-  'ngModal'
+  'ngModal',
+  'uiGmapgoogle-maps',
+  'ngCookies',
+  'ui.bootstrap'
   ]);
 
 app.config(['$routeProvider', function ($routeProvider) {
@@ -22,17 +25,21 @@ app.config(['$routeProvider', function ($routeProvider) {
         controller: 'eventsController',
         templateUrl: 'js/events/events.html'
     })
+    .when('/trips/:tripId/events/:eventId', {
+        controller: 'eventsController',
+        templateUrl: 'js/events/event.html'
+    })
     .when('/trips/:tripId/tags', {
         controller: 'tagsController',
         templateUrl: 'js/tags/tags.html'
     })
-    .when('/trips/:tripId/new_event_partial', {
+    .when('/trips/:tripId/new_event', {
         controller: 'eventsController',
-        templateUrl: 'js/events/new_event_partial.html'
+        templateUrl: 'js/events/new_event.html'
     })
-    .when('/trips/:tripId/events/:eventId/update_event_partial', {
+    .when('/trips/:tripId/events/:eventId/update_event', {
         controller: 'eventsController',
-        templateUrl: 'js/events/update_event_partial.html'
+        templateUrl: 'js/events/update_event.html'
     })
 
     .when('/trips/:tripId/events/tag/:tagId', {
@@ -44,11 +51,19 @@ app.config(['$routeProvider', function ($routeProvider) {
         controller: 'facebookController',
         templateUrl: 'views/facebook.html'
     })
+    .when('/instagram', {
+        controller: 'instagramController',
+        templateUrl: 'js/events/instagram/instagram.html'
+    })
+
+    .when('/trips/:tripId/mapView', {
+        controller: 'googleMapsController',
+        templateUrl: 'js/events/googleMaps/maps.html'
+    })
+
 
     .otherwise({ redirectTo: '/' })
 }]);
-
-
 
 // in case we decide to do single event views later:
 

@@ -1,0 +1,89 @@
+/*.clearfix {
+  overflow: auto;
+}
+*/
+
+/** {
+  outline: 1px solid red;
+}*/
+
+#events a {
+  padding: 0;
+  color: black;
+  text-decoration: none;
+}
+
+a:active{
+  color: black;
+  text-decoration: none;
+}
+
+a:visited{
+  color:black;
+}
+
+a:hover {
+  text-decoration: none;
+  color: gray;
+}
+
+.events-header{
+  font-size: 1.5em;
+  margin-bottom: 1.5%;
+  border-bottom: 1px gray solid;
+}
+
+.events-header h1{
+ margin-bottom: 1.5%;
+}
+
+/*single events*/
+.single-event {
+  border-bottom: 1px gray solid;
+  padding-bottom: 4%;
+  padding-top: 4%;
+}
+
+.event-title {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.event-place {
+  padding:0;
+  margin: 0;
+  font-weight: bold;
+}
+
+.event-date {
+  padding:0;
+  margin:0;
+  font-weight: bold;
+}
+
+.event-journal-content {
+  margin: 0;
+  padding-bottom: 30%;
+  font-weight: bold;
+}
+
+.update-btn {
+  font-size: 0.8em;
+}
+
+/*Carousel*/
+.slides-control img {
+  margin: auto;
+  border: 1px solid black;
+}
+
+.carousel-control.left, .carousel-control.right {
+    background-image: none !important;
+}
+
+.delete-button {
+  float: right;
+  padding: 0;
+  margin: 0;
+}
+

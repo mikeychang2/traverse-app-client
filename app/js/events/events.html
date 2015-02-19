@@ -1,58 +1,69 @@
-<div id="events" ng-controller="eventsController">
-  <!-- <form ng-submit="insertEvent()"> -->
-<!--     <input type="text" ng-model="event.title" placeholder="bar hopping">
-    <input type="submit" value="submit">
-    {{ event.title }}
-  </form> -->
-<!--   <form ng-submit='insertEvent()'>
-  <a ng-href='#/trips/{{trip}}/new_event_partial'><input type="submit" value="Create New Event"/></a>
-  </form>
- -->
-  <a ng-href='#/trips/{{trip}}/new_event_partial' ng-click='insertEvent()'><button>Create New Event</button></a>
+<div id="events" ng-controller="eventsController" ng-init="events = getAllEvents()">
+  <div class="toggle-btns container">
+    <div class="row">
+      <a ng-href="#/trips/{{trip}}/day"><button id='sort-day' class="col-xs-4 btn-large">By Day</button></a>
+      <a ng-href="#/trips/{{trip}}/mapView"><button id='sort-day' class="col-xs-4 btn-large">Trip Overview</button></a>
+      <a ng-href="#/trips/{{trip}}/tags"><button id='sort-day' class="col-xs-4 btn-large">By Tag</button></a>
+    </div><br>
 
-  <br><br>
-  <div id='header'>
-    <div id='sort_day'>Sort by Day</div>
-    <div id='overview'>Overview Map Thing</div>
-    <a ng-href="#/trips/{{trip}}/tags"><div id='sort_tag'>Sort by Tag</div></a>
-  </div>
+    <div class="events-header">
+      <h1 class="text-center">My Events</h1>
+      <div class="row center-event-btn">
+        <div class="col-xs-3 col-xs-offset-1"></div>
+        <a ng-href='#/trips/{{trip}}/new_event' ng-click='insertEvent()' class="col-xs-4"><button class="create-event-btn center-block">Add New Event</button></a>
+        <div class="col-xs-3 col-xs-offset-1"></div>
+      </div><br>
+    </div>
 
-  <h1>My Events for this {{trip}}</h1>
+  <!-- EVENTS BOXES -->
     <div ng-repeat="event in events">
-      <div class="single_event clearfix">
-        <div id="left">
-          <div id='title'>Event Title: {{event.title}} </div>
-          <div id='date'> Date: {{event.date}}</div>
-          <div id="journal_content">Journal Content: {{event.content}}</div>
+      <!-- Each single event -->
+      <div class="row one-event center-block single-event">
+        <!-- Left side of event box with journal -->
+        <div class="left col-xs-6">
+          <a ng-href="#/trips/{{trip}}/events/{{event[0].id}}" class="event-title text-center">Title: {{event[0].title}}</a>
+          <p class='event-place'>Place: {{event[0].place}}</p>
+          <p class='event-date'> Date: {{event[0].date}}</p>
+          <p class="event-journal-content">Journal: {{event[0].content}}</p>
+          <div class="row">
+            <a ng-href='#/trips/{{trip}}/events/{{event[0].id}}/update_event' class="col-xs-4 col-xs-offset-4 update-btn"><button class="mini-small update-btn">Update</button></a>
+          </div>
+<!--
+          <p>Photos:</p>
+          <div ng-repeat="photo in event[1]">
+            <div class="single-photo">
+              <img ng-src="{{photo.url}}">
+            </div>
+          </div> -->
+
         </div>
-        <div id="right">
 
-
-
-  <!-- trip = Trip.find(params[:trip_id]) -->
-<!--   events_tags = EventTag.find(event.id)
-  tag_ids = events_tags.map{|event| event.tag_id}
-  tags = tag_ids.map{|id| Tag.find(id)}
-  tags.uniq!
-  tags.each { |tag| p tag.name} -->
-
-
-         <div id='place'>PLACE: {{event.place}}</div>
-         <div id='photos'>PHOTOS: {{event.photos}}
-            <!-- STOCK PHOTOS FOR TESTING -->
-            <img src="http://upload.wikimedia.org/wikipedia/commons/a/ae/Sydney_Opera_House_at_Sunset.jpg"></img>
-            <img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQ_769lSvSnwpQLJe2BsXuimfgoBt9H0fP3yujEd7yq2crEyDsUhNIXKIc"></img>
-            <img src="http://s.ngm.com/2011/05/great-barrier-reef/img/great-barrier-reef-diver-615.jpg"></img>
-            <img src="http://squirrelsgonecrazyinaustralia.weebly.com/uploads/1/5/5/5/15556150/5253500.jpg?889"></img>
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR75ZV9n_kpar77jET_dIU7976F8FZ34Vwvrxg5Q_URVV8By7y2_5JO5mw"></img>
-            <img src="http://www.travelvivi.com/wp-content/uploads/2011/07/Kangaroo1.jpg"></img>
-         </div>
-
-           <button id='delete_button' ng-click="deleteEvent(event.id)">x</button>
-
-           <a href='#/trips/{{trip}}/events/{{event.id}}/update_event_partial'><button>Update Event</button></a>
+        <!-- Right side of event box with photo carousel -->
+          <!-- Delete Button on Top Right -->
+        <div class="right col-xs-6">
+         <!--  <div class="row delete-btn pull-right">
+            <div class="x-btn">
+               <span class="glyphicon glyphicon-remove" ng-click="deleteEvent(event[0].id)"></span>
+            </div>
+          </div><br>
+ -->
+          <!-- Carousel -->
+          <div class="row carousel-slides">
+            <div ng-controller="carouselController" class="slides-control">
+                <carousel interval="myInterval">
+                  <slide ng-repeat="slide in event[1]" active="slide.active">
+                    <img ng-src="{{slide.url}}">
+                  </slide>
+                </carousel>
+              </div>
+          </div>
         </div>
+
+
+      </div>
     </div>
   </div>
-</div>
 
+
+
+</div>
