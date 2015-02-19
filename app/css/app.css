@@ -2,31 +2,27 @@
 
 html {
   text-transform: uppercase;
+  font-weight: bold;
 }
+
 
 .container {
   /*border: 2px black solid;*/
   margin-right: auto;
   margin-left: auto;
 
+
+a:active {
+  color: gray;
 }
 
-#all-trips {
-  text-align: center;
-  padding: 75px;
-}
-
-.trip {
-  margin: 30px;
-  text-align: center;
-  padding: 2%;
-  display: inline-block;
-  border: 2px black solid;
-}
-
-.trip a {
+a {
   text-decoration: none;
 }
+
+.container {
+}
+
 
 /*Buttons*/
 

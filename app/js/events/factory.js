@@ -8,6 +8,10 @@ app.factory('eventsFactory', ['$http', '$routeParams', function($http, $routePar
         return $http.get(urlBase + '/events');
     };
 
+    eventsFactory.getAllEvents = function () {
+        return $http.get(urlBase + '/all_events');
+    };
+
     eventsFactory.getEvent = function (id) {
         return $http.get(urlBase + '/events/' + id);
     };
@@ -30,6 +34,11 @@ app.factory('eventsFactory', ['$http', '$routeParams', function($http, $routePar
 
     eventsFactory.deleteEvent = function (id) {
         return $http.delete(urlBase + '/events/' + id);
+    };
+
+    // Call Server API to return photos for that event
+    eventsFactory.getPhotosForEvent = function (id) {
+        return $http.get('http://localhost:3000/events/' + id + '/photos');
     };
 
     return eventsFactory;
