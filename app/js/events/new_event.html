@@ -3,7 +3,7 @@
 <div class='event-form-body row'>
 
   <div class="new-form-blocks col-xs-4 col-xs-offset-3">
-    <div  ng-controller='eventsController' ng-init="event = getEvent()">
+    <div  ng-controller='eventsController' ng-init=" insertEvent()">
       <form ng-submit="updateEvent()">
         <input type="text" ng-model="activeEvent.title" placeholder="Event Title" id="event-title-form"/>
 
