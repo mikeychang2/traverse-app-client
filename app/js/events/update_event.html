@@ -85,13 +85,14 @@
 
           <div id="yelp-modal">
             <button class="yelp-button" ng-click='toggleYelp()'><i class="fa fa-yelp"></i> Places</button>
-            <modal-dialog show='yelpShown' dialog-title="Add Photos" width='75%' height='80%'>
-              <p>Yelp links here<p>
+            <modal-dialog show='yelpShown' dialog-title="Update Place" width='75%' height='80%'>
               <div id="yelp-container" ng-controller="yelpController">
                 <form>
-                  <input type="text" ng-model="yelp.search" placeholder="Search">
-                  <input type="text" ng-model="yelp.location" placeholder="Location">
-                  <input type="submit" value="search"  ng-click="searchYelp()">
+                  <div class="row">
+                    <input type="text" ng-model="yelp.search" placeholder="Search">
+                    <input type="text" ng-model="yelp.location" placeholder="Location">
+                    <input type="submit" value="search"  ng-click="searchYelp()">
+                  </div>
                 </form>
                 <div class="results-index" ng-controller="eventsController">
                   <div class="yelp-result" ng-repeat="result in results"style="background-image:url({{result.image_url}}); width: 100px; height:''" ng-click="addPlace(result, currentEvent)">
