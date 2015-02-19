@@ -9,4 +9,6 @@ app.controller('carouselController', ['$scope',
         image: 'http://lorempixel.com/400/200/food'
       }
     ];
+
+    // $scope.eventPhotos = [];
 }]);

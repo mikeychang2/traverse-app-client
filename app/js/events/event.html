@@ -1,43 +1,52 @@
-
+<!-- <div class='single_event-container'>
+  <div> -->
 <div id="events" ng-controller="eventsController" ng-init="event = getEvent(); tags = getTagsForEvent(); photos = getPhotosForEvent()">
 
-<div class="row">
-  <h1 class="text-center">{{event.title}}</h1>
-</div>
 
-<div class="row">
-  <div>button1 class="col-xs-4"</div>
 
-  <div class="single_event clearfix">
+    <div class='row event-header'>{{event[0].title}}</div>
 
-      <div class="left">
-        <div id='title'>Event Title: {{event.title}} </div>
-        <div id='date'> Date: {{event.date}}</div>
-        <div id="journal_content">Journal Content: {{event.content}}</div>
+    <div class="row single-event-show clearfix pull-right">
+      <!-- LEFT -->
+      <div class="left col-xs-6">
+          <div class='event-show-date'> {{event[0].date}}</div>
+          <div class='event-show-journal'><strong>Thoughts...</strong> {{event[0].content}}</div>
       </div>
+     <!-- RIGHT -->
+      <div class="right col-xs-6">
+        <div class="place-box">
+            <div class='event-place-name text-center'>{{event[1].name}}</div>
+            <div class='event-place-address text-center'>{{event[1].address}}</div><br>
+            <a class='event-place-link' href='{{event[1].yelp_link}}'><button class="mini-btn event-place-link">Check it out</button></a>
+        </div>
+      </div>
+    </div>
 
-      <div id="right">
+    <div class="row">
+       <div class="left carousel-slides photos-events col-xs-6">
+           <div ng-controller="eventPhotosController" class="slides-control">
+             <carousel interval="myInterval">
+                <slide ng-repeat="onePhoto in photos" active="eventPhotos.active">
+                  <img ng-src="{{onePhoto}}">
+                </slide>
+             </carousel>
+           </div>
+        </div>
 
-        <br>TAGS:
-        <ul>
-
-        <div id="right" ng-repeat="tag in tags">
-          <li> {{tag.name}}</li>
-        </div></ul><br>
-
-         <div id='place'>PLACE: {{event.place}}</div>
-
-          <p>Photos:</p>
-         <div id='photos' ng-repeat="onePhoto in photos">
-            <div class="single-photo">
-              <a ng-href="{{onePhoto}}"><img ng-src="{{onePhoto}}"></a>
-            </div>
-         </div>
-
-           <button id='delete_button' ng-click="deleteEvent(event.id)">x</button>
-
-           <a ng-href='#/trips/{{trip}}/events/{{event.id}}/update_event'><button>Update Event</button></a>
+        <div class="tags-event col-xs-5 col-xs-offset-1">
+         <p class="text-center tag-title">TAGS:<p>
+            <ul>
+              <div ng-repeat="tag in tags">
+                <span class="one-tag"> {{tag.name}}</span>
+              </div>
+            </ul><br>
         </div>
     </div>
+
+
+
+
+
+
 
 </div>
