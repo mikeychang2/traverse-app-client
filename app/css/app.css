@@ -5,12 +5,10 @@ html {
   font-weight: bold;
 }
 
-
 .container {
   /*border: 2px black solid;*/
   margin-right: auto;
   margin-left: auto;
-
 
 a:active {
   color: gray;
@@ -20,12 +18,7 @@ a {
   text-decoration: none;
 }
 
-.container {
-}
-
-
 /*Buttons*/
-
 #buttons {
   margin-right: auto;
   margin-left: auto;
@@ -44,4 +37,3 @@ a {
   color: white;
 }
 
-.angular-google-map-container { height: 400px; }
