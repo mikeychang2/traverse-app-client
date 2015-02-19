@@ -95,8 +95,10 @@
                   </div>
                 </form>
                 <div class="results-index" ng-controller="eventsController">
-                  <div class="yelp-result" ng-repeat="result in results"style="background-image:url({{result.image_url}}); width: 100px; height:''" ng-click="addPlace(result, currentEvent)">
+                  <div class="results-overflow">
+                    <div class="yelp-result" ng-repeat="result in results"style="background-image:url({{result.image_url}}); width: 100px; height:''" ng-click="addPlace(result, currentEvent)">
                     <p>{{result.name}}</p>
+                   </div>
                   </div>
                 </div>
               </div>
