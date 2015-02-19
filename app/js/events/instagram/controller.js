@@ -13,6 +13,8 @@ app.controller ('instagramController' , ['$scope', 'instagramFactory', '$http', 
       if (typeof $cookies.instaCookies == 'undefined') {
         $cookies.instaCookies = "false"
       }
+        console.log($cookies.instaCookies)
+        console.log("cookies?")
     }
 
     $scope.checkInstaCookies();
@@ -58,8 +60,7 @@ app.controller ('instagramController' , ['$scope', 'instagramFactory', '$http', 
      $scope.toggleCustom = function(photo) {
         console.log(photo)
         $scope.photosReference[photo] = $scope.photosReference[photo] === false ? true: false;
-        // $(this).toggleClass('selected-highlight', $scope.photosReference[photo])
-
+        $("img[src$='" + photo + "']").toggleClass('selected-highlight', $scope.photosReference[photo])
         console.log("added or removed!")
     };
 

@@ -2,7 +2,6 @@
   outline: 1px solid red;
 }*/
 
-
 /* Header */
 #event-form-header {
   text-align: center;
@@ -30,6 +29,11 @@
   left: 325px;
 }
 
+
+#tag-block h6 {
+  margin-bottom: 3px;
+}
+
 .each-tag {
   display:inline-block;
   border: 1px black solid;
@@ -44,37 +48,46 @@
   vertical-align: top;
 }
 
+.event-form-body i {
+  padding-left: 2px;
+}
+
 
 /* Button */
 #event-submit-btn {
   position: relative;
-  top: 100px;
+  top: 100%;
   left: 200px;
 }
 
 #event-submit-btn:hover {
   background-color: #232423;
+  border: #232423;
   color: white;
 }
 
-/* need to remove ig link default */
-#right a button {
-  text-decoration: none;
-}
-
-
-/*
 .facebook-button {
   color: white;
+  background-color: #3b5998;
+  border: #3b5998;
 }
 
 .instagram-button {
   color: white;
+  background-color: #517fa4;
+  border: #517fa4;
+  text-decoration: none;
+}
+
+.instagram-button a {
+
 }
 
 .yelp-button {
+  background-color: #C93C27;
+  border: #C93C27;
   color: white;
-}*/
+}
 
 .new-event-right button {
   width: 150px;
@@ -84,36 +97,70 @@
   color: white;
 }
 
-.facebook-button:hover {
-  background-color: #3b5998;
-  border: #3b5998;
+#tag-block .enter-tag-btn:hover {
   color: white;
-}
-.instagram-button:hover {
-  background-color: #517fa4;
-  border: #517fa4;
-  color: white;
-}
-.yelp-button:hover {
-  background-color: #C93C27;
-  border: #C93C27;
-  color: white;
+  background-color: #232423;
+  border: #232423;
 }
 
-/* Pictures */
 
-/*.selected-highlight {
-  border: 3px solid red;
-}*/
+/* Photos */
 
-#instagram-add-btn {
+.selected-highlight {
+  border: 3px solid grey;
+  opacity: 0.5;
+}
+
+#modal-add-btn {
   position: relative;
-  top: -400px;
-  left: 300px;
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-left: 10%;
 }
 
 .results-overflow {
   width: 100%;
   height: 80%;
   overflow:scroll;
+}
+
+.ig-pics-div img {
+  cursor: pointer;
+}
+
+/* Yelp */
+
+#yelp-modal .row input {
+  display: inline-block;
+  margin-right: 5px;
+}
+
+#yelp-modal .row {
+  margin-left: 25%
+}
+
+#yelp-modal .results-overflow {
+  position: absolute;
+  width: 100%;
+  /*height: 100px;*/
+  height: 60%;
+  margin: 0;
+  overflow: scroll;
+}
+
+#yelp-modal .results-overflow div{
+  display: inline-block;
+  margin: 5px;
+  width: 100px;
+  height: 100px;
+  opacity: 0.8;
+}
+
+#yelp-modal .yelp-result p {
+  opacity: 1;
+  background-color: rgba(255,255,255,0.5);
+  color: black;
+  position: absolute;
+  width: 100px;
+  word-break: break-word;
 }
