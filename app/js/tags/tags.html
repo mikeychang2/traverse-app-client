@@ -1,8 +1,19 @@
-<div id='tags' ng-controller='tagsController' ng-init="allTags = getTags()">
-  <h1>ALL TAGS for this Trip </h1>
-      <div ng-repeat="tag in allTags">
-        <div class="single_event clearfix">
-            <a ng-href='#/trips/{{tripId}}/events/tag/{{tag.id}}'><div> {{tag.name}} </div></a>
-        </div>
+<div class="container">
+  <div id='all-trips-tags' ng-controller='tagsController' ng-init="allTags = getTags()">
+    <h1>See All Tagged Events</h1>
+
+      <div class="trips-tags" ng-repeat="tag in allTags" >
+         <a ng-href='#/trips/{{tripId}}/events/tag/{{tag.id}}'>
+            <div class='trips-tags-img trips-tags-grow'>
+              <img src='{{tag.photo_url}}'/>
+                <p class="trip-title" >{{tag.name}}</p>
+            </div>
+          </a>
       </div>
-</div>
+    </div>
+  </div>
+
+
+
+<!-- class="single_event clearfix" -->
+               <!-- <img src="https://stocksnap.io/img-thumbs/960w/EAA3D521BB.jpg"/> -->

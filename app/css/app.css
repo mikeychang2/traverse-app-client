@@ -7,22 +7,6 @@ html {
 .container {
 }
 
-#all-trips {
-  text-align: center;
-  padding: 75px;
-}
-
-.trip {
-  margin: 30px;
-  text-align: center;
-  padding: 2%;
-  display: inline-block;
-  border: 2px black solid;
-}
-
-.trip a {
-  text-decoration: none;
-}
 
 /*Buttons*/
 #auth {
