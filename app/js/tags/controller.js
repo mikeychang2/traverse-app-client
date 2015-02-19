@@ -6,6 +6,9 @@ app.controller('tagsController', ['$scope', '$rootScope', 'tagsFactory', 'tripsF
 
     $scope.tags;
     $scope.tag = {};
+    $scope.tagName;
+    $scope.placesByTag;
+    $scope.photosByTag;
 
     $scope.tripId = $routeParams.tripId
     $scope.tagId = $routeParams.tagId
@@ -34,8 +37,12 @@ app.controller('tagsController', ['$scope', '$rootScope', 'tagsFactory', 'tripsF
     $scope.getEventsByTag = function() {
       tagsFactory.getEventsByTag($routeParams.tripId, $routeParams.tagId)
         .success(function(response){
-          $scope.eventsByTag = response    
+          $scope.eventsByTag = response['events']  
+          $scope.tagName = response['tag_name']
+          $scope.placesByTag = response['places']
           $scope.trip = $routeParams.tripId
+          $scope.photosByTag = response['photos']
+          console.log($scope.photosByTag)
         })
         .error(function(error){
           $scope.status = "Unable to load event by tags: " + error.message;

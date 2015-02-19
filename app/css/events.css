@@ -7,9 +7,24 @@
   outline: 1px solid red;
 }*/
 
-a {
+#events a {
   padding: 0;
   color: black;
+  text-decoration: none;
+}
+
+a:active{
+  color: black;
+  text-decoration: none;
+}
+
+a:visited{
+  color:black;
+}
+
+a:hover {
+  text-decoration: none;
+  color: gray;
 }
 
 .events-header{
