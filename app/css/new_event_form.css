@@ -2,7 +2,6 @@
   outline: 1px solid red;
 }*/
 
-
 /* Header */
 #event-form-header {
   text-align: center;
@@ -30,8 +29,17 @@
   left: 325px;
 }
 
+
 #tag-block h6 {
   margin-bottom: 3px;
+}
+
+.each-tag {
+  display:inline-block;
+  border: 1px black solid;
+  background-color: black;
+  color: white;
+  padding: 3%;
 }
 
 #journal-box {

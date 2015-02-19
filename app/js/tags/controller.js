@@ -12,6 +12,7 @@ app.controller('tagsController', ['$scope', '$rootScope', 'tagsFactory', 'tripsF
     $scope.photosByTag;
 
     $scope.allDefaultTags;
+    $scope.allTags = [];
 
 
     $scope.tripId = $routeParams.tripId
@@ -31,13 +32,10 @@ app.controller('tagsController', ['$scope', '$rootScope', 'tagsFactory', 'tripsF
     $scope.getDefaultTags = function () {
         tagsFactory.getDefaultTags()
         .success(function(response){
-            // debugger
           $scope.allDefaultTags = response
         })
         .error(function(error){
           $scope.status = "Unable to load tags: " + error.message;
-          // debugger
-          // console.log(error)
         });
     }
 
@@ -70,6 +68,7 @@ app.controller('tagsController', ['$scope', '$rootScope', 'tagsFactory', 'tripsF
         var tag = $scope.tag
         tagsFactory.insertTag(tag, $rootScope.activeEvent.id)
             .success(function (response) {
+                console.log(response)
                 $scope.status = 'Inserted tag! Refreshing event.';
                 $scope.allTags.push(response);
                 $scope.tag.name = ''

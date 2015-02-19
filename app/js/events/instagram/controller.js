@@ -60,9 +60,7 @@ app.controller ('instagramController' , ['$scope', 'instagramFactory', '$http', 
      $scope.toggleCustom = function(photo) {
         console.log(photo)
         $scope.photosReference[photo] = $scope.photosReference[photo] === false ? true: false;
-        // debugger
         $("img[src$='" + photo + "']").toggleClass('selected-highlight', $scope.photosReference[photo])
-
         console.log("added or removed!")
     };
 
@@ -79,7 +77,6 @@ app.controller ('instagramController' , ['$scope', 'instagramFactory', '$http', 
 
      $scope.savePhotos = function(currentEvent){
       console.log(currentEvent)
-      // debugger;
       var photosToSave = $scope.photoSelection();
       var event_id = currentEvent;
       // define event_id

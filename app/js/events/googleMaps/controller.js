@@ -38,6 +38,7 @@ app.controller('googleMapsController', ['$scope', '$http', '$window', '$routePar
 		var longitude_val = coord[1];
 		$scope.map.center.latitude = latitude_val;
 		$scope.map.center.longitude = longitude_val;
+		debugger;
 		// console.log($scope.map.center.longitude);
 		// console.log($scope.markerList);
 		return $scope.markerList
