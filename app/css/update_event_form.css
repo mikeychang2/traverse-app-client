@@ -54,3 +54,10 @@
   background-color: #232423;
   border:#232423;
 }
+
+.update-event-fbphotos {
+  display: inline-block;
+  width: 100%;
+  height: 80%;
+  max-width: 200px;
+}

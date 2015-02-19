@@ -44,7 +44,7 @@
           <br>
       </div>
       <!-- this input is from the update events form -->
-            <input class="pull-right" type="submit" value="submit" form="update-event-form">
+            <input class="pull-right" type="submit" value="submit" form="update-event-form" ng-click="editEvent()">
         <!-- end update events form submit button-->
     </div>
 
@@ -58,10 +58,12 @@
             <button class="facebook-button" ng-click="login()" ng-show="windowStorage == 'false'">Connect<i class="fa fa-facebook-official"> </i><i class="fa fa-chevron-right"></i></button>
             <button class="facebook-button" ng-click="toggleFB(); getPhotos()" ng-show="windowStorage == 'true'"><i class="fa fa-facebook-official"></i> Photos</button>
             <modal-dialog show='FBShown' dialog-title="Add Photos" width='75%' height='80%'>
-              <div class="fb-pics-div" ng-repeat="photo in photos">
-                <img class="fb-pics" src="{{photo}}" ng-click="toggleCustom(photo)" />
+                <input type="submit" ng-click="updateEventSavePhotos(); reloadRoute()" id="sendPhotos modal-add-btn" value="Add"/>
+              <div class="results-overflow">
+                <div class="fb-pics-div" ng-repeat="photo in photos">
+                  <img class="fb-pics update-event-fbphotos" src="{{photo}}" ng-click="toggleCustom(photo)" />
+                </div>
               </div>
-              <input type="submit" ng-click="updateEventSavePhotos(); reloadRoute()" id="sendPhotos" value="Add"/>
             </modal-dialog>
           </div>
 
@@ -72,10 +74,12 @@
             <button class="instagram-button" ng-click="igAuth()" ng-show="instaCookies == 'false'">Connect <i class="fa fa-instagram"> </i><i class="fa fa-chevron-right"></i></button></a>
             <button class="instagram-button" ng-click="igLogin(); toggleIG()" ng-show="instaCookies == 'true'"><i class="fa fa-instagram"></i> Photos</button>
             <modal-dialog show='IGShown' dialog-title="Add Photos" width='75%' height='80%'>
-              <div class="ig-pics-div" ng-repeat="photo in photos">
-                <img class="ig-pics" src="{{photo}}" ng-click="toggleCustom(photo)"/>
+              <input type="submit" ng-click="savePhotos(currentEvent)" id="sendPhotos modal-add-btn" value="Add"/>
+              <div class="results-overflow">
+                <div class="ig-pics-div" ng-repeat="photo in photos">
+                  <img class="ig-pics" src="{{photo}}" ng-click="toggleCustom(photo)"/>
+                </div>
               </div>
-              <input type="submit" ng-click="savePhotos(currentEvent)" id="sendPhotos" value="Add"/>
             </modal-dialog>
           </div>
 
