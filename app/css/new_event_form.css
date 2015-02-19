@@ -5,6 +5,12 @@
 /* Header */
 #event-form-header {
   text-align: center;
+  border-bottom: 1px gray solid;
+  margin-bottom: 3%;
+}
+
+.event-form-title{
+  width: 63%;
 }
 
 /* Form Body */
@@ -19,45 +25,43 @@
 }
 
 #event-date-input {
-  width: 190px;
-  border-radius: 4px;
+  width: 63%;
+  border-radius: 4px
 }
 
-#tag-block {
-  position: relative;
-  top: -200px;
-  left: 325px;
-}
-
-
-#tag-block h6 {
-  margin-bottom: 3px;
+#tag-block{
+  margin-top: 5%;
+  margin-left: 0;
 }
 
 .each-tag {
-  display:inline-block;
+  /*display:inline-block;*/
   border: 1px black solid;
   background-color: black;
   color: white;
   padding: 3%;
+  font-size: 0.5em;
+  margin: 1%;
+  text-align: center;
 }
 
 #journal-box {
-  height: 200px;
-  width: 190px;
+  height: 300px;
+  width: 63%;
   vertical-align: top;
+  margin-bottom: 15%;
 }
 
 .event-form-body i {
-  padding-left: 2px;
+  padding-left: 1%;
 }
 
 
 /* Button */
 #event-submit-btn {
-  position: relative;
-  top: 100%;
-  left: 200px;
+ /* position: relative;
+  top: -75px;
+  left: 200px;*/
 }
 
 #event-submit-btn:hover {
@@ -90,7 +94,7 @@
 }
 
 .new-event-right button {
-  width: 150px;
+  width: 45%;
 }
 
 .new-event-right button:hover {
@@ -103,11 +107,10 @@
   border: #232423;
 }
 
-
 /* Photos */
 
 .selected-highlight {
-  border: 3px solid grey;
+  border: 3px solid gray;
   opacity: 0.5;
 }
 

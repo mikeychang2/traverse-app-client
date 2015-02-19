@@ -15,7 +15,7 @@ app.controller('authController', ['$scope', '$http', '$window', '$location', 'Au
         .success(function (data, status, headers, config) {
           $window.sessionStorage.token = data.auth_token;
           $window.sessionStorage.user_id = data.user_id;
-          console.log($window.sessionStorage);
+          $window.sessionStorage.user_name = data.user_name;
           // set authservice to true (boolean isloggedin)
           $scope.message = 'Welcome';
           $scope.user = '';
@@ -41,6 +41,7 @@ app.controller('authController', ['$scope', '$http', '$window', '$location', 'Au
         .success(function(data, status, headers, config){
           $window.sessionStorage.token = data.auth_token;
           $window.sessionStorage.user_id = data.user_id;
+          $window.sessionStorage.user_name = data.user_name;
           console.log($window.sessionStorage.token);
           $scope.message = "Welcome!";
           $scope.new_user = '';

@@ -1,6 +1,9 @@
 <div class="container">
   <div id="all-trips-tags" ng-controller="tripsController" ng-init="trips = getTrips()">
-    <h1>My Trips</h1>
+    <div class="user-welcome">
+      <h1>Welcome, {{userName}}</h1>
+    </div>
+    <h2>My Trips</h2>
 
     <form ng-submit="insertTrip()">
       <input type="text" ng-model="trip.title" placeholder="Add a New Trip">
@@ -14,7 +17,8 @@
         <p class="trip-title">{{ trip.title }}</p>
       </div>
       </a>
-      <button id="trip-delete" ng-click="deleteTrip(trip.id)">x</button>
+
+      <!-- <button id="trip-delete" ng-click="deleteTrip(trip.id)">x</button> -->
 
     </div>
 
