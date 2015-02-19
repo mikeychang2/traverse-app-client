@@ -6,6 +6,7 @@ app.controller('tagsController', ['$scope', '$rootScope', 'tagsFactory', 'tripsF
 
     $scope.tags;
     $scope.tag = {};
+    $scope.allDefaultTags;
 
     $scope.tripId = $routeParams.tripId
     $scope.tagId = $routeParams.tagId
@@ -20,6 +21,19 @@ app.controller('tagsController', ['$scope', '$rootScope', 'tagsFactory', 'tripsF
           $scope.status = "Unable to load tags: " + error.message;
         });
     };
+
+    $scope.getDefaultTags = function () {
+        tagsFactory.getDefaultTags()
+        .success(function(response){
+            debugger
+          $scope.allDefaultTags = response
+        })
+        .error(function(error){
+          $scope.status = "Unable to load tags: " + error.message;
+          debugger
+          // console.log(error)
+        });
+    }
 
     $scope.getTagsForEventTagFactory  = function() {
       tagsFactory.getTagsForEventTagFactory ($routeParams.eventId)

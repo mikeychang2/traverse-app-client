@@ -21,13 +21,13 @@
 
       </form>
     </div>
-    <div id="tag-block" ng-controller='tagsController' ng-init="allTags = getTags()">
+    <div id="tag-block" ng-controller='tagsController' ng-init="allDefaultTags = getDefaultTags()">
         <h6>TAGS:</h6>
 
         <!-- tag dropdown -->
-        <select>
-          <option ng-repeat=""></option>
-        </select>
+      <!--   <select multiple="multiple">
+          <option ng-repeat="tag in allDefaultTags">{{tag}}</option>
+        </select> -->
         <!-- end dropdown -->
 
         <form>
