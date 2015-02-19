@@ -1,23 +1,43 @@
-<h1>Update Event</h1>
-<div class='left' ng-controller='eventsController' ng-init="event = getEvent(); photos = getPhotosForEvent()">
-      <form ng-submit="editEvent()">
-          <input type="text" ng-model="event.title">
-          <br>
-          <input type="date" ng-model="event.date">
-          <br>
-          <input type="text" ng-model="event.content">
-          <br>
-          <input type="submit" value="submit">
-      </form>
-  <div id='right'>
+<div class="update-event-block">
+    <h1>Update Event</h1>
+  <div id="update-event-top" class="row" ng-controller='eventsController' ng-init="event = getEvent(); photos = getPhotosForEvent()">
+      <div class="col-xs-6">
+
+        <p> Location: {{event[1].name}}</p>
+        <form ng-submit="editEvent()" id="update-event-form" class="text-center">
+            <input type="text" ng-model="event[0].title">
+            <br>
+            <input id="event-date-input" type="date" ng-model="event[0].date">
+            <br>
+            <textarea id="journal-box" type="text" ng-model="event[0].content"></textarea>
+            <br>
+        </form>
+
+      </div>
+      <div class="col-xs-6" id="photo-carousel">
+          <div class="row carousel-slides">
+              <div ng-controller="carouselController" class="slides-control">
+                  <carousel interval="myInterval">
+                      <slide ng-repeat="slide in photos">
+                        <img ng-src="{{slide}}">
+                      </slide>
+                  </carousel>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <div id="update-event-bottom" class="row">
+    <div class="col-xs-6" id="buttons-in-tags">
       <div ng-controller='tagsController' ng-init="tags = getTagsForEventTagFactory()">
           <form>
-              <input type="text" ng-model="tag.name" placeholder="enter custom tag"> {{tag.name}}
+              <input type="text" ng-model="tag.name" placeholder="enter custom tag">
               <input type="submit" value="Create New Tag" ng-click="insertTagForUpdateEvent()">
-          </form>
+              <br>
+              {{tag.name}}
 
-          <p>
-              <br>TAGS for this Event:</p>
+          </form>
+          <p>TAGS for this Event:</p>
           <ul>
               <div ng-repeat="tag in tags">
                   <li> {{tag.name}}</li>
@@ -25,65 +45,71 @@
           </ul>
           <br>
       </div>
-
-      <p>Photos:</p>
-      <div class=" right col-xs-6">
-        <div class="row carousel-slides">
-            <div ng-controller="carouselController" class="slides-control">
-                <carousel interval="myInterval">
-                    <slide ng-repeat="slide in photos">
-                      <img ng-src="{{slide}}">
-                    </slide>
-                </carousel>
-            </div>
-        </div>
-      </div>
-
-  <div id='right' ng-controller="modalController">
-
-    <!-- FACEBOOK -->
-    <div id="fb-modal" ng-controller="facebookController">
-     <button ng-click="login()" ng-show="windowStorage == 'false'">Connect to Facebook</button>
-     <button ng-click="toggleFB(); getPhotos()" ng-show="windowStorage == 'true'">Add Photos from Facebook</button>
-      <modal-dialog show='FBShown' dialog-title="Add Photos" width='75%' height='80%'>
-        <div class="fb-pics-div" ng-repeat="photo in photos">
-          <img class="fb-pics" src="{{photo}}" ng-click="toggleCustom(photo)" />
-        </div>
-        <input type="submit" ng-click="updateEventSavePhotos(); reloadRoute()" id="sendPhotos" value="Add"/>
-      </modal-dialog>
+      <!-- this input is from the update events form -->
+            <input class="pull-right" type="submit" value="submit" form="update-event-form" ng-click="editEvent()">
+        <!-- end update events form submit button-->
     </div>
 
 
-    <!-- INSTAGRAM AREAS -->
-   <div ng-controller="instagramController">
-    <a href="https://instagram.com/oauth/authorize/?client_id=cb89d1dac394466e9767ad0e3bf9c6bf&redirect_uri=http://localhost:9000/instagram.html&response_type=code"><button ng-click="igAuth()" ng-show="instaCookies == 'false'">Connect to Instagram</button></a>
-    <button ng-click="igLogin(); toggleIG()" ng-show="instaCookies == 'true'">Add Photos from Instagram</button>
 
-    <modal-dialog show='IGShown' dialog-title="Add Photos" width='75%' height='80%'>
-      <div class="ig-pics-div" ng-repeat="photo in photos">
-        <img class="ig-pics" src="{{photo}}" ng-click="toggleCustom(photo)"/>
+    <div ng-controller="modalController" class="col-xs-6">
+      <div class="row">
+        <!-- FACEBOOK -->
+        <div class="col-xs-offset-4">
+          <div id="fb-modal" ng-controller="facebookController">
+            <button class="facebook-button" ng-click="login()" ng-show="windowStorage == 'false'">Connect<i class="fa fa-facebook-official"> </i><i class="fa fa-chevron-right"></i></button>
+            <button class="facebook-button" ng-click="toggleFB(); getPhotos()" ng-show="windowStorage == 'true'"><i class="fa fa-facebook-official"></i> Photos</button>
+            <modal-dialog show='FBShown' dialog-title="Add Photos" width='75%' height='80%'>
+                <input type="submit" ng-click="updateEventSavePhotos(); reloadRoute()" id="sendPhotos modal-add-btn" value="Add"/>
+              <div class="results-overflow">
+                <div class="fb-pics-div" ng-repeat="photo in photos">
+                  <img class="fb-pics update-event-fbphotos" src="{{photo}}" ng-click="toggleCustom(photo)" />
+                </div>
+              </div>
+            </modal-dialog>
+          </div>
+
+
+          <!-- INSTAGRAM AREAS -->
+         <div ng-controller="instagramController">
+            <a href="https://instagram.com/oauth/authorize/?client_id=cb89d1dac394466e9767ad0e3bf9c6bf&redirect_uri=http://localhost:9000/instagram.html&response_type=code">
+            <button class="instagram-button" ng-click="igAuth()" ng-show="instaCookies == 'false'">Connect <i class="fa fa-instagram"> </i><i class="fa fa-chevron-right"></i></button></a>
+            <button class="instagram-button" ng-click="igLogin(); toggleIG()" ng-show="instaCookies == 'true'"><i class="fa fa-instagram"></i> Photos</button>
+            <modal-dialog show='IGShown' dialog-title="Add Photos" width='75%' height='80%'>
+              <input type="submit" ng-click="savePhotos()" id="sendPhotos modal-add-btn" value="Add"/>
+              <div class="results-overflow">
+                <div class="ig-pics-div" ng-repeat="photo in photos">
+                  <img class="ig-pics" src="{{photo}}" ng-click="toggleCustom(photo)"/>
+                </div>
+              </div>
+            </modal-dialog>
+          </div>
+
+        <!-- YELP -->
+          <div id="yelp-modal">
+            <button class="yelp-button" ng-click='toggleYelp()'><i class="fa fa-yelp"></i> Places</button>
+            <modal-dialog show='yelpShown' dialog-title="Update Place" width='75%' height='80%'>
+              <div id="yelp-container" ng-controller="yelpController">
+                <form>
+                  <div class="row">
+                    <input type="text" ng-model="yelp.search" placeholder="Search">
+                    <input type="text" ng-model="yelp.location" placeholder="Location">
+                    <input type="submit" value="search"  ng-click="searchYelp()">
+                  </div>
+                </form>
+                <div class="results-index" ng-controller="eventsController">
+                  <div class="results-overflow">
+                    <div class="yelp-result" ng-repeat="result in results"style="background-image:url({{result.image_url}}); width: 100px; height:''" ng-click="addPlace(result); toggleYelp()">
+                    <p>{{result.name}}</p>
+                   </div>
+                  </div>
+                </div>
+              </div>
+            </modal-dialog>
+          </div>
+        </div>
       </div>
-      <input type="submit" ng-click="savePhotos(currentEvent)" id="sendPhotos" value="Add"/>
-    </modal-dialog>
+    </div>
   </div>
 
-    <div id="yelp-modal">
-      <button ng-click='toggleYelp()'>Add Places</button>
-        <modal-dialog show='yelpShown' dialog-title="Add Photos" width='75%' height='80%'>
-          <p>Yelp links here<p>
-          <div id="yelp-container" ng-controller="yelpController">
-            <form>
-              <input type="text" ng-model="yelp.search" placeholder="Search">
-              <input type="text" ng-model="yelp.location" placeholder="Location">
-              <input type="submit" value="search"  ng-click="searchYelp()">
-            </form>
-
-              <div class="results-index" ng-controller="eventsController">
-                <div class="yelp-result" ng-repeat="result in results"style="background-image:url({{result.image_url}}); width: 100px; height:''" ng-click="addPlace(result, currentEvent)">
-                    <p>{{result.name}}</p>
-              </div>
-          </div>
-    </div>
-
-    </div>
 </div>

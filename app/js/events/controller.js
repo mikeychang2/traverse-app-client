@@ -5,7 +5,7 @@ app.controller('eventsController', ['$scope', 'tripsFactory', 'eventsFactory', '
     $scope.trip = {};
 
     $scope.events;
-    $scope.event = {};
+    $scope.event;
 
     $scope.eventsByTag;
     $scope.tags;
@@ -35,7 +35,6 @@ app.controller('eventsController', ['$scope', 'tripsFactory', 'eventsFactory', '
     $scope.getEvents = function() {
       eventsFactory.getEvents()
         .success(function(response){
-          // debugger
           $scope.events = response
           $scope.trip = $routeParams.tripId
         })
@@ -59,6 +58,7 @@ app.controller('eventsController', ['$scope', 'tripsFactory', 'eventsFactory', '
       eventsFactory.getEvent($routeParams.eventId)
         .success(function(response){
           $scope.event = response
+          debugger
           $scope.trip = $routeParams.tripId
           // $scope.trip = $routeParams.tripId
         })
@@ -121,7 +121,7 @@ app.controller('eventsController', ['$scope', 'tripsFactory', 'eventsFactory', '
     };
 
     $scope.editEvent = function () {
-      eventsFactory.editEvent($scope.event)
+      eventsFactory.editEvent($scope.event[0])
           .success(function (response) {
                 // var checkEvent = $scope.events[i];
                   $scope.checkEvent = response;

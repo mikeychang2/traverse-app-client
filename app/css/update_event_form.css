@@ -1,0 +1,63 @@
+/** {
+  outline: 1px solid red;
+}*/
+
+.update-event-block {
+  margin-bottom: 5%;
+}
+
+.update-event-block h1 {
+  text-align: center;
+  border-bottom: 1px solid grey;
+  padding-bottom: 2%;
+  margin-bottom: 3%;
+}
+
+#update-event-top{
+  margin: 10px;
+  height: 50%;
+}
+
+#update-event-top input {
+  margin-bottom: 10px;
+}
+
+/* Event Photos */
+#update-event-top .carousel-inner img {
+  width: 250px;
+}
+
+
+
+#update-event-bottom {
+  margin: 10px;
+}
+
+
+/* Buttons */
+/* see new_events_form.css for facebook, instagram, and yelp button css */
+
+#update-event-bottom button {
+  width: 150px;
+}
+
+#update-event-bottom button:hover {
+  color: white;
+}
+
+#update-event-bottom button i {
+  padding-left: 2px;
+}
+
+#buttons-in-tags input:hover {
+  color: white;
+  background-color: #232423;
+  border:#232423;
+}
+
+.update-event-fbphotos {
+  display: inline-block;
+  width: 100%;
+  height: 80%;
+  max-width: 200px;
+}
