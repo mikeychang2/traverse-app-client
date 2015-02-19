@@ -1,27 +1,48 @@
 <div ng-controller='tagsController' ng-init="eventsByTag = getEventsByTag()">
-  <h2>All Events by this Tag</h2>
-    <div ng-repeat="event in eventsByTag">
-      <div class="single_event clearfix">
-        <div class="left">
-          <div id='title'>Event Title: {{event.title}} </div>
-          <div id='date'> Date: {{event.date}}</div>
-          <div id="journal_content">Journal Content: {{event.content}}</div>
-        </div>
-        <div id="right">
-         <div id='place'>PLACE: {{event.place}}</div>
-         <div id='photos'>PHOTOS: {{event.photos}}
-            <!-- STOCK PHOTOS FOR TESTING -->
-            <img src="http://upload.wikimedia.org/wikipedia/commons/a/ae/Sydney_Opera_House_at_Sunset.jpg"></img>
-            <img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQ_769lSvSnwpQLJe2BsXuimfgoBt9H0fP3yujEd7yq2crEyDsUhNIXKIc"></img>
-            <img src="http://s.ngm.com/2011/05/great-barrier-reef/img/great-barrier-reef-diver-615.jpg"></img>
-            <img src="http://squirrelsgonecrazyinaustralia.weebly.com/uploads/1/5/5/5/15556150/5253500.jpg?889"></img>
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR75ZV9n_kpar77jET_dIU7976F8FZ34Vwvrxg5Q_URVV8By7y2_5JO5mw"></img>
-            <img src="http://www.travelvivi.com/wp-content/uploads/2011/07/Kangaroo1.jpg"></img>
-         </div>
 
-           <button id='delete_button' ng-click="deleteEvent(event.id)">x</button>
 
-           <a href='#/trips/{{trip}}/events/{{event.id}}/update_event'><button>Update Event</button></a>
+  <div class="events-by-tag row">
+    <h2>{{tagName}}</h2>
+  </div>
+
+
+  <div class="row">
+  <!-- LEFT COLUMN / YELP ACCORDIAN -->
+    <div class="left places-list col-xs-4">
+      <div class="yelp-accordian">
+        <h4>Places You've Visited</h4>
+        <accordion close-others="oneAtATime" ng-repeat="place in placesByTag">
+          <accordion-group heading="{{place.name}}" is-open="status.isFirstOpen" is-disabled="status.isFirstDisabled">
+            <div class="row yelp-img">
+              <img class="place-image col-xs-6" src="{{place.photo_url}}"/>
+              <div class="address-and-link col-xs-6">
+                <p class="place-address pull-right text-center">{{place.address}}</p>
+                <a href="{{place.yelp_link}}"><button class="place-url">Visit</button></a>
+              </div>
+            </div>
+          </accordion-group>
+        </accordion>
+      </div>
+    </div>
+
+    <!-- RIGHT COLUMN / PHOTOS CAROUSEL -->
+    <div class="right photos-by-tag col-xs-7 col-xs-offset-1">
+       <div class="row carousel-slides" ng-controller="modalController">
+            <div ng-controller="carouselController" class="slides-control">
+                <carousel interval="myInterval">
+                  <slide ng-repeat="slide in photosByTag" active="slide.active">
+                    <img ng-src="{{slide.url}}">
+                  </slide>
+                </carousel>
+              </div>
+          </div>
+    </div>
+  </div>
+
+
+           <!-- <button id='delete_button' ng-click="deleteEvent(event.id)">x</button>
+
+           <a href='#/trips/{{trip}}/events/{{event.id}}/update_event'><button>Update Event</button></a> -->
         </div>
     </div>
     </div>

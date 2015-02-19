@@ -5,6 +5,13 @@ html {
   font-weight: bold;
 }
 
+
+.container {
+  /*border: 2px black solid;*/
+  margin-right: auto;
+  margin-left: auto;
+
+
 a:active {
   color: gray;
 }
@@ -18,10 +25,6 @@ a {
 
 
 /*Buttons*/
-#auth {
-  text-align:center;
-  padding: 30px;
-}
 
 #buttons {
   margin-right: auto;

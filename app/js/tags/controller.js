@@ -7,6 +7,13 @@ app.controller('tagsController', ['$scope', '$rootScope', 'tagsFactory', 'tripsF
     $scope.tags;
     $scope.tag = {};
 
+    $scope.tagName;
+    $scope.placesByTag;
+    $scope.photosByTag;
+
+    $scope.allDefaultTags;
+
+
     $scope.tripId = $routeParams.tripId
     $scope.tagId = $routeParams.tagId
     $scope.eventsByTag;
@@ -21,6 +28,19 @@ app.controller('tagsController', ['$scope', '$rootScope', 'tagsFactory', 'tripsF
         });
     };
 
+    $scope.getDefaultTags = function () {
+        tagsFactory.getDefaultTags()
+        .success(function(response){
+            debugger
+          $scope.allDefaultTags = response
+        })
+        .error(function(error){
+          $scope.status = "Unable to load tags: " + error.message;
+          debugger
+          // console.log(error)
+        });
+    }
+
     $scope.getTagsForEventTagFactory  = function() {
       tagsFactory.getTagsForEventTagFactory ($routeParams.eventId)
         .success(function(response){
@@ -34,8 +54,12 @@ app.controller('tagsController', ['$scope', '$rootScope', 'tagsFactory', 'tripsF
     $scope.getEventsByTag = function() {
       tagsFactory.getEventsByTag($routeParams.tripId, $routeParams.tagId)
         .success(function(response){
-          $scope.eventsByTag = response    
+          $scope.eventsByTag = response['events']  
+          $scope.tagName = response['tag_name']
+          $scope.placesByTag = response['places']
           $scope.trip = $routeParams.tripId
+          $scope.photosByTag = response['photos']
+          console.log($scope.photosByTag)
         })
         .error(function(error){
           $scope.status = "Unable to load event by tags: " + error.message;

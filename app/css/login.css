@@ -1,0 +1,71 @@
+/* Background */
+video#bgvid {
+position: fixed; right: 0; bottom: 0;
+min-width: 100%; min-height: 100%;
+width: auto; height: auto; z-index: -100;
+background: url(brazil.png) no-repeat;
+background-size: cover;
+
+}
+
+@media screen and (max-device-width: 800px) {
+body { background: url(brazil.png) #000 no-repeat center center fixed; }
+#bgvid { display: none; }
+}
+
+/* Center Form*/
+#auth {
+  position: relative;
+  top: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align:center;
+  padding: 30px;
+  width: 400px;
+}
+
+/* Form Buttons */
+#auth .panel {
+  opacity: 0.5;
+  border-style: none;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: white;
+}
+
+#auth .panel:hover {
+  opacity: 1;
+  background-color: white;
+}
+
+#auth .panel-heading {
+  padding: 0px;
+}
+
+#auth form input {
+  margin-bottom: 10px;
+}
+
+
+
+/* Form Text*/
+#auth .ng-binding {
+  opacity: 1;
+}
+
+
+#auth a {
+  opacity: 1;
+  color: black;
+  text-decoration: none;
+}
+
+#auth h4 {
+  color: black;
+  background-color: white;
+}
+
+#auth h4:hover {
+  background-color: white;
+  color: black;
+}

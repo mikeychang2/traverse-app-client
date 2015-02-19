@@ -6,6 +6,8 @@ app.controller ('instagramController' , ['$scope', 'instagramFactory', '$http', 
     $scope.selectedPhotos = [];
     $scope.instaCookies = $cookies.instaCookies
     $scope.status;
+    $scope.testerVariable = true;
+
 
     $scope.checkInstaCookies = function () {
       if (typeof $cookies.instaCookies == 'undefined') {
@@ -56,6 +58,9 @@ app.controller ('instagramController' , ['$scope', 'instagramFactory', '$http', 
      $scope.toggleCustom = function(photo) {
         console.log(photo)
         $scope.photosReference[photo] = $scope.photosReference[photo] === false ? true: false;
+        debugger
+        // $(this).toggleClass('selected-highlight', $scope.photosReference[photo])
+
         console.log("added or removed!")
     };
 
@@ -80,6 +85,7 @@ app.controller ('instagramController' , ['$scope', 'instagramFactory', '$http', 
         instagramFactory.savePhotos(event_id, photosToSave)
         .success (function (response) {
           console.log(response);
+
         })
         .error (function (error) {
           $scope.status = "Unable to retrieve photos: " + error.message;

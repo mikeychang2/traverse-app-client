@@ -8,10 +8,10 @@
     </form>
 
     <div class="trips-tags" ng-repeat="trip in trips">
-      <a ng-href="/#/trips/{{trip.id}}/events">
+      <a ng-href="/#/trips/{{trip.id}}/events" ng-click="reloadRoute()">
         <div class='trips-tags-img trips-tags-grow' >
         <img src='{{trip.photo}}'/>
-        <p class="trip-title" ng-click="reloadRoute()">{{ trip.title }}</p>
+        <p class="trip-title">{{ trip.title }}</p>
       </div>
       </a>
       <button id="trip-delete" ng-click="deleteTrip(trip.id)">x</button>
@@ -20,9 +20,3 @@
 
   </div>
 </div>
-<!--
-
-        <h2 class="trip-title">{{ trip.title }}</h2>
-      </a>
-    -->
-

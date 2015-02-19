@@ -1,10 +1,11 @@
 app.controller('authController', ['$scope', '$http', '$window', '$location', 'AuthenticationFactory',
   function ($scope, $http, $window, $location, AuthenticationFactory) {
-    $scope.login = false;
-    $scope.signup = false;
+    // $scope.login = false;
+    // $scope.signup = false;
     $scope.message = '';
     $scope.user = {username: '', password: ''};
     $scope.new_user = {name: '', username: '', email:'', password: '' }
+    $scope.oneAtATime = true;
 
     var urlBase = ""
 
