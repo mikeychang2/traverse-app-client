@@ -26,16 +26,70 @@
 
 #tag-block {
   position: relative;
-  top: -50px;
+  top: -200px;
+  left: 325px;
 }
 
+#journal-box {
+  height: 200px;
+  width: 190px;
+  vertical-align: top;
+}
+
+
+/* Button */
 #event-submit-btn {
   position: relative;
   top: 100px;
-  left: 400px;
+  left: 200px;
+}
+
+#event-submit-btn:hover {
+  background-color: #232423;
+  color: white;
 }
 
 /* need to remove ig link default */
 #right a button {
   text-decoration: none;
+}
+
+
+/*
+.facebook-button {
+  color: white;
+}
+
+.instagram-button {
+  color: white;
+}
+
+.yelp-button {
+  color: white;
+}*/
+
+.new-event-right button {
+  width: 150px;
+}
+
+.new-event-right button:hover {
+  color: white;
+}
+
+.facebook-button:hover {
+  background-color: #3b5998;
+  border: #3b5998;
+}
+.instagram-button:hover {
+  background-color: #517fa4;
+  border: #517fa4;
+}
+.yelp-button:hover {
+  background-color: #C93C27;
+  border: #C93C27
+}
+
+/* Pictures */
+.selected-highlight {
+  border: 3px solid red;
 }
