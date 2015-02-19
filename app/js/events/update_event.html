@@ -74,7 +74,7 @@
             <button class="instagram-button" ng-click="igAuth()" ng-show="instaCookies == 'false'">Connect <i class="fa fa-instagram"> </i><i class="fa fa-chevron-right"></i></button></a>
             <button class="instagram-button" ng-click="igLogin(); toggleIG()" ng-show="instaCookies == 'true'"><i class="fa fa-instagram"></i> Photos</button>
             <modal-dialog show='IGShown' dialog-title="Add Photos" width='75%' height='80%'>
-              <input type="submit" ng-click="savePhotos(currentEvent)" id="sendPhotos modal-add-btn" value="Add"/>
+              <input type="submit" ng-click="savePhotos()" id="sendPhotos modal-add-btn" value="Add"/>
               <div class="results-overflow">
                 <div class="ig-pics-div" ng-repeat="photo in photos">
                   <img class="ig-pics" src="{{photo}}" ng-click="toggleCustom(photo)"/>
