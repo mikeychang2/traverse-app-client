@@ -82,6 +82,7 @@ app.controller('facebookController', ['$scope', '$http', '$window', '$routeParam
     $scope.toggleCustom = function(photo) {
         $scope.photosReference[photo] = $scope.photosReference[photo] === false ? true: false;
         console.log("added or removed!")
+        $("img[src$='" + photo + "']").toggleClass('selected-highlight', $scope.photosReference[photo])
     };
 
     $scope.photoSelection = function (){

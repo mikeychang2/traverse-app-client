@@ -92,20 +92,63 @@
   color: white;
 }
 
-/* Pictures */
+/* Photos */
 
-/*.selected-highlight {
-  border: 3px solid red;
-}*/
+.selected-highlight {
+  border: 3px solid grey;
+  opacity: 0.5;
+}
 
-#instagram-add-btn {
+#modal-add-btn {
   position: relative;
-  top: -400px;
-  left: 300px;
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-left: 10%;
 }
 
 .results-overflow {
   width: 100%;
   height: 80%;
   overflow:scroll;
+}
+
+.ig-pics-div img {
+  cursor: pointer;
+}
+
+/* Yelp */
+
+#yelp-modal .row input {
+  display: inline-block;
+  margin-right: 5px;
+}
+
+#yelp-modal .row {
+  margin-left: 25%
+}
+
+#yelp-modal .results-overflow {
+  position: absolute;
+  width: 100%;
+  /*height: 100px;*/
+  height: 60%;
+  margin: 0;
+  overflow: scroll;
+}
+
+#yelp-modal .results-overflow div{
+  display: inline-block;
+  margin: 5px;
+  width: 100px;
+  height: 100px;
+  opacity: 0.8;
+}
+
+#yelp-modal .yelp-result p {
+  opacity: 1;
+  background-color: rgba(255,255,255,0.5);
+  color: black;
+  position: absolute;
+  width: 100px;
+  word-break: break-word;
 }
