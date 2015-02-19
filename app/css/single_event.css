@@ -1,0 +1,94 @@
+.clearfix {
+  overflow: auto;
+  width: 100%;
+}
+
+#events a {
+  text-decoration: none;
+  color: gray;
+}
+
+#events button:hover {
+  background-color: black;
+  color:white;
+}
+
+/*.left {
+  float: left;
+  display: inline-block;
+  width: 49%;
+  vertical-align: top;
+}
+
+#right {
+  display: inline-block;
+  width: 49%;
+
+}
+*/
+.event-header {
+  text-align: left;
+  text-align: left;
+  font-size: 2em;
+  border-bottom: 1px solid black;
+  padding-bottom: 2%;
+  margin-bottom: 3%;
+
+}
+
+.single-event-show{
+
+}
+
+.single-event-carousel {
+  margin-top: -5%;
+}
+
+.event-show-date {
+  margin: 0;
+  font-size: 1.5em;
+  padding-bottom: 3%;
+}
+
+.left {
+  margin: 0;
+}
+
+.right {
+  margin: 0;
+}
+
+.place-box{
+  border: 1px black solid;
+  padding: 7%;
+}
+
+.photos-events{
+  margin-top:7%;
+}
+
+.event-place-link {
+  text-transform: uppercase;
+}
+
+.tag-title {
+  font-size: 2.0em;
+  font-weight: bold;
+}
+
+.tag-title li {
+  text-decoration: none;S
+}
+
+.tags-event{
+  margin-top: 7%;
+}
+
+.one-tag {
+  font-size: 1.5em;
+  border: 1px black solid;
+  padding: 4%;
+  display: inline-block;
+  background-color: #1F1F1F;
+  color:white;
+}
