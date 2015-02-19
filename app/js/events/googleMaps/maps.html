@@ -1,5 +1,5 @@
-<div ng-controller="googleMapsController">
-	<h2>Places you visited in your trip</h2>
+<div class="maps" ng-controller="googleMapsController">
+	<h2>Trip Overview</h2>
 	<ui-gmap-google-map center='map.center' zoom='map.zoom'>
 		<div ng-repeat="marker in markerList">
 		 <ui-gmap-marker idkey="marker.id" coords="marker.coords"  >
