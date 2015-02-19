@@ -4,9 +4,9 @@ app.controller('tripsController', ['$scope', 'tripsFactory', '$http', '$window',
     $scope.trips;
     $scope.trip = {};
     $scope.status;
+    $scope.userName = $window.sessionStorage.user_name
 
     $scope.getTrips = function() {
-      console.log('why is this printing out twice?!')
       tripsFactory.getTrips()
         .success(function(response){
           $scope.trips = response
