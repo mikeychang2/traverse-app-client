@@ -35,7 +35,6 @@ app.controller('eventsController', ['$scope', 'tripsFactory', 'eventsFactory', '
     $scope.getEvents = function() {
       eventsFactory.getEvents()
         .success(function(response){
-          // debugger
           $scope.events = response
           $scope.trip = $routeParams.tripId
         })
@@ -59,6 +58,7 @@ app.controller('eventsController', ['$scope', 'tripsFactory', 'eventsFactory', '
       eventsFactory.getEvent($routeParams.eventId)
         .success(function(response){
           $scope.event = response
+          debugger
           $scope.trip = $routeParams.tripId
           // $scope.trip = $routeParams.tripId
         })
