@@ -1,48 +1,31 @@
-  <div id="event-form-header"><h1>New Event</h1></div>
-
+<div id="event-form-header"><h1>New Event</h1></div>
 
 <div class='event-form-body row'>
 
   <div class="new-form-blocks col-xs-4 col-xs-offset-3">
     <div  ng-controller='eventsController' ng-init="event = getEvent()">
       <form ng-submit="updateEvent()">
-        <input type="text" ng-model="activeEvent.title" placeholder="Event Title"/>
-
+        <input type="text" ng-model="activeEvent.title" placeholder="Event Title" id="event-title-form"/>
 
         <!-- date -->
         <input type="date" ng-model="activeEvent.date" placeholder="Event Date" id="event-date-input"/>
         <!-- end date -->
 
         <textarea id="journal-box"type="text" ng-model="activeEvent.content" placeholder="Journal Entry"/></textarea>
-        <input id="event-submit-btn" type="submit" value="submit"/>
+
+        <div class="row">
+          <input id="event-submit-btn" class="pull-right" type="submit" value="submit"/>
+        </div>
 
       </form>
     </div>
-    <div id="tag-block" ng-controller='tagsController' ng-init="allDefaultTags = getDefaultTags()">
-        <h6>TAGS:</h6>
 
-        <!-- tag dropdown -->
-      <!--   <select multiple="multiple">
-          <option ng-repeat="tag in allDefaultTags">{{tag}}</option>
-        </select> -->
-        <!-- end dropdown -->
-
-        <form>
-          <input type="text" ng-model="tag.name" placeholder="enter custom tag">
-          <input class="enter-tag-btn" type="submit" value="Enter Tag" ng-click='insertTag()'>
-        <!-- <p>{{tag.name}}</p> -->
-        <!-- input type="submit" value="Enter Tag" ng-click='insertTag()'> -->
-        </form>
-
-        <div id="right" ng-repeat="tag in allTags">
-          <p class="each-tag">{{tag.name}}</p>
-        </div>
-    </div>
   </div>
 
 
   <div class="new-event-right new-form-blocks col-xs-5" ng-controller="modalController">
       <!-- FACEBOOK -->
+    <div class="row">
     <div id="fb-modal" ng-controller="facebookController">
      <button class="facebook-button" ng-click="login()" ng-show="windowStorage == 'false'">Connect<i class="fa fa-facebook-official"> </i><i class="fa fa-chevron-right"></i></button>
      <button class="facebook-button" ng-click="toggleFB(); getPhotos()" ng-show="windowStorage == 'true'"><i class="fa fa-facebook-official"></i> Photos</button>
@@ -94,8 +77,32 @@
            </div>
         </modal-dialog>
     </div>
-    <div id='photos' ng-repeat="photo in photos">
-      <h3>My Photos</h3>
+  </div>
+    <!-- TAG BLOCK -->
+    <div class="row">
+    <div id="tag-block" class="col-xs-12" ng-controller='tagsController' ng-init="allDefaultTags = getDefaultTags()">
+        <h6>TAGS:</h6>
+
+        <!-- tag dropdown -->
+      <!--   <select multiple="multiple">
+          <option ng-repeat="tag in allDefaultTags">{{tag}}</option>
+        </select> -->
+        <!-- end dropdown -->
+
+        <form>
+          <input type="text" ng-model="tag.name" placeholder="enter custom tag">
+          <input class="enter-tag-btn" type="submit" value="Enter Tag" ng-click='insertTag()'>
+        <!-- <p>{{tag.name}}</p> -->
+        <!-- input type="submit" value="Enter Tag" ng-click='insertTag()'> -->
+        </form>
+        <div class="row">
+          <div class="right show-all-tags" ng-repeat="tag in allTags">
+              <p class="each-tag col-xs-3">{{tag.name}}</p>
+            </div>
+          </div>
+        </div>
     </div>
+  </div>
+
   </div>
 </div>
