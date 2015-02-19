@@ -7,6 +7,10 @@
   height: 50%;
 }
 
+#update-event-top input {
+  margin-bottom: 10px;
+}
+
 /* Event Photos */
 #update-event-top #photo-carousel {
   top: -60px;
@@ -32,4 +36,8 @@
 
 #update-event-bottom button:hover {
   color: white;
+}
+
+#update-event-bottom button i {
+  padding-left: 2px;
 }
