@@ -6,7 +6,6 @@ app.controller('tripsController', ['$scope', 'tripsFactory', '$http', '$window',
     $scope.status;
 
     $scope.getTrips = function() {
-      console.log('why is this printing out twice?!')
       tripsFactory.getTrips()
         .success(function(response){
           $scope.trips = response

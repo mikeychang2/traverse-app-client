@@ -71,6 +71,11 @@ a:hover {
   font-size: 0.8em;
 }
 
+.delete-btn {
+  font-size: 0.8em;
+  color: gray;
+}
+
 /*Carousel*/
 .slides-control img {
   margin: auto;
@@ -81,9 +86,9 @@ a:hover {
     background-image: none !important;
 }
 
-.delete-button {
+/*.delete-button {
   float: right;
   padding: 0;
   margin: 0;
-}
+}*/
 

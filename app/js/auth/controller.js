@@ -6,6 +6,7 @@ app.controller('authController', ['$scope', '$http', '$window', '$location', 'Au
     $scope.user = {username: '', password: ''};
     $scope.new_user = {name: '', username: '', email:'', password: '' }
     $scope.oneAtATime = true;
+    $scope.user_name;
 
     var urlBase = ""
 
@@ -15,8 +16,10 @@ app.controller('authController', ['$scope', '$http', '$window', '$location', 'Au
         .success(function (data, status, headers, config) {
           $window.sessionStorage.token = data.auth_token;
           $window.sessionStorage.user_id = data.user_id;
-          console.log($window.sessionStorage);
+          $window.sessionStorage.user_name = data.user_name;
           // set authservice to true (boolean isloggedin)
+          $scope.user_name = data.user_name;
+          console.log($scope.user_name);
           $scope.message = 'Welcome';
           $scope.user = '';
           $location.path('/trips')
@@ -41,8 +44,11 @@ app.controller('authController', ['$scope', '$http', '$window', '$location', 'Au
         .success(function(data, status, headers, config){
           $window.sessionStorage.token = data.auth_token;
           $window.sessionStorage.user_id = data.user_id;
+          $window.sessionStorage.user_name = data.user_name;
+
           console.log($window.sessionStorage.token);
           $scope.message = "Welcome!";
+          $scope.user_name = data.user_name;
           $scope.new_user = '';
           $location.path('/trips')
         })
