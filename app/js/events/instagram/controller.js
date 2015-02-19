@@ -77,6 +77,7 @@ app.controller ('instagramController' , ['$scope', 'instagramFactory', '$http', 
 
      $scope.savePhotos = function(currentEvent){
       console.log(currentEvent)
+      debugger
       var photosToSave = $scope.photoSelection();
       var event_id = currentEvent;
       // define event_id

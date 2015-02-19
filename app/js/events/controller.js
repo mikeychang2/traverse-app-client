@@ -5,7 +5,7 @@ app.controller('eventsController', ['$scope', 'tripsFactory', 'eventsFactory', '
     $scope.trip = {};
 
     $scope.events;
-    $scope.event = {};
+    $scope.event;
 
     $scope.eventsByTag;
     $scope.tags;
@@ -121,7 +121,7 @@ app.controller('eventsController', ['$scope', 'tripsFactory', 'eventsFactory', '
     };
 
     $scope.editEvent = function () {
-      eventsFactory.editEvent($scope.event)
+      eventsFactory.editEvent($scope.event[0])
           .success(function (response) {
                 // var checkEvent = $scope.events[i];
                   $scope.checkEvent = response;
