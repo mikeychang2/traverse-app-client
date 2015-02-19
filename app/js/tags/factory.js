@@ -9,6 +9,10 @@
         return $http.get(urlBase + '/trips/' + tripID + '/tags');
     };
 
+    tagsFactory.getDefaultTags = function () {
+        return $http.get(urlBase + '/tags/default')
+    }
+
     tagsFactory.getEventsByTag = function (tripID, tagId) {
         return $http.get(urlBase + '/trips/' + tripID + '/events_by_tag/' + tagId);
     };
