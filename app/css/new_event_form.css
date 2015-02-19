@@ -30,6 +30,14 @@
   left: 325px;
 }
 
+.each-tag {
+  display:inline-block;
+  border: 1px black solid;
+  background-color: black;
+  color: white;
+  padding: 3%;
+}
+
 #journal-box {
   height: 200px;
   width: 190px;
