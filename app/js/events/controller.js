@@ -10,6 +10,8 @@ app.controller('eventsController', ['$scope', 'tripsFactory', 'eventsFactory', '
     $scope.eventsByTag;
     $scope.tags;
 
+    $scope.photos;
+
     $scope.tripId = $routeParams.tripId
 
     $scope.insertEvent = function () {
@@ -19,8 +21,8 @@ app.controller('eventsController', ['$scope', 'tripsFactory', 'eventsFactory', '
                 $scope.status = 'Inserted event! Refreshing event list.';
                 $rootScope.activeEvent = response;
                 $rootScope.currentEvent = response.id;
-                console.log($rootScope.activeEvent)
-                console.log($rootScope.currentEvent);
+                // console.log($rootScope.activeEvent)
+                // console.log($rootScope.currentEvent);
                 // $scope.event.title = ''
                 // $scope.event.date = ''
                 // $scope.event.content = ''
@@ -42,6 +44,17 @@ app.controller('eventsController', ['$scope', 'tripsFactory', 'eventsFactory', '
         });
     }
 
+    $scope.getAllEvents = function() {
+      eventsFactory.getAllEvents()
+        .success(function(response){
+          $scope.events = response
+          $scope.trip = $routeParams.tripId
+        })
+        .error(function(error){
+          $scope.status = "Unable to load events: " + error.message;
+        });
+    }
+
     $scope.getEvent = function() {
       eventsFactory.getEvent($routeParams.eventId)
         .success(function(response){
@@ -54,7 +67,7 @@ app.controller('eventsController', ['$scope', 'tripsFactory', 'eventsFactory', '
         });
     }
 
-// get tags for single event
+    // get tags for single event
     $scope.getTagsForEvent  = function() {
       eventsFactory.getTagsForEvent ($routeParams.eventId)
         .success(function(response){
@@ -63,6 +76,18 @@ app.controller('eventsController', ['$scope', 'tripsFactory', 'eventsFactory', '
         })
         .error(function(error){
           $scope.status = "Unable to load event: " + error.message;
+        });
+    }
+
+    // get photos for single event
+    $scope.getPhotosForEvent  = function() {
+      eventsFactory.getPhotosForEvent ($routeParams.eventId)
+        .success(function(response){
+          // debugger;
+          $scope.photos = response
+        })
+        .error(function(error){
+          $scope.status = "Unable to load photos: " + error.message;
         });
     }
 
