@@ -8,7 +8,7 @@
     </form>
 
     <div class="trip" ng-repeat="trip in trips">
-      <a ng-href="/#/trips/{{trip.id}}/events"><h2 class="trip-title">{{ trip.title }}</h2></a>
+      <a ng-href="/#/trips/{{trip.id}}/events"><h2 class="trip-title" ng-click="reloadRoute()">{{ trip.title }}</h2></a>
       <button ng-click="deleteTrip(trip.id)">x</button>
     </div>
 
