@@ -12,16 +12,21 @@ a {
   color: black;
 }
 
-#events-header{
-  font-size: 2.5em;
-  margin-bottom: 1%;
+.events-header{
+  font-size: 1.5em;
+  margin-bottom: 1.5%;
+  border-bottom: 1px gray solid;
+}
+
+.events-header h1{
+ margin-bottom: 1.5%;
 }
 
 /*single events*/
 .single-event {
-  border: 3px solid black;
-  padding: 2%;
-  margin-top: 1%;
+  border-bottom: 1px gray solid;
+  padding-bottom: 4%;
+  padding-top: 4%;
 }
 
 .event-title {
@@ -43,7 +48,7 @@ a {
 
 .event-journal-content {
   margin: 0;
-  padding-bottom: 20%;
+  padding-bottom: 30%;
   font-weight: bold;
 }
 

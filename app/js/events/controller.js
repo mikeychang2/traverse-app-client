@@ -92,6 +92,7 @@ app.controller('eventsController', ['$scope', 'tripsFactory', 'eventsFactory', '
     }
 
     $scope.deleteEvent = function (id) {
+      console.log('hi')
       eventsFactory.deleteEvent(id)
           .success(function () {
               for (var i = 0; i < $scope.events.length; i++) {
