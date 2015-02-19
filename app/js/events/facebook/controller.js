@@ -1,5 +1,5 @@
-app.controller('facebookController', ['$scope', '$http', '$window',
-  function ($scope, $http, $window) {
+app.controller('facebookController', ['$scope', '$http', '$window', '$routeParams', "$location",
+  function ($scope, $http, $window, $routeParams, $location) {
     $scope.windowStorage = 'false';
     $scope.photos = [];
     $scope.photosReference = {};
@@ -111,6 +111,26 @@ app.controller('facebookController', ['$scope', '$http', '$window',
         });
       }
 
+    }
+
+    $scope.updateEventSavePhotos = function(){
+      var photosToSave = $scope.photoSelection();
+      var event_id = $routeParams.eventId;
+      if (photosToSave.length > 0) {
+        $http.post(urlBase + '/events/' + event_id + '/photos', {photos: photosToSave})
+        .success (function (response) {
+          console.log(response);
+          debugger
+        })
+        .error (function (error) {
+          $scope.status = "Unable to retrieve photos: " + error.message;
+        });
+      }
+
+    }
+
+    $scope.reloadRoute = function() {
+       $window.location.reload();
     }
 
   // check access token expiration and re-validate it (SERVERSIDE: FacebookController: def validation)
