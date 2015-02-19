@@ -1,0 +1,111 @@
+/** {
+  outline: 1px solid red;
+}*/
+
+
+/* Header */
+#event-form-header {
+  text-align: center;
+}
+
+/* Form Body */
+.new-form-blocks {
+  display: inline-block;
+}
+
+.new-form-blocks input, button {
+  margin-bottom: 10px;
+  display: block;
+  /*border-radius: 0px;*/
+}
+
+#event-date-input {
+  width: 190px;
+  border-radius: 4px
+}
+
+#tag-block {
+  position: relative;
+  top: -200px;
+  left: 325px;
+}
+
+#journal-box {
+  height: 200px;
+  width: 190px;
+  vertical-align: top;
+}
+
+
+/* Button */
+#event-submit-btn {
+  position: relative;
+  top: 100px;
+  left: 200px;
+}
+
+#event-submit-btn:hover {
+  background-color: #232423;
+  color: white;
+}
+
+/* need to remove ig link default */
+#right a button {
+  text-decoration: none;
+}
+
+
+/*
+.facebook-button {
+  color: white;
+}
+
+.instagram-button {
+  color: white;
+}
+
+.yelp-button {
+  color: white;
+}*/
+
+.new-event-right button {
+  width: 150px;
+}
+
+.new-event-right button:hover {
+  color: white;
+}
+
+.facebook-button:hover {
+  background-color: #3b5998;
+  border: #3b5998;
+  color: white;
+}
+.instagram-button:hover {
+  background-color: #517fa4;
+  border: #517fa4;
+  color: white;
+}
+.yelp-button:hover {
+  background-color: #C93C27;
+  border: #C93C27;
+  color: white;
+}
+
+/* Pictures */
+
+/*.selected-highlight {
+  border: 3px solid red;
+}*/
+
+#instagram-add-btn {
+  position: relative;
+  top: -400px;
+  left: 300px;
+}
+
+.results-overflow {
+  width: 100%;
+  height: 80%;
+  overflow:scroll;
+}
