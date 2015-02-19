@@ -30,43 +30,56 @@
   left: 325px;
 }
 
+#tag-block h6 {
+  margin-bottom: 3px;
+}
+
 #journal-box {
   height: 200px;
   width: 190px;
   vertical-align: top;
 }
 
+.event-form-body i {
+  padding-left: 2px;
+}
+
 
 /* Button */
 #event-submit-btn {
   position: relative;
-  top: 100px;
+  top: 100%;
   left: 200px;
 }
 
 #event-submit-btn:hover {
   background-color: #232423;
+  border: #232423;
   color: white;
 }
 
-/* need to remove ig link default */
-#right a button {
-  text-decoration: none;
-}
-
-
-/*
 .facebook-button {
   color: white;
+  background-color: #3b5998;
+  border: #3b5998;
 }
 
 .instagram-button {
   color: white;
+  background-color: #517fa4;
+  border: #517fa4;
+  text-decoration: none;
+}
+
+.instagram-button a {
+
 }
 
 .yelp-button {
+  background-color: #C93C27;
+  border: #C93C27;
   color: white;
-}*/
+}
 
 .new-event-right button {
   width: 150px;
@@ -76,21 +89,12 @@
   color: white;
 }
 
-.facebook-button:hover {
-  background-color: #3b5998;
-  border: #3b5998;
+#tag-block .enter-tag-btn:hover {
   color: white;
+  background-color: #232423;
+  border: #232423;
 }
-.instagram-button:hover {
-  background-color: #517fa4;
-  border: #517fa4;
-  color: white;
-}
-.yelp-button:hover {
-  background-color: #C93C27;
-  border: #C93C27;
-  color: white;
-}
+
 
 /* Photos */
 

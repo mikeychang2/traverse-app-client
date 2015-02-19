@@ -29,7 +29,7 @@ app.controller('yelpController', ['$scope', 'yelpFactory', '$http',
       console.log(result)
       yelpFactory.savePlace(result, currentEvent)
         .success(function(response){
-          debugger;
+          // debugger;
           console.log(response)
         })
     }

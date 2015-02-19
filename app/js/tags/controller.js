@@ -31,12 +31,12 @@ app.controller('tagsController', ['$scope', '$rootScope', 'tagsFactory', 'tripsF
     $scope.getDefaultTags = function () {
         tagsFactory.getDefaultTags()
         .success(function(response){
-            debugger
+            // debugger
           $scope.allDefaultTags = response
         })
         .error(function(error){
           $scope.status = "Unable to load tags: " + error.message;
-          debugger
+          // debugger
           // console.log(error)
         });
     }

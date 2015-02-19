@@ -105,7 +105,7 @@ app.controller('facebookController', ['$scope', '$http', '$window', '$routeParam
         $http.post(urlBase + '/events/' + event_id + '/photos', {photos: photosToSave})
         .success (function (response) {
           console.log(response);
-          debugger
+          // debugger
         })
         .error (function (error) {
           $scope.status = "Unable to retrieve photos: " + error.message;
@@ -121,7 +121,7 @@ app.controller('facebookController', ['$scope', '$http', '$window', '$routeParam
         $http.post(urlBase + '/events/' + event_id + '/photos', {photos: photosToSave})
         .success (function (response) {
           console.log(response);
-          debugger
+          // debugger
         })
         .error (function (error) {
           $scope.status = "Unable to retrieve photos: " + error.message;
