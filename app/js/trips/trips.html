@@ -11,11 +11,10 @@
       <a ng-href="/#/trips/{{trip.id}}/events">
         <div class='trips-tags-img trips-tags-grow' >
         <img src='{{trip.photo}}'/>
-        <p class="trip-title" >{{ trip.title }}</p>
+        <p class="trip-title" ng-click="reloadRoute()">{{ trip.title }}</p>
       </div>
       </a>
       <button id="trip-delete" ng-click="deleteTrip(trip.id)">x</button>
-
 
     </div>
 
