@@ -4,6 +4,7 @@ app.controller('tripsController', ['$scope', 'tripsFactory', '$http', '$window',
     $scope.trips;
     $scope.trip = {};
     $scope.status;
+    $scope.userName = $window.sessionStorage.user_name
 
     $scope.getTrips = function() {
       tripsFactory.getTrips()
