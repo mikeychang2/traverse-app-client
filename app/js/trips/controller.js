@@ -1,5 +1,5 @@
-app.controller('tripsController', ['$scope', 'tripsFactory', '$http',
-        function ($scope, tripsFactory, $http) {
+app.controller('tripsController', ['$scope', 'tripsFactory', '$http', '$window', '$route',
+        function ($scope, tripsFactory, $http, $window, $route) {
 
     $scope.trips;
     $scope.trip = {};
@@ -14,6 +14,10 @@ app.controller('tripsController', ['$scope', 'tripsFactory', '$http',
         .error(function(error){
           $scope.status = "Unable to load trips: " + error.message;
         });
+    }
+
+    $scope.reloadRoute = function() {
+      $window.location.reload();
     }
 
     $scope.insertTrip = function () {
