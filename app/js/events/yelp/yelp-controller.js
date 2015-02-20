@@ -1,9 +1,10 @@
-app.controller('yelpController', ['$scope', 'yelpFactory', '$http', '$routeParams',
-  function ($scope, yelpFactory, $http, $routeParams) {
+app.controller('yelpController', ['$scope', 'yelpFactory', '$http',
+  function ($scope, yelpFactory, $http) {
     $scope.results;
     $scope.yelp = {};
     $scope.place;
     $scope.yelpLink = true;
+
 
     $scope.searchYelp = function () {
       var search = $scope.yelp
@@ -24,11 +25,10 @@ app.controller('yelpController', ['$scope', 'yelpFactory', '$http', '$routeParam
         $scope.status = "OOOOPS THAT DUN WORK" + error.message;
       })
 
-    $scope.addPlace = function(result){
-      console.log(result)
-      var event_id = $routeParams.eventId;
-      // debugger
-      yelpFactory.savePlace(result, event_id)
+    $scope.addPlace = function(result,currentEvent){
+      // console.log(result);
+      // var event_id = $routeParams.eventId;
+      yelpFactory.savePlace(result, currentEvent)
         .success(function(response){
           console.log(response)
         })
