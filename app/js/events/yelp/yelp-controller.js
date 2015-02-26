@@ -24,7 +24,17 @@ app.controller('yelpController', ['$scope', 'yelpFactory', '$http', '$routeParam
         $scope.status = "OOOOPS THAT DUN WORK" + error.message;
       })
 
-    $scope.addPlace = function(result){
+    $scope.addPlace = function(result, currentEvent){
+      console.log(result)
+      var event_id = currentEvent
+      // debugger
+      yelpFactory.savePlace(result, event_id)
+        .success(function(response){
+          console.log(response)
+        })
+    }
+
+    $scope.updatePlace = function(result){
       console.log(result)
       var event_id = $routeParams.eventId;
       // debugger
@@ -33,6 +43,7 @@ app.controller('yelpController', ['$scope', 'yelpFactory', '$http', '$routeParam
           console.log(response)
         })
     }
+
   }
 }]);
 

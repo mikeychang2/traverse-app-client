@@ -21,9 +21,9 @@
       <div class="row one-event center-block single-event">
         <!-- Left side of event box with journal -->
         <div class="left col-xs-6">
-          <a ng-href="#/trips/{{trip}}/events/{{event[0].id}}" class="event-title text-center">Title: {{event[0].title}}</a>
-          <p class='event-place'>Place: {{event[1].name}}</p>
-          <p class='event-date'> Date: {{event[0].date}}</p>
+          <a ng-href="#/trips/{{trip}}/events/{{event[0].id}}" class="event-title text-center">{{event[0].title}}</a>
+          <p class='event-place'>{{event[1].name}}</p>
+          <p class='event-date'> {{event[0].date}}</p>
 
           <p class="event-journal-content">Journal: {{event[0].content}}</p>
           <div class="row">
