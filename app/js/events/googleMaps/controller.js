@@ -1,7 +1,7 @@
 app.controller('googleMapsController', ['$scope', '$http', '$window', '$routeParams',
   function ($scope, $http, $window, $routeParams) {
 
-	var urlBase = 'http://localhost:3000';
+	var urlBase = 'http://traverse-app-api.herokuapp.com';
 	$scope.map = { center: { latitude: 37.7833, longitude: -122.4167 }, zoom: 12 };
 	$scope.tripId = $routeParams.tripId;
 	$scope.markerList = [];

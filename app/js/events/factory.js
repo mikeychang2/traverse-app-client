@@ -2,7 +2,7 @@ app.factory('eventsFactory', ['$http', '$routeParams', function($http, $routePar
 
     var tripId = $routeParams.tripId
     var eventsFactory = {};
-    var urlBase = 'http://localhost:3000/trips/' + tripId;
+    var urlBase = 'http://traverse-app-api.herokuapp.com/trips/' + tripId;
 
     eventsFactory.getEvents = function () {
         return $http.get(urlBase + '/events');
@@ -38,7 +38,7 @@ app.factory('eventsFactory', ['$http', '$routeParams', function($http, $routePar
 
     // Call Server API to return photos for that event
     eventsFactory.getPhotosForEvent = function (id) {
-        return $http.get('http://localhost:3000/events/' + id + '/photos');
+        return $http.get('http://traverse-app-api.herokuapp.com/events/' + id + '/photos');
     };
 
     return eventsFactory;

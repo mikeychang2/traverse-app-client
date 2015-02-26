@@ -1,7 +1,7 @@
 app.factory('yelpFactory', ['$http',
 
   function($http) {
-    var urlBase = 'http://localhost:3000';
+    var urlBase = 'http://traverse-app-api.herokuapp.com';
     var yelpFactory = {};
 
     yelpFactory.searchYelp = function (search) {

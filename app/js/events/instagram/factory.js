@@ -1,7 +1,7 @@
 app.factory('instagramFactory', ['$http',
 
   function($http) {
-    var urlBase = 'http://localhost:3000';
+    var urlBase = 'http://traverse-app-api.herokuapp.com';
     var instagramFactory = {};
 
     instagramFactory.igLogin = function (accessCode) {

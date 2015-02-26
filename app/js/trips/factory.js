@@ -1,6 +1,6 @@
 app.factory('tripsFactory', ['$http', function($http) {
 
-    var urlBase = 'http://localhost:3000';
+    var urlBase = 'http://traverse-app-api.herokuapp.com';
     var tripsFactory = {};
 
     tripsFactory.getTrips = function () {
