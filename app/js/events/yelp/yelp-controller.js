@@ -27,7 +27,6 @@ app.controller('yelpController', ['$scope', 'yelpFactory', '$http', '$routeParam
     $scope.addPlace = function(result, currentEvent){
       console.log(result)
       var event_id = currentEvent
-      // debugger
       yelpFactory.savePlace(result, event_id)
         .success(function(response){
           console.log(response)
@@ -37,7 +36,6 @@ app.controller('yelpController', ['$scope', 'yelpFactory', '$http', '$routeParam
     $scope.updatePlace = function(result){
       console.log(result)
       var event_id = $routeParams.eventId;
-      // debugger
       yelpFactory.savePlace(result, event_id)
         .success(function(response){
           console.log(response)

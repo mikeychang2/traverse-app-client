@@ -14,6 +14,8 @@ app.controller('eventsController', ['$scope', 'tripsFactory', 'eventsFactory', '
 
     $scope.tripId = $routeParams.tripId
 
+    $window.sessionStorage.eventId;
+
     $scope.insertEvent = function () {
         var event = $scope.event
         eventsFactory.insertEvent()
@@ -21,6 +23,8 @@ app.controller('eventsController', ['$scope', 'tripsFactory', 'eventsFactory', '
                 $scope.status = 'Inserted event! Refreshing event list.';
                 $rootScope.activeEvent = response;
                 $rootScope.currentEvent = response.id;
+
+                $window.sessionStorage.eventId = response.id
                 // console.log($rootScope.activeEvent)
                 // console.log($rootScope.currentEvent);
                 // $scope.event.title = ''
@@ -58,7 +62,6 @@ app.controller('eventsController', ['$scope', 'tripsFactory', 'eventsFactory', '
       eventsFactory.getEvent($routeParams.eventId)
         .success(function(response){
           $scope.event = response
-          debugger
           $scope.trip = $routeParams.tripId
           // $scope.trip = $routeParams.tripId
         })
