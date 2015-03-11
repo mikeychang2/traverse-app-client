@@ -23,15 +23,10 @@ app.controller('authController', ['$scope', '$http', '$window', '$location', 'Au
           // AuthenticationFactory.check();
         })
         .error(function (data, status, headers, config) {
-          // Erase the token if the user fails to log in
-          delete $window.sessionStorage.token;
-          $scope.user = ''
-          $location.path('/')
-
-          // set authservice to false
-          // Handle login errors here
           $scope.message = 'Error: Invalid user or password';
-        });9
+          $scope.user.username = ''
+          $scope.user.password = ''
+        });
     };
 
 
