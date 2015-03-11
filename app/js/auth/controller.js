@@ -11,7 +11,7 @@ app.controller('authController', ['$scope', '$http', '$window', '$location', 'Au
 
 
     $scope.authenticate = function () {
-      $http.post('http://traverse-app-api.herokuapp.com/auth', $scope.user)
+      $http.post('http://localhost:3000/auth', $scope.user)
         .success(function (data, status, headers, config) {
           $window.sessionStorage.token = data.auth_token;
           $window.sessionStorage.user_id = data.user_id;
@@ -37,7 +37,7 @@ app.controller('authController', ['$scope', '$http', '$window', '$location', 'Au
 
      $scope.register = function() {
       console.log($scope.new_user)
-      $http.post('http://traverse-app-api.herokuapp.com/users', $scope.new_user)
+      $http.post('http://localhost:3000/users', $scope.new_user)
         .success(function(data, status, headers, config){
           $window.sessionStorage.token = data.auth_token;
           $window.sessionStorage.user_id = data.user_id;

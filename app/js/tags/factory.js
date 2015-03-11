@@ -3,7 +3,7 @@
     var tripId = $routeParams.tripId
     var eventId = $routeParams.eventId
     var tagsFactory = {};
-    var urlBase = 'http://traverse-app-api.herokuapp.com';
+    var urlBase = 'http://localhost:3000';
 
     tagsFactory.getTags = function (tripID) {
         return $http.get(urlBase + '/trips/' + tripID + '/tags');

@@ -6,7 +6,7 @@ app.controller('facebookController', ['$scope', '$http', '$window', '$routeParam
     $scope.selectedPhotos = [];
     $scope.status;
 
-    var urlBase = 'http://traverse-app-api.herokuapp.com';
+    var urlBase = 'http://localhost:3000';
 
     $scope.initialize = function (){
       window.fbAsyncInit = function() {
