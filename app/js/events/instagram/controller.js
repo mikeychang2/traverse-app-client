@@ -1,5 +1,5 @@
-app.controller ('instagramController' , ['$scope', 'instagramFactory', '$http', '$routeParams', '$window', '$cookies',
-  function ($scope, instagramFactory, $http, $routeParams, $window, $cookies) {
+app.controller ('instagramController' , ['$scope', 'instagramFactory', '$http', '$routeParams', '$window', '$cookies', '$rootScope',
+  function ($scope, instagramFactory, $http, $routeParams, $window, $cookies, $rootScope) {
     // $window.sessionStorage.igLoggedIn = 'false';
     $scope.photos = [];
     $scope.photosReference = {};
@@ -76,13 +76,9 @@ app.controller ('instagramController' , ['$scope', 'instagramFactory', '$http', 
     }
 
      $scope.savePhotos = function(){
-      console.log($routeParams.eventId)
-      debugger
       var photosToSave = $scope.photoSelection();
-      var event_id = $routeParams.eventId;
-      // define event_id
       if (photosToSave.length > 0) {
-        instagramFactory.savePhotos(event_id, photosToSave)
+        instagramFactory.savePhotos($window.sessionStorage.eventId, photosToSave)
         .success (function (response) {
           console.log(response);
 
