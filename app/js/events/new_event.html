@@ -40,7 +40,7 @@
     </div>
       <!-- INSTAGRAM AREAS -->
     <div ng-controller="instagramController">
-      <a href="https://instagram.com/oauth/authorize/?client_id=cb89d1dac394466e9767ad0e3bf9c6bf&redirect_uri=http://localhost:9000/instagram.html&response_type=code">
+      <a href="https://instagram.com/oauth/authorize/?client_id=cb89d1dac394466e9767ad0e3bf9c6bf&redirect_uri=http://traverse-app.herokuapp.com/instagram.html&response_type=code">
         <button class="instagram-button" ng-click="igAuth()" ng-show="instaCookies == 'false'">Connect <i class="fa fa-instagram"> </i><i class="fa fa-chevron-right"></i></button>
       </a>
       <button class="instagram-button" ng-click="igLogin(); toggleIG()" ng-show="instaCookies == 'true'"><i class="fa fa-instagram"></i> Photos</button>
