@@ -79,7 +79,7 @@ app.controller ('instagramController' , ['$scope', 'instagramFactory', '$http', 
       console.log($routeParams.eventId)
       debugger
       var photosToSave = $scope.photoSelection();
-      var event_id = $routeParams.eventId;
+      var event_id = $window.sessionStorage.eventId;
       // define event_id
       if (photosToSave.length > 0) {
         instagramFactory.savePhotos(event_id, photosToSave)
